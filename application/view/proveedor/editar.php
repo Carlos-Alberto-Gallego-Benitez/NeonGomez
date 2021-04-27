@@ -1,7 +1,7 @@
 <div class="container card mt-3" style="width: 68rem">
 <h1 class="text-center mt-3">Editar proveedor <?= $proveedor->Nombre?></h1>
     <hr>  
-    <form action="<?php echo URL; ?>proveedor/actualizar" method="POST" > 
+    <form action="<?php echo URL; ?>proveedor/actualizar" method="POST" id="editarProveedores"> 
     <input type="hidden" name="idproveedor" value="<?php echo htmlspecialchars($proveedor->IDProveedor, ENT_QUOTES, 'UTF-8'); ?>" />
         <div class="form-row">
             <div class="form-group col-md-4">

@@ -2,7 +2,7 @@
     <h1 class="text-center mt-4">Registro de proveedores</h1>
     <hr>
 
-    <form action="<?php echo URL; ?>proveedor/guardar" method="POST" > 
+    <form action="<?php echo URL; ?>proveedor/guardar" method="POST" id="registroProveedores"> 
         <div class="form-row mt-3">
             <div class="form-group col-md-4">
                 <label for="codigo">Codigo</label>            
@@ -34,7 +34,7 @@
             <div class="form-group  col-md-4">
                 <label for>Estado</label>
                 <select name="estado" class="form-control">
-                    <option>Seleccione</option>
+                    <option value="">Seleccione</option>
                     <option  value="Activo">Activo</option>
                     <option  value="Inactivo">Inactivo</option>
                 </select>

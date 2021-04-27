@@ -29,7 +29,7 @@ class Compra extends Model
   }
 
   public function listarCompras(){
-    $sql = "SELECT * FROM compra";
+    $sql = "SELECT c.IDCompra, c.Fecha, c.Estado, p.Nombre FROM compra c JOIN proveedor p ON p.IDProveedor = c.IDProveedor";
     $stm = $this->db->prepare($sql);
     $stm->execute();
     return $stm->fetchAll();
@@ -76,7 +76,7 @@ class Compra extends Model
   }
 
   public function obtenerCompra($idcompra){
-        $sql = "SELECT * FROM compra WHERE IDCompra = $idcompra LIMIT 1";
+        $sql = "SELECT c.Fecha, c.Estado, c.IDCompra, p.Nombre, p.IDProveedor FROM compra c JOIN proveedor p ON p.IDProveedor = c.IDProveedor WHERE C.IDCompra = $idcompra";
         $stm = $this->db->prepare($sql);
         $stm->execute();
         return $stm->fetch();
@@ -101,11 +101,14 @@ class Compra extends Model
   }
 
 
-  public function actualizar($fecha, $precio, $cantidad, $idproveedor, $estado, $idcompra){
-    $sql = "UPDATE compra SET Fecha = :Fecha , Precio = :Precio , Cantidad = :Cantidad, IDProveedor = :IDProveedor, Estado = :Estado WHERE IDCompra = :IDCompra";
-    $query = $this->db->prepare($sql);
-    $parameters = array(':Fecha' => $fecha, ':Precio' => $precio, ':Cantidad' => $cantidad, ':IDProveedor' => $idproveedor, ':Estado' => $estado, ':IDCompra' => $idcompra);
-    $query->execute($parameters);
+  public function actualizar(){
+    $sql = "UPDATE compra SET Fecha = ?, IDProveedor = ?, Estado = ? WHERE IDCompra = ?";
+    $stm = $this->db->prepare($sql);
+    $stm->bindParam(1,$this->Fecha);
+    $stm->bindParam(2,$this->IDProveedor);
+    $stm->bindParam(3,$this->Estado);
+    $stm->bindParam(4,$this->IDCompra);
+    $stm->execute();
   }
 
 

@@ -104,7 +104,7 @@ function agregarInsumosc()
     let subTotal = parseInt(precio)*parseInt(cantida);
 
     $("#tabla_insumos").append(
-        "<tr id='tr"+id_insumo+"'> <input type='hidden' name='id_insumo[]' value='"+id_insumo+"'>  <input type='hidden' name='cant[]' value='"+cantida+"'> <input type='hidden' name='precio[]' value='"+precio+"'> <input type='hidden' name='subTotal[]' value='"+subTotal+"'> <td>"+text_insumo+"</td><td>"+cantida+"</td><td>"+precio+"</td><td>"+subTotal+"</td><td><button type='button' onclick='$("+'"'+"#tr"+id_insumo+'"'+").remove()' class='btn btn-danger'>Eliminar</button></td><tr>"
+        "<tr id='tr"+id_insumo+"'> <input type='hidden' name='id_insumo[]' value='"+id_insumo+"'>  <input type='hidden' name='cant[]' value='"+cantida+"'> <input type='hidden' name='precio[]' value='"+precio+"'> <input class='subtotal' type='hidden' name='subTotal[]' value='"+subTotal+"'> <td>"+text_insumo+"</td><td>"+cantida+"</td><td>"+precio+"</td><td class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='$("+'"'+"#tr"+id_insumo+'"'+").remove()' class='btn btn-danger'>Eliminar</button></td><tr>"
     )
     subtotalc();
 }
@@ -129,6 +129,22 @@ function subtotalc()
     }
     $("#valorTotal").text(total);   
     
+}
+
+
+function eliminarDetallec(iddetalle)
+{        
+    $.ajax({
+		dataType:'json',
+		type:'post',
+		url:url+"compra/eliminarDetalle/"+iddetalle,
+		data:{iddetalle:iddetalle},
+	})
+    
+    $('#tabla_insumos tr').click(function(){
+        $(this).remove();
+        return false;
+    });
 }
 
 // *******************************ventas

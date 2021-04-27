@@ -27,7 +27,13 @@
 			return $query->fetchAll();
 		}
 
-	
+		public function listarProveedores2()
+		{
+			$sql = "SELECT * FROM proveedor WHERE Estado = 'Activo'";
+			$query = $this->db->prepare($sql);
+			$query->execute();
+			return $query->fetchAll();
+		}
 
 		public function registrar($codigo, $nombre, $telefono, $direccion, $correo, $estado)
 		{

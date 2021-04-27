@@ -272,4 +272,111 @@ $("#editarVenta").validate({
 });
 
 
+//Validaciones Compra
+$("#registroCompra").validate({
+    rules: {
+        fecha: {
+        required: true
+    },
+    idproveedor:{
+        required: true       
+    },
+    estado:{
+        required: true
+    },
+    id_insumos:{
+        required: true,  
+        number: true    
+    },
+    cant:{
+        required: true,
+        number: true
+    },
+    id_insumo:{
+        required: true
+    },
+    precio:{
+        required: true,        
+        number: true
+    }
+}
+});
+
+$("#editarCompra").validate({
+    rules: {
+        fecha: {
+        required: true
+    },
+    idproveedor:{
+        required: true       
+    },
+    estado:{
+        required: true
+    },
+    id_insumos:{
+        required: true,  
+        number: true    
+    }
+}
+});
+
+//validaciones proveedores
+$("#registroProveedores").validate({
+    rules: {
+        codigo: {
+        required: true,
+        minlength: 4
+    },
+    nombre:{
+        required: true,        
+        minlength: 1
+    },
+    telefono:{
+        required: true,
+        minlength: 4,
+        number: true
+    },
+    direccion:{
+        required: true,  
+        minlength: 5  
+    },
+    correo:{
+        required: true,
+        email: true
+    },
+    estado:{
+      required: true
+    }
+}
+});
+
+$("#editarProveedores").validate({
+    rules: {
+        codigo: {
+        required: true,
+        minlength: 4
+    },
+    nombre:{
+        required: true,        
+        minlength: 1
+    },
+    telefono:{
+        required: true,
+        minlength: 4,
+        number: true
+    },
+    direccion:{
+        required: true,  
+        minlength: 5  
+    },
+    correo:{
+        required: true,
+        email: true
+    },
+    estado:{
+      required: true
+    }
+}
+});
+
 
