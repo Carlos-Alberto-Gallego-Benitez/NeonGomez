@@ -30,8 +30,8 @@
                        
                     </td>
                                        
-                    <td><a href="<?php echo URL . 'insumo/buscar/' . ($insumo2->IDInsumo); ?>" class="btn btn-info">Editar</a></td>
-                    <td><a href="<?php echo URL . 'insumo/reporteUnitario/' . htmlspecialchars($insumo2->IDInsumo, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-danger">Reporte</a></td>              
+                    <td><a href="<?php echo URL . 'insumo/buscar/' . ($insumo2->IDInsumo); ?>" class="btn btn-info  mx-md-n4">Editar</a></td>
+                    <td><a href="<?php echo URL . 'insumo/reporteUnitario/' . htmlspecialchars($insumo2->IDInsumo, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-danger mx-md-n5">Reporte</a></td>              
                 </tr>
             <?php } ?>
             </tbody>

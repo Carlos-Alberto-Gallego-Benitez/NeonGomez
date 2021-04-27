@@ -31,8 +31,8 @@
                     <span data-key="usu" class="badge badge-danger"><?php if($proveedor->Estado=="Inactivo"){echo($proveedor->Estado);};?></span>
                     <span data-key="usu" class="badge badge-success"><?php if($proveedor->Estado=="Activo"){echo($proveedor->Estado);};?></span></td>
                     <td>
-                    <td><a href="<?php echo URL . 'proveedor/editar/' . htmlspecialchars($proveedor->IDProveedor, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-info">Editar</a></td>
-                    <td><a href="<?php echo URL . 'proveedor/reportei/' . htmlspecialchars($proveedor->IDProveedor, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-danger">Reporte</a></td>
+                    <td><a href="<?php echo URL . 'proveedor/editar/' . htmlspecialchars($proveedor->IDProveedor, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-info mx-md-n4">Editar</a></td>
+                    <td><a href="<?php echo URL . 'proveedor/reportei/' . htmlspecialchars($proveedor->IDProveedor, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-danger ">Reporte</a></td>
                 </tr>
             <?php } ?>
             </tbody>

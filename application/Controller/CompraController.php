@@ -64,10 +64,10 @@ class CompraController
             $detalle->registrarDetalle();
 
             //aumentar insumos
-            $ins = $value;
+            /*$ins = $value;
             $cantidad = $_POST["cant"][$key];
             $insumo = new Insumo();
-            $insumo->aumentar($ins, $cantidad);
+            $insumo->aumentar($ins, $cantidad);*/
             
             try{
               if($detalle = true){
