@@ -167,6 +167,38 @@ class Productocontroller
    
         header('location: ' . URL . 'producto/index');
     }
+
+    public function reportes(){
+
+        $producto = new Producto();
+        $productos = $producto->listarProductos();         
+        
+        require APP . 'view/reportes/producto/reporte.php';
+    }
+
+    public function reporte($idproducto)
+    {  if (isset($idproducto)) {
+            
+        $insumo = new Insumo();            
+        $producto = new Producto(); 
+        $lista = new Producto();  
+              
+        $producto = $producto->obtenerProducto($idproducto);
+        $lista = $lista->obtenerInsumos($idproducto);                
+        $insumosx = $insumo->listadoInsumos();
+
+        
+       
+        
+        require APP . 'view/reportes/producto/reportei.php';
+        
+    } else {
+        
+        header('location: ' . URL . 'producto/index');
+    }
+    }
+
+
   
 }
 

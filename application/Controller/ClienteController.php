@@ -40,9 +40,9 @@ class Clientecontroller{
         $cliente->__SET("Correo", $_POST["correo"]);
         $cliente->__SET("Direccion", $_POST["direccion"]);
         $cliente->__SET("Telefono", $_POST["telefono"]);
-        $cliente->__SET("Estado", $_POST["estado"]);        
-        $respuesta = $cliente->registrar();    
-
+        $cliente->__SET("Estado", $_POST["estado"]);
+        $respuesta = $cliente->registrar();
+        
        try{
            if($respuesta = true){
                $_SESSION["registro"] = "Registro exitoso";
@@ -54,17 +54,6 @@ class Clientecontroller{
        }
 
         header('location: ' . URL . 'cliente/index');
-    }
-
-    public function reportes(){
-
-        $cliente = new Cliente();
-        $clientes = $cliente->listarClientes();        
-        
-        require APP . 'view/reportes/cliente/reporte.php';
-        
-       
-       
     }
    
 
@@ -121,6 +110,31 @@ class Clientecontroller{
  
 
         header('location: ' . URL . 'cliente/index');
+    }
+
+
+    public function reportes(){
+
+        $cliente = new Cliente();
+        $clientes = $cliente->listarClientes();        
+        
+        require APP . 'view/reportes/cliente/reporte.php';      
+              
+    }
+
+    public function reporte($idcliente)
+    {        
+        if (isset($idcliente)) {
+            
+            $cliente = new Cliente();            
+            $cliente = $cliente->obtenerCliente($idcliente);       
+            
+            require APP . 'view/reportes/cliente/reportei.php';
+            
+        }else{
+            
+            header('location: ' . URL . 'cliente/index');
+        }        
     }
 }
 
