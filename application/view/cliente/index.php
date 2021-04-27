@@ -1,4 +1,4 @@
-<h1 class="text-center">Gestión de clientes putos 17</h1>
+<h1 class="text-center">Gestión de clientes</h1>
 <!-- hbfhbfhrehj -->
 <div class="container">
         <a href="<?php echo URL; ?>cliente/registro" class="btn btn-info mb-2">Agregar</a>
