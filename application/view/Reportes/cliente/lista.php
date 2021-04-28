@@ -1,31 +1,46 @@
-<style>  
+<style>
 
-table{
+h1{
+    text-align: center;
+}  
+
+#tabla_c{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
     width: 100%;
-    border: 2px;
 }
 
-td{
-    border: -1px;
+#tabla_c td, #tabla_c th{
+    border: 1px solid #ddd;
+    padding: 8px;
+    
 }
 
+#tabla_c tr:hover {background-color: #ddd;}
 
+#tabla_c  th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;  
+  color: black;
+}
 </style>
 
     
 
-<h1>Lista de clientes</h1>
+<h1>Reporte de clientes</h1>
 
-<table>
+<br>
+<table id="tabla_c">
     <thead >
         <tr>
-            <td>Documento</td>
-            <td>Nombre</td>
-            <td>Apellido</td>
-            <td>Correo</td>
-            <td>Direccion</td>
-            <td>Telefono</td>
-            <td>Estado</td>
+            <th>Documento</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Correo</th>
+            <th>Direccion</th>
+            <th>Telefono</th>
+            <th>Estado</th>
             
                          
         </tr>
