@@ -10,8 +10,7 @@
                 <td>Fecha</td>
                 <td>Cliente</td>
                 <td>Estado</td>
-
-                
+                <td></td>
                 <td></td>
             </tr>
             </thead>
