@@ -2,7 +2,7 @@
 
 <div class="container">
         <a href="<?php echo URL; ?>venta/registro" class="btn btn-info mb-2">Agregar</a>
-        <a href="<?php echo URL; ?>venta/reportes" class="btn btn-danger mb-2 ml-2">Reporte general</a>
+        <a href="<?php echo URL; ?>venta/reportes" class="btn btn-secondary  mb-2 ml-2">Reporte general</a>
         <table class="table table-striped border tablas">
             <thead >
             <tr>
