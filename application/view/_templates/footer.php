@@ -32,6 +32,10 @@
         <script src="<?php echo URL;?>public/js/validaciones/validaciones.js"></script>  
         <!-- ****************** -->
 
+        <script type="text/javascript" src="<?php echo URL; ?>plugins/select2/dist/js/select2.min.js"></script> 
+
+        <script src="<?php echo URL;?>public/js/select2/select.js"></script>  
+
 
         <script>        
             $(function(){

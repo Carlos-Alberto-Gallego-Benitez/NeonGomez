@@ -12,6 +12,9 @@
         <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>plugins/sweetalert2/dist/sweetalert2.min.css">
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
+        <link href="<?= URL ?>plugins/select2/dist/css/select2.min.css" rel="stylesheet"/>
+
     </head>
     <body class="sb-nav-fixed">
      <?php session_start(); ?> 
