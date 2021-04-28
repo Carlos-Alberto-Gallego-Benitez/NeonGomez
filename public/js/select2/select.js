@@ -15,3 +15,6 @@ $(document).ready(function() {
     $('#cliente').select2();
     
 });
+
+
+//******* */
