@@ -10,7 +10,7 @@
                 <td>Nombre</td>
                 <td>Cantidad</td>
                 <td>Estado</td>
-
+                <td></td>
                 <td></td>
             </tr>
             </thead>

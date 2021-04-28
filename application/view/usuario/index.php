@@ -14,6 +14,7 @@
                 <td>Rol</td>
                 <td>Estado</td>
                 <td></td>
+                <td></td>
             </tr>
             </thead>
             <tbody>
