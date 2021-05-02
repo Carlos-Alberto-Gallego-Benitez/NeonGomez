@@ -32,7 +32,7 @@
                         <span data-key="usu" class="badge badge-success"><?php if($cliente->Estado=="Activo"){echo($cliente->Estado);};?></span>
                         </td>
                         <td><a href="<?php echo URL . 'cliente/editar/' .($cliente->IDCliente); ?>" class="btn btn-info mx-md-n4">Editar</a></td>                        
-                        <td><a href="<?php echo URL . 'cliente/reporte/' .($cliente->IDCliente); ?>" class="btn btn-secondary ">Reporte</a></td>
+                        <td><a href="<?php /*fff*/ echo URL . 'cliente/reporte/' .($cliente->IDCliente); ?>" class="btn btn-secondary ">Reporte</a></td>
                             
                        
                     </tr>
