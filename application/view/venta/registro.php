@@ -35,28 +35,26 @@
         <div class="form-row mt-5">    
             <div class="form-group col-4">
                    <label for="insumos">Producto</label>
-                    <select class="form-control"  id="id_producto" name="id_producto"> 
-                    <option value="">Seleccione</option>                      
-                    <?php foreach ($productos as $producto): ?> 
-                        
-                        <option value="<?= $producto->IDProducto ?>"><?=$producto->Nombre?></option>
-                        
-                        
-                        
+                   <select class="form-control"  id="id_producto" name="id_producto" onchange="ponerPrecio()"> 
+                    <option>Seleccione</option>                      
+                    <?php foreach ($productos as $producto): ?>                         
+                        <option precio="<?= $producto->Precio ?>" value="<?= $producto->IDProducto ?>"><?=$producto->Nombre?></option>
                     <?php endforeach  ?>
                     </select>
                     </select> 
             </div>
 
             <div class="form-group col-4">
-              <label for="canti">Cantidad</label>
-              <input type="number" class="form-control" id="canti" name="canti">
+              <label for="">Precio</label>
+               <input id="precio" type="text" class="form-control" name="precio" value="0" readonly> 
+               
             </div>
 
             <div class="form-group col-4">
-              <label for="precio">Precio</label>
-              <input type="number" class="form-control" id="precio" name="precio">
+              <label for="cantidad">Cantidad</label>
+              <input type="number" class="form-control" id="canti" name="canti">
             </div>
+
       
         </div>  
 

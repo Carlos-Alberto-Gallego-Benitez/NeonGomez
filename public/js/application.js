@@ -149,7 +149,11 @@ function eliminarDetallec(iddetalle)
 
 // *******************************ventas
 
-
+function ponerPrecio(){
+    var valor = $("#id_producto").val();
+    var precio =  $("#id_producto [value='"+valor+"']").attr("precio");    
+    $("#precio").val(precio)
+}
 
 
 

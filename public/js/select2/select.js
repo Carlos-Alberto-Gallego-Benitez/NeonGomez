@@ -9,9 +9,19 @@ $(document).ready(function() {
     $('#id_producto').select2();
     
 });
+<<<<<<< HEAD
 
+=======
+>>>>>>> Holguin
 $(document).ready(function() {
     
     $('#cliente').select2();
     
+<<<<<<< HEAD
 });
+=======
+});
+
+
+
+>>>>>>> Holguin
