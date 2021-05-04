@@ -94,14 +94,18 @@
                     $("#usuario").focus();
     
                 }
-                if (contra!="" && usuario!="") {
+                if (contra!="") {
 
                     if (contra.length<6 ) {
                         falsa=false;
                         $("#p2").text("La contraseña requiere minimo 6 caracteres");
                        $("#contra").focus();
                     }
-                    if (usuario.length<6 ){
+                    
+                }
+                if (usuario!="") {
+
+                    if (usuario.length <= 7 ){
                       falsa=false;
                       $("#p1").text("El correo requiere minimo 7 caracteres");
                       $("#usuario").focus();
