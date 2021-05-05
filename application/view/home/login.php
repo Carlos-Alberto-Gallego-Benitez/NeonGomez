@@ -14,6 +14,7 @@
     
 </head>
 <body>
+
     <img class="wave" src="<?= URL ?>public/img/login/wave.png">
     <div class="container">
         <div class="img">
@@ -48,8 +49,12 @@
                         
                     </div>
                 </div>
-                <div>       
+                <div>  
+                
                 <p id="p2"></p>
+                <br>
+                <font color="Red"><p id="p3"></p></font>
+                
                 
                 
                 </div>
@@ -63,6 +68,32 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js " > </script> 
     <script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js "> </script> 
+    
+     <!--- validacion de entradas--->
+    <?php session_start(); if( $_SESSION['error'] != null){?>
+    <script>
+
+     $("#p3").text("La contraseña es incorrecta :(");
+
+     </script>
+    <?php $_SESSION['error'] = null; }?>
+
+    <?php session_start(); if( $_SESSION['sip'] != null){?>
+    <script>
+     
+     $("#p3").text("Él usuario se encuentra inactivo :(");
+     
+     </script>
+    <?php $_SESSION['sip'] = null; }?>
+
+    <?php session_start(); if( $_SESSION['nop'] != null){?>
+    <script>
+
+     $("#p3").text("Usuario no registrad@ en el sistema :(");
+     
+     </script>
+    <?php $_SESSION['nop'] = null; }?>
+    
     <script>
 
 
@@ -105,16 +136,15 @@
                 }
                 if (usuario!="") {
 
-                    if (usuario.length <= 7 ){
+                    if (usuario.length <= 14 ){
                       falsa=false;
-                      $("#p1").text("El correo requiere minimo 7 caracteres");
+                      $("#p1").text("El correo requiere minimo 15 caracteres");
                       $("#usuario").focus();
                    
                     }
                     
                 }
-               
-
+                
                 return falsa ;
 
             });

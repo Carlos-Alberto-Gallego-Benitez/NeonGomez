@@ -42,13 +42,13 @@ class Usuariocontroller{
                 if($encriptada != true){
 
                     $_SESSION['error']="falso"; 
-                    require APP . 'view/home/prueba.php';
+                    header('location: ' . URL . 'home/index');
     
                 }
                 else if($_SESSION['valor']->Estado=="Inactivo"){
     
-                    $_SESSION['error']="Inactivo";
-                    require APP . 'view/home/prueba.php';
+                    $_SESSION['sip']= $usuarios;
+                    header('location: ' . URL . 'home/index');
                 }
                 else{
                     
@@ -63,8 +63,8 @@ class Usuariocontroller{
                 
             }else{
 
-                $_SESSION['error']="no";
-                require APP . 'view/home/prueba.php';
+                $_SESSION['nop']="no";
+                header('location: ' . URL . 'home/index');
                 
             }
             
