@@ -172,13 +172,23 @@ class Usuariocontroller{
     {
         if (isset($_POST["agregarusuario"])) {
            
-
-            //encriptar la contraseña
             $contra = $_POST["contra"];
             $contrasena = password_hash($contra, PASSWORD_DEFAULT);
-            
+          
             $usuario = new Usuario();
-            $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$_POST["estado"],$contrasena);
+            $value = $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$_POST["estado"],$contrasena);
+
+            //encriptar la contraseña
+            try {
+                if ($usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$_POST["estado"],$contrasena)) {
+                    $_SESSION['registro'] = "Registro exitoso";
+                }  
+ 
+            } catch (\Excepetion $e) {
+                
+               $_SESSION['valuen'];
+
+            }
         }
                 
         header('location: ' . URL . 'usuario/index');

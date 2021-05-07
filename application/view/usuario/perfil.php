@@ -40,8 +40,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Yo</a></li>
                     
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">My contraseña</a></li>
-                    <?php if($_SESSION['valor']->Rol!="Empleado"){ ?><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Privilegios</a></li><?php } ?>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">MI contraseña</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#perfil">Perfil</a></li> 
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Mis datos</a></li>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="http://localhost/neonGomez/Usuario/salir">Salir</a></li>
@@ -116,52 +115,7 @@
             
             
             <hr class="m-0" />
-            <!-- Skills-->
-            <?php if($_SESSION['valor']->Rol!="Empleado"){?>
-            <section class="resume-section" id="skills">
-
-                
-
-                <div class="resume-section-content">
-                    <h3 class="mb-5 text-center">Privilegios</h3>
-                   <b><p>Señor Administrador, siendo el maximo mando puedes otorgar privilegios a lo demas usuarios</p></b>
-                   <div class="form-row mt-5">
-                       
-                       
-                       <div class="form-group col-md-4" >
-                       <label for>Acceso Al Sistema</label>
-                       <select name="estado" class="form-control">
-                           <option  >...</option>
-                           <option  value="Solo Admin">Solo Admin</option>
-                           <option  value="Todos">Todos</option>
-                       </select>
-                       
-                       </div>
-                       <div class="form-group col-md-4" >
-                       <input type="hidden" value="">
-                       </div>
-                       <div class="form-group col-md-4">
-                       
-                       <label for>Visualizar Información</label>
-                       <select name="estado" class="form-control">
-                           <option  >...</option>
-                           <option  value="Solo Admin">Solo Admin</option>
-                           <option  value="Todos">Todos</option>
-                           
-                       </select>
-                       
-                       </div>
-                    </div><input type="submit" name="agregarusuario" class="btn btn-info text-center mt-4" value="Guardar Cambios"/>
-                    
-                </div>
-                
-                 
-
-            </section>
-            <?php } ?>
-
-            <!--perfil-->
-            <hr class="m-0" />
+        
             
             <section class="resume-section" id="perfil">
  

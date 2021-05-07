@@ -84,7 +84,30 @@
                 <?php endif; ?>
             })
         </script>          
+        <script>
+
+            $(function(){
                 
+                <?php if (isset($_SESSION["value"]) && $_SESSION["value"] != null ):?>
+                    
+                    Swal.fire({
+  
+                        icon: 'success',
+                        title: 'Registro exitoso',                        
+                        showConfirmButton: false,
+                        timer: 1800
+                    })
+                    
+                    <?php $_SESSION["value"] = null; ?>          
+    
+                    // Swal.fire({
+                    //     icon: 'error',
+                    //     title: 'Oops...',
+                    //     text: 'Something went wrong!',                       
+                    // })       
+                <?php endif; ?>
+            })
+        </script>    
         
         
     </body>

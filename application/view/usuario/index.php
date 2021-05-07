@@ -36,7 +36,7 @@
                    
                     
                     <td><a href="<?php echo URL . 'usuario/editar/' . htmlspecialchars($usuario->IDUsuario, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-info mx-md-n4">Editar</a></td>
-                    <td><a href="<?php echo URL . 'usuario/reporteUnitario/' . htmlspecialchars($usuario->IDUsuario, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary  mx-md-n1">Reporte</a></td>
+                    <td><a href="<?php echo URL . 'usuario/reporteUnitario/' . htmlspecialchars($usuario->IDUsuario, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary  ml-1">Reporte</a></td>
 
                 </tr>
             <?php } ?>
