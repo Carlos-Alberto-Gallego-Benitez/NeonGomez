@@ -79,7 +79,7 @@
 
                                 </tbody>
                             </table>   
-                            <p><b>Total Venta: </b><span id="total"></span></p>
+                            <p><b>Total Venta: </b><span id="valorTotal"></span></p>  
                         </div>
                     </div> 
                 </div>
