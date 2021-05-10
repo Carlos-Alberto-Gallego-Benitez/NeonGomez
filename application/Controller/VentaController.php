@@ -63,17 +63,24 @@ class Ventacontroller{
             if ($respuesta != false) {
 
                 $ultimo = $respuesta->id;
-                
+                $total = 0;
+
+                //para acumular el total
+                foreach($_POST["id_producto"] as $key => $value){
+
+                    $total += $_POST['SubTotal'][$key];
+
+                }
         
                 foreach($_POST["id_producto"] as $key => $value){
-        
+                    
                     $detalle = new Venta();
                     $detalle->__SET("IDVenta",$ultimo);
                     $detalle->__SET("IDProducto", $value);
                     $detalle->__SET("Precio", $_POST["precio"][$key]);  
                     $detalle->__SET("Cantida", $_POST["canti"][$key]);                      
                     $detalle->__SET("Subtotal", $_POST['SubTotal'][$key]);
-                    $detalle->__SET("ValorTotal", $value, $_POST['total'][$key]);
+                    $detalle->__SET("ValorTotal", $total);
                     
                     $detalle->registrarDetalle();
                 }
