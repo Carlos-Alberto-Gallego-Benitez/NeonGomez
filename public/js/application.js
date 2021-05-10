@@ -243,5 +243,32 @@ function eliminarDetalle2(iddetalle)
     });
 }
 
+//mensaje de ayuda online
+
+function ayudaOnline()
+{        
+    let mensaje = $("#mensaje").val();  
+    let doc = $("#doc").val();  
+    
+    if (mensaje == "") {
+        $('#res').text("¡Completa este campo!");
+    }
+    else{
+
+        $.ajax({
+            dataType:'json',
+            type:'post',
+            url:url+"usuario/agregarMensaje/"+ mensaje,
+    
+        })
+        Swal.fire({
+            icon: 'success',
+            text: 'Duda registrada (refresh)',            
+        })
+
+    }
+    
+}
+
 
 

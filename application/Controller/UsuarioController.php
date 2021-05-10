@@ -14,6 +14,19 @@ class Usuariocontroller{
         
         require APP . 'view/home/login.php'; 
     }
+    public function agregarMensaje($mensaje)
+    {
+        
+        $objeto = new Usuario();
+        $entrada = $objeto->registrarMensaje($mensaje,$doc);
+    }
+    public function Mensaje()
+    {
+        
+        $mensaje = $_POST['msj']; 
+
+        echo json_encode(array('mensaje' => $mensaje));
+    }
     public function Recuperar()
     {
         
@@ -149,6 +162,8 @@ class Usuariocontroller{
 
         $usuario = new Usuario();
         $usuarios = $usuario->listarUsuario();
+
+        $ayudas = $usuario->listarMensajes();
         
         $objeto = new Insumo();
         $insumos = $objeto->listadoInsumosS(); 

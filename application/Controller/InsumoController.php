@@ -10,6 +10,7 @@ class Insumocontroller{
 
         $insumo = new Insumo();
         $insumos1 = $insumo->listadoInsumos2();
+        $ayudas = $insumo->listarMensajes();
 
         $insumo8 = new Insumo();
         $insumos = $insumo8->listadoInsumosS();
@@ -18,6 +19,13 @@ class Insumocontroller{
         require APP . 'view/_templates/header.php';
         require APP . 'view/insumo/index.php';
         require APP . 'view/_templates/footer.php';
+    }
+
+    public function agregarMensaje($mensaje)
+    {
+        
+        $objeto = new Usuario();
+        $entrada = $objeto->registrarMensaje($mensaje);
     }
 
     public function registro()

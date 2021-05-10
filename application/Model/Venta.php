@@ -42,6 +42,26 @@ class Venta extends Model{
 
     }
 
+    public function listarMensajes()
+    {   
+        $sql = "SELECT Mensaje FROM mensaje";
+        $query = $this->db->prepare($sql);
+        $query->execute();        
+        return $query->fetchAll();
+
+    }
+
+
+    public function registrarMensaje($mensaje)
+    {
+        $sql = "INSERT INTO mensaje ( Mensaje) VALUES (:Mensaje)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':Mensaje' => $mensaje);        
+        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+        $query->execute($parameters);
+    }
+
+
     public function listarVentasr()
     {   
         $sql = "SELECT V.IDVenta, V.Fecha, V.Estado, C.Nombre, C.Apellido, D.Subtotal, D.ValorTotal, D.Cantidad, P.Nombre AS nombre FROM venta v 

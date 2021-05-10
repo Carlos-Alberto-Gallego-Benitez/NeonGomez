@@ -11,6 +11,7 @@ class ProveedorController{
 
 		$proveedor = new Proveedor();
 		$proveedores = $proveedor->listarProveedores();
+		$ayudas = $proveedor->listarMensajes();
 
 		$objeto = new Insumo();
         $insumos = $objeto->listadoInsumosS(); 
@@ -19,6 +20,13 @@ class ProveedorController{
 		 require APP . 'view/proveedor/index.php';
 		 require APP . 'view/_templates/footer.php';
 	}
+
+	public function agregarMensaje($mensaje)
+    {
+        
+        $objeto = new Usuario();
+        $entrada = $objeto->registrarMensaje($mensaje);
+    }
 
 	public function registro(){
 

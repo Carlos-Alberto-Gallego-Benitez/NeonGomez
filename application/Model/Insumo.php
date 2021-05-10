@@ -69,6 +69,26 @@ class Insumo extends Model
         
     }
 
+    public function listarMensajes()
+    {   
+        $sql = "SELECT Mensaje FROM mensaje";
+        $query = $this->db->prepare($sql);
+        $query->execute();        
+        return $query->fetchAll();
+
+    }
+
+
+    public function registrarMensaje($mensaje)
+    {
+        $sql = "INSERT INTO mensaje ( Mensaje) VALUES (:Mensaje)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':Mensaje' => $mensaje);        
+        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+        $query->execute($parameters);
+    }
+
+
     public function actualizar($nombre, $cantidad, $estado, $idinsumo)
     {
         $sql = "UPDATE insumo SET Nombre = :Nombre, Cantidad = :Cantidad, Estado = :Estado

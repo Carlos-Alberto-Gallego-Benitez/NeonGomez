@@ -14,6 +14,7 @@ class Ventacontroller{
 
         $venta = new Venta();
         $ventas = $venta->listarVentas();
+        $ayudas = $venta->listarMensajes();
         
         $objeto = new Insumo();
         $insumos = $objeto->listadoInsumosS(); 
@@ -21,6 +22,13 @@ class Ventacontroller{
         require APP . 'view/_templates/header.php';
         require APP . 'view/venta/index.php';
         require APP . 'view/_templates/footer.php';
+    }
+    
+    public function agregarMensaje($mensaje)
+    {
+        
+        $objeto = new Usuario();
+        $entrada = $objeto->registrarMensaje($mensaje);
     }
 
     public function registro()

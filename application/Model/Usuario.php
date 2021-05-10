@@ -40,6 +40,26 @@ class Usuario extends Model
         $query->execute($parameters);
     }
 
+    public function listarMensajes()
+    {   
+        $sql = "SELECT Mensaje, IDUsuario FROM mensaje";
+        $query = $this->db->prepare($sql);
+        $query->execute();        
+        return $query->fetchAll();
+
+    }
+
+
+    public function registrarMensaje($mensaje)
+    {
+        $sql = "INSERT INTO mensaje (Mensaje) VALUES (:Mensaje)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':Mensaje' => $mensaje);        
+        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+        $query->execute($parameters);
+    }
+
+
     public function obtenerUsuarios($idusuario)
     {
         $sql = "SELECT * FROM usuario WHERE IDUsuario = :IDUsuario LIMIT 1";

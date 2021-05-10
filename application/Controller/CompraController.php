@@ -14,11 +14,18 @@ class CompraController
 
      $compra = new Compra();
      $compras = $compra->listarCompras();
-    
+     $ayudas = $compra->listarMensajes();
      require APP . 'view/_templates/header.php';
      require APP . 'view/compra/index.php';
      require APP . 'view/_templates/footer.php';
   }
+
+    public function agregarMensaje($mensaje)
+    {
+        
+        $objeto = new Usuario();
+        $entrada = $objeto->registrarMensaje($mensaje);
+    }
 
   public function registro(){
     
