@@ -138,7 +138,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                  
-                            <a class="nav-link mt-5 " href="<?= URL ?>usuario/index">
+                            <a class="nav-link mt-4 " href="<?= URL ?>usuario/index">
                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i> </div>
                                 Usuarios
                             </a>

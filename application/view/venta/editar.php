@@ -48,11 +48,11 @@
         <div class="form-row mt-5">    
             <div class="form-group col-4">
                    <label for="insumos">Producto</label>
-                    <select class="form-control"  id="id_producto" name="id_producto"> 
+                    <select class="form-control"  id="id_producto" name="id_producto" onchange="ponerPrecio()"> 
                     <option>Seleccione</option>                      
                     <?php foreach ($productos as $producto): ?> 
                         
-                        <option value="<?= $producto->IDProducto ?>"><?=$producto->Nombre?></option>
+                        <option precio="<?= $producto->Precio ?>" value="<?= $producto->IDProducto ?>"><?=$producto->Nombre?></option>
                         
                         
                         
@@ -61,15 +61,19 @@
                     </select> 
             </div>
 
+
+
+            <div class="form-group col-4">
+              <label for="cantidad">Precio</label>
+              <input type="number" class="form-control" id="precio" name="precio" value="0" readonly>
+            </div>
+
             <div class="form-group col-4">
               <label for="cantidad">Cantidad</label>
               <input type="number" class="form-control" id="canti" name="canti">
             </div>
 
-            <div class="form-group col-4">
-              <label for="cantidad">Precio</label>
-              <input type="number" class="form-control" id="precio" name="precio">
-            </div>
+           
       
         </div>  
 
@@ -108,7 +112,7 @@
                                     
                                 </tbody>
                             </table>   
-                            <p><b>Total Venta: </b><span id="total"></span></p>
+                            <p><b>Total Venta: </b><span id="valorTotal"></span></p>
                         </div>
                     </div> 
                 </div>
@@ -124,47 +128,3 @@
         
     </form>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js " > </script> 
-<script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js "> </script> 
-
-    <script>
-
-
-        $(document).ready(function(){
-
-            var form = $("#formulario");
-
-  
-            form.submit(function(){
-
-
-                var fecha = ($("#fecha").val());
-                var cliente  = ($("#cliente").val());
-                var estado = ($("#estado").val());
-                
-
-                var falsa="";
-                var mensaje="";
-
-                if (cliente == "Seleccione" || estado == "Seleccione" || fecha == "") {
-                    falsa=false;
-
-                    Swal.fire({
-                      icon: 'warning',
-                      text: 'Complete todos los campos',            
-                    })
-                    $("#cliente").focus();
-                    
-                }
-              
-               
-
-                return falsa ;
-
-            });
-
-
-        });
-
-    </script>

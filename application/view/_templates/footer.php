@@ -51,11 +51,7 @@
                     
                     <?php $_SESSION["registro"] = null; ?>          
     
-                    // Swal.fire({
-                    //     icon: 'error',
-                    //     title: 'Oops...',
-                    //     text: 'Something went wrong!',                       
-                    // })       
+                         
                 <?php endif; ?>
             })
         </script>  
@@ -76,11 +72,7 @@
                     
                     <?php $_SESSION["editar"] = null; ?>          
     
-                    // Swal.fire({
-                    //     icon: 'error',
-                    //     title: 'Oops...',
-                    //     text: 'Something went wrong!',                       
-                    // })       
+                        
                 <?php endif; ?>
             })
         </script>          

@@ -27,7 +27,7 @@
                     </td>
                    
                     <td><a href="<?php echo URL . 'venta/buscar/' . htmlspecialchars($venta->IDVenta, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-info mx-md-n5">Editar</a></td>
-                    <td><a href="<?php echo URL . 'venta/reportesUnitario/' . htmlspecialchars($venta->IDVenta, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-danger mx-md-n5">Reporte</a></td>
+                    <td><a href="<?php echo URL . 'venta/reportesUnitario/' . htmlspecialchars($venta->IDVenta, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary mx-md-n5">Reporte</a></td>
                 </tr>
             <?php } ?>
             </tbody>

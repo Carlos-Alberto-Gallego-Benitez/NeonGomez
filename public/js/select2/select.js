@@ -15,5 +15,12 @@ $(document).ready(function() {
     
 });
 
+$(document).ready(function() {
+    
+    $('#idproveedor').select2();
+    
+});
+
+
 
 

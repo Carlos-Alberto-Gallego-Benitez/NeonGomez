@@ -2,7 +2,7 @@
 <!-- hbfhbfhrehj -->
 <div class="container">
         <a href="<?php echo URL; ?>cliente/registro" class="btn btn-info mb-2">Agregar</a>
-        <a href="<?php echo URL; ?>cliente/reportes" class="btn btn-secondary mb-2">Reporte</a>
+        <a href="<?php echo URL; ?>cliente/reportes" class="btn btn-secondary mb-2">Reporte general</a>
         <table class="table table-striped border tablas">
             <thead >
                 <tr>

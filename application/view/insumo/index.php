@@ -20,18 +20,15 @@
                     <td><?php echo ($insumo2->IDInsumo); ?></td>               
                     <td><?php echo ($insumo2->Nombre); ?></td>
                     <td><?php echo ($insumo2->Cantidad); ?></td>
-                    
 
                     <td>
-                    
-                        
                         <span data-key="usu" class="badge badge-danger"><?php if($insumo2->Estado=="Inactivo"){echo($insumo2->Estado);};?></span>
                         <span data-key="usu" class="badge badge-success"><?php if($insumo2->Estado=="Activo"){echo($insumo2->Estado);};?></span>
                        
                     </td>
                                        
                     <td><a href="<?php echo URL . 'insumo/buscar/' . ($insumo2->IDInsumo); ?>" class="btn btn-info  mx-md-n4">Editar</a></td>
-                    <td><a href="<?php echo URL . 'insumo/reporteUnitario/' . htmlspecialchars($insumo2->IDInsumo, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary  mx-md-n5">Reporte</a></td>              
+                    <td><a href="<?php echo URL . 'insumo/reporteUnitario/' . htmlspecialchars($insumo2->IDInsumo, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary  mx-md-n4">Reporte</a></td>              
                 </tr>
             <?php } ?>
             </tbody>
