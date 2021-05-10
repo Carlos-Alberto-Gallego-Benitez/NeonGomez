@@ -14,11 +14,11 @@ class Usuariocontroller{
         
         require APP . 'view/home/login.php'; 
     }
-    public function agregarMensaje($mensaje)
+    public function agregarMensaje($mensaje, $doc)
     {
         
         $objeto = new Usuario();
-        $entrada = $objeto->registrarMensaje($mensaje,$doc);
+        $entrada = $objeto->registrarMensaje($mensaje, $doc);
     }
     public function Mensaje()
     {

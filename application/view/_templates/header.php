@@ -57,8 +57,8 @@
 
                                 <div class="form-group col-md-9 ml-3 mt-3">
                                             
-                                    <input type="text" class="form-control" id="mensaje" placeholder="Escribe aquí tu duda" required name="nombre" >
-                                    <input type="hidden" class="form-control" value="<?php $_SESSION['valor']->IDUsuario?>" id="doc">
+                                    <input type="text" class="form-control" id="mensaje" placeholder="Escribe aquí tu duda" required name="mensaje" >
+                                    <input type="hidden" class="form-control" value="<?php $_SESSION['valor']->IDUsuario?>" id="doc" name="doc">
                                </div>
                                <div class="form-group col-md-2 mt-4">
                                             

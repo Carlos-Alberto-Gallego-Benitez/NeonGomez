@@ -239,7 +239,8 @@ function ayudaOnline()
         $.ajax({
             dataType:'json',
             type:'post',
-            url:url+"usuario/agregarMensaje/"+ mensaje,
+            url:url+"usuario/agregarMensaje",
+            data:{mensaje:mensaje_add, doc:doc_add},
     
         })
         Swal.fire({

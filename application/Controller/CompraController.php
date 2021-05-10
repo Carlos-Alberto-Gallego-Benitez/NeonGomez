@@ -30,10 +30,10 @@ class CompraController
   public function registro(){
     
     $objeto = new Insumo();
-    $insumos = $objeto->listadoInsumosS(); 
+    $insumos = $objeto->listadoInsumosS(); //es el de la notificacion
 
     $insumo = new Insumo();
-    $insumos = $insumo->listadoInsumos();
+    $insumos3 = $insumo->listadoInsumos();
 
     $proveedor = new Proveedor();
     $proveedores = $proveedor->listarProveedores2();
@@ -100,7 +100,8 @@ class CompraController
         $lista = new Compra();
         
         $compras = $compra->obtenerCompra($idcompra);
-        $insumos = $insumo->listadoInsumos();
+        $insumos0 = $insumo->listadoInsumos();
+        $insumos = $insumo->listadoInsumosS();
         $proveedores = $proveedor->listarProveedores2();
         $lista = $lista->otenerInsumos($idcompra);
 
