@@ -38,7 +38,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="insumos">Insumos</label>
-                    <select class="form-control"  id="id_insumo" name="id_insumo">
+                    <select class="form-control"  id="id_insumo" name="id_insumo" >
                     <option value="">Seleccione</option>
                     <?php foreach ($insumos3 as $datos): ?>
                         <option value="<?= $datos->IDInsumo ?>"><?=$datos->Nombre?></option>
@@ -51,7 +51,7 @@
                         
                 <div class="form-group col-md-4">
                 <label for="cant">Cantidad</label>
-                <input type="number" class="form-control" id="cant" name="cant">
+                <input type="number" class="form-control" id="cant" name="cant" value="0">
                 </div>
 
                 <div class="form-group col-md-4">

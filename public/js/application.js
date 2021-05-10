@@ -150,7 +150,7 @@ function ponerPrecio(){
 }
 
 
-let total =0;
+
 
 function agregarVenta(){ 
 
@@ -179,8 +179,7 @@ function agregarVenta(){
     }
     else{
 
-        $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' id='SubTotal' value='"+subtotal+"'><input type='hidden' name='total[]' value='"+total+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td class='subtotal'id='SubTotal'>"+subtotal+"</td><td><button type='button' onclick='$("+'"'+"#tr"+id_producto+'"'+").remove()' id='button' class='btn btn-danger button'>Eliminar</button></td></tr>")
-        $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' value='"+subTotal+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td id='sub' class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_producto("+id_producto+","+subTotal+")' class='btn btn-danger'>Eliminar</button></td></tr>")
+                $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' value='"+subTotal+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td id='sub' class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_producto("+id_producto+","+subTotal+")' class='btn btn-danger'>Eliminar</button></td></tr>")
         
         let precioTotal = $("#valorTotal").text() || 0;
         
@@ -196,7 +195,7 @@ function agregarVenta(){
     
     
         
-    }
+    
 }
 
 function eliminar_producto(id_producto,subtotal){
