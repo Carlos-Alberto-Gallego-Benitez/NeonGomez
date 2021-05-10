@@ -158,23 +158,9 @@ function agregarVenta(){
     let id_producto = $("#id_producto").val();
     let producto = $("#id_producto option:selected").text();
     let cantida = $("#canti").val();  
-<<<<<<< HEAD
-    let precio = $("#precio").val();   
-    let subtotal = parseInt(cantida)*parseInt(precio);
-    
-    total += parseInt(subtotal);
-   
-    
-    
-    
-  
-    
-    
-=======
     let precio = $("#precio").val();  
     let subTotal = parseInt(precio)*parseInt(cantida);
         
->>>>>>> Holguin
 
     if (id_producto == null || producto == "Seleccione" || cantida == "" || precio == null) {
 
@@ -193,17 +179,13 @@ function agregarVenta(){
     }
     else{
 
-<<<<<<< HEAD
         $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' id='SubTotal' value='"+subtotal+"'><input type='hidden' name='total[]' value='"+total+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td class='subtotal'id='SubTotal'>"+subtotal+"</td><td><button type='button' onclick='$("+'"'+"#tr"+id_producto+'"'+").remove()' id='button' class='btn btn-danger button'>Eliminar</button></td></tr>")
-=======
         $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' value='"+subTotal+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td id='sub' class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_producto("+id_producto+","+subTotal+")' class='btn btn-danger'>Eliminar</button></td></tr>")
         
         let precioTotal = $("#valorTotal").text() || 0;
->>>>>>> Holguin
         
         $("#valorTotal").text(parseInt(precioTotal) + (parseInt(subTotal)));
 
-<<<<<<< HEAD
      
         $("#total").text(total);
          
@@ -213,10 +195,8 @@ function agregarVenta(){
 
     
     
-=======
         
     }
->>>>>>> Holguin
 }
 
 function eliminar_producto(id_producto,subtotal){
