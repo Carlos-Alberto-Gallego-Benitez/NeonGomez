@@ -30,7 +30,7 @@
                 <a class="nav-link" href="#nosotros" >Nosotros</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" >Cotiza con nosotros</a>
+                <a class="nav-link" href="#contacto" >Contacto</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost/neonGomez/usuario/Login" id="login">Login</a>
@@ -66,7 +66,7 @@
     </section>
 
 <!-- *************  catalogo  *************** -->
-<div class="catalogo">
+<div class="catalogo" id="catalogo">
   
     <section id="catalogo">
       <div class="container">
@@ -124,38 +124,52 @@
       
     
     <!-- *************  Nosotros  *************** -->
-  
-    <section id="nosotros" class="bg-light-grey nosotros">
-      <div class="container">
-        <div class="texto2">
-          <h2 class="text-dark ">Nosotros</h2>
-          
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="nosotros-content">
-            <div class="nosotros-details">
-              
-            </div>
-            <img src="<?= URL ?>/public/img/dashboard/principal/principal.jpeg" class=" prueba" alt="catalogo-1">
+    <div class="container my-5" id="nosotros">
+        
+        <div class="row d-flex align-items-center my-5 py-5" id="nosotros">
+          <div class="col-md-7">
+            <h2 class="display-4">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5">
+            <img class=" img-fluid mx-auto" src="" alt="Generic placeholder image">
           </div>
         </div>
-
-
-        <div class="row">
-          
-            <div class="row">
-              <div class="content-center texto1">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>  Voluptate sunt nemo dolor omnis adipisci eveniet quas <br> vel praesentium, et molestias facilis doloribus,  nostrum <br> fugit ab perspiciatis,  exercitationem odit atque libero!</p>
-                
-              </div>
-            </div>
-         
+        
+        <hr class="">
+        
+        <div class="row d-flex align-items-center my-5 py-5">
+          <div class="col-md-7 push-md-5">
+            <h2 class="display-4">Oh yeah, it's that good.<span class="text-muted">See for yourself.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5 pull-md-7">
+            <img class=" img-fluid mx-auto" src="" alt="Generic placeholder image">
+          </div>
+        </div>
+        
+        <hr class="">
+        
+        <div class="row d-flex align-items-center my-5 py-5">
+          <div class="col-md-7">
+            <h2 class="display-4">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5">
+            <img class=" img-fluid mx-auto" src="" alt="Generic placeholder image">
+          </div>
+        </div>
       </div>
-     
   </section>
+
+  <footer class="bg-light text-center text-lg-start" id="contacto">
+    <!-- Copyright -->
+    <div class="text-center p-3">
+      © 2021 Copyright:
+      <a class="text-dark" href="#">NeonGomez.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
   
   
 
