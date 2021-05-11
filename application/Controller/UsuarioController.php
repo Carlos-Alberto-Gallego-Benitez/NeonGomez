@@ -55,13 +55,13 @@ class Usuariocontroller{
                 if($encriptada != true){
 
                     $_SESSION['error']="falso"; 
-                    header('location: ' . URL . 'home/index');
+                    header('location: ' . URL . 'usuario/login');
     
                 }
                 else if($_SESSION['valor']->Estado=="Inactivo"){
     
                     $_SESSION['sip']= $usuarios;
-                    header('location: ' . URL . 'home/index');
+                    header('location: ' . URL . 'usuario/login');
                 }
                 else{
                     
@@ -77,7 +77,7 @@ class Usuariocontroller{
             }else{
 
                 $_SESSION['nop']="no";
-                header('location: ' . URL . 'home/index');
+                header('location: ' . URL . 'usuario/login');
                 
             }
             

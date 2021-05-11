@@ -33,7 +33,7 @@
                 <a class="nav-link" href="#contacto" >Contacto</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/neonGomez/usuario/Login" id="login">Login</a>
+                <a class="nav-link" href="http://localhost/neonGomez_Proyecto_Final/usuario/Login" id="login">Login</a>
             </li>           
           </ul>
           
