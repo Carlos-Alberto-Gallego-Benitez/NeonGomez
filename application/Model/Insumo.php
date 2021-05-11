@@ -109,6 +109,14 @@ class Insumo extends Model
         $stm->execute();       
     
     }
+
+    public function aumentar($ins,$cantidad)
+    {
+        $sql = "UPDATE insumo SET Cantidad = Cantidad + $cantidad WHERE IDInsumo = $ins";
+        $stm= $this->db->prepare($sql);
+        $stm->execute();       
+    
+    }
 }
 
 

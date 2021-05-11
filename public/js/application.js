@@ -67,29 +67,7 @@ function agregarProductos()
         "<tr id='tr"+id_producto+"'> <input type='hidden' name='id_producto[]' value='"+id_producto+"'> <input type='hidden' name='cantidad[]' value='"+cantida+"'> <td>"+text_producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='$("+'"'+"#tr"+id_producto+'"'+ ").remove()' class='btn btn-danger boton'>Eliminar</button></td><tr>"
     )   
     
-   subtotal();
    
-}
-
-function subtotal()
-{
-    let total = 0;
-    
-    $('.subtotal').each(function(i, e){
-        
-        total += parseInt(e.innerHTML);
-       
-    })
-    if('.boton' === true){        
-        $('.subtotal').each(function(i, e){
-            
-        total -= parseInt(e.innerHTML);
-         
-        })        
-    }
- 
-    $("#valorTotal").text(total);   
-    
 }
 //******************* */
 

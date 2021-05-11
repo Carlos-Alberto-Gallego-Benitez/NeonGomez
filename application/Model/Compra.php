@@ -104,7 +104,7 @@ class Compra extends Model
 
   public function otenerInsumos($idcompra){
     $sql = "SELECT compra.Fecha, compra.IDProveedor, compra.Estado,detalle_compra.IDDetalle ,detalle_compra.IDCompra,
-    detalle_compra.IDInsumo, detalle_compra.TotalCompra, detalle_compra.Cantidad, detalle_compra.Subtotal, detalle_compra.Precio, insumo.IDInsumo, insumo.Nombre
+    detalle_compra.IDInsumo, detalle_compra.TotalCompra, detalle_compra.Cantidad, detalle_compra.Subtotal, detalle_compra.Precio,detalle_compra.TotalCompra, insumo.IDInsumo, insumo.Nombre
     FROM detalle_compra 
     INNER JOIN compra ON detalle_compra.IDCompra = compra.IDCompra
     INNER JOIN insumo ON detalle_compra.IDInsumo = insumo.IDInsumo

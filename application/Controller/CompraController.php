@@ -59,6 +59,11 @@ class CompraController
     if ($respuesta != false) {
         $ultimo = $respuesta->id;
 
+        $total = 0;
+        foreach ($_POST['id_insumo'] as $key => $value) {
+              $total += $_POST['subTotal'][$key]; 
+        }
+
         foreach($_POST["id_insumo"] as $key => $value){
 
             $detalle = new Compra();
@@ -67,14 +72,14 @@ class CompraController
             $detalle->__SET("Precio", $_POST["precio"][$key]);  
             $detalle->__SET("Cantidad", $_POST["cant"][$key]);                      
             $detalle->__SET("Subtotal", $_POST["subTotal"][$key]);
-            $detalle->__SET("TotalCompra", $value);
+            $detalle->__SET("TotalCompra", $total);
             $detalle->registrarDetalle();
 
             //aumentar insumos
-            /*$ins = $value;
+            $ins = $value;
             $cantidad = $_POST["cant"][$key];
             $insumo = new Insumo();
-            $insumo->aumentar($ins, $cantidad);*/
+            $insumo->aumentar($ins, $cantidad);
             
             try{
               if($detalle = true){
@@ -129,6 +134,11 @@ class CompraController
     $compra->__SET("IDCompra", $_POST['idcompra']);
     $respuesta = $compra->actualizar();
 
+      $total1 = 0;
+      foreach ($_POST['id_insumo'] as $key => $value) {
+            $total1 += $_POST['subTotal'][$key]; 
+      }
+
       foreach($_POST["id_insumo"] as $key => $value){
 
           $detalle = new Compra();
@@ -137,7 +147,7 @@ class CompraController
           $detalle->__SET("Precio", $_POST["precio"][$key]);  
           $detalle->__SET("Cantidad", $_POST["cant"][$key]);                      
           $detalle->__SET("Subtotal", $_POST["subTotal"][$key]);
-          $detalle->__SET("TotalCompra", $_POST["valorTotal"][$key]);
+          $detalle->__SET("TotalCompra", $total1);
           $detalle->registrarDetalle();
 
           //descontar insumos

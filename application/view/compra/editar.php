@@ -88,12 +88,16 @@
                                             <td><?= $datos->Subtotal ?></td>  
 
                                           <td><input class="btn btn-danger" value="Eliminar" type="button" onclick='eliminarDetallec("<?php echo ($datos->IDDetalle); ?>")'></td>
+
+                                          <?php
+                                            $total = $datos->TotalCompra;
+                                          ?>
                                         </tr>
                                     <?php } ?>  
                                 </tr>
                                 </tbody>
                             </table>
-                            <p><b>Total Compra: </b><span id="valorTotal"></span></p>
+                            <p><b>Total Compra: </b><span id="total"><?php echo $total;?></span></p>
                         </div>
                     </div>
                 </div>
