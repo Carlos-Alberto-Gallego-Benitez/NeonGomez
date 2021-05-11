@@ -9,6 +9,12 @@ class CompraController
 {
   public function index(){
 
+    if($_SESSION['valor'] == null){
+
+            
+      echo("debes iniciar sesión carechimba hp");
+  }else{
+
     $objeto = new Insumo();
     $insumos = $objeto->listadoInsumosS(); 
 
@@ -19,6 +25,9 @@ class CompraController
      require APP . 'view/compra/index.php';
      require APP . 'view/_templates/footer.php';
   }
+    
+  }
+
 
     public function agregarMensaje($mensaje)
     {
