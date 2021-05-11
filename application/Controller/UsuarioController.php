@@ -55,13 +55,13 @@ class Usuariocontroller{
                 if($encriptada != true){
 
                     $_SESSION['error']="falso"; 
-                    header('location: ' . URL . 'home/index');
+                    header('location: ' . URL . 'usuario/login');
     
                 }
                 else if($_SESSION['valor']->Estado=="Inactivo"){
     
                     $_SESSION['sip']= $usuarios;
-                    header('location: ' . URL . 'home/index');
+                    header('location: ' . URL . 'usuario/login');
                 }
                 else{
                     
@@ -77,7 +77,7 @@ class Usuariocontroller{
             }else{
 
                 $_SESSION['nop']="no";
-                header('location: ' . URL . 'home/index');
+                header('location: ' . URL . 'usuario/login');
                 
             }
             
@@ -160,6 +160,13 @@ class Usuariocontroller{
 
     public function index(){
 
+        if($_SESSION['valor'] == null){
+
+            
+            echo("debes iniciar sesión ");
+        }else{
+
+            
         $usuario = new Usuario();
         $usuarios = $usuario->listarUsuario();
 
@@ -171,6 +178,9 @@ class Usuariocontroller{
         require APP . 'view/_templates/header.php';
         require APP . 'view/usuario/index.php';
         require APP . 'view/_templates/footer.php';
+
+        }
+
     }
 
     public function registro()

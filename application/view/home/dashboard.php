@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= URL ?>public/css/dashboard/estilos.css">
     <title>inicio</title>
+    <link rel="icon" type="image/x-icon" href="<?= URL ?>public/img/login/logo.png" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg fixed-top">
