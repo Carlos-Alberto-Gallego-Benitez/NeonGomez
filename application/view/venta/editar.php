@@ -99,16 +99,28 @@
                                             <td><?= $datos->Precio ?></td>  
                                             <td><?= $datos->Cantidad?></td>  
                                             <td><?= $datos->Subtotal ?></td>
-                                                                                  
+                                           
+
+                                                                       
                                               
                                             <td><input class="btn btn-danger" value="Eliminar" type="button" onclick='eliminarDetalle2("<?php echo ($datos->IDDetalle); ?>")'></td>
                                         </tr>
                                     <?php } ?>   
                                 </tr>                                  
-                                    
+                                    <?php foreach($ventasdetalle as $datos) {
+
+                                            if($datos->ValorTotal <= 0){
+                                               $acum = "sin total";
+                                            }
+                                            if($datos->ValorTotal > 0){
+                                                $acum = $datos->ValorTotal;
+                                            }
+
+                                    }?>
+
                                 </tbody>
                             </table>   
-                            <p><b>Total Venta: </b><span id="total"></span></p>
+                            <p><b>Total Venta: </b><span id="total"><?php echo($acum);?></span></p>
                         </div>
                     </div> 
                 </div>
