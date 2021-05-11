@@ -1,4 +1,4 @@
-<h1 class="text-center">Gestión de productos</h1>
+<h1 class="text-center mt-4">Gestión de productos</h1>
 
 <div class="container">
         <a href="<?php echo URL; ?>producto/registro" class="btn btn-info mb-2">Agregar</a>
@@ -33,7 +33,7 @@
                     <td><img width="30" src="data:image/jpeg;base64,<?php echo base64_encode($producto->Foto);?>"</td>
                     
                     <td><a href="<?php echo URL . 'producto/editar/' . ($producto->IDProducto); ?>" class="btn btn-info mx-md-n4">Editar</a></td>
-                    <td><a href="<?php echo URL . 'producto/reporte/' .($producto->IDProducto); ?>" class="btn btn-secondary mx-md-n2">Reporte</a></td>
+                    <td><a href="<?php echo URL . 'producto/reporte/' .($producto->IDProducto); ?>" class="btn btn-secondary mx-md-n2 " >Reporte</a></td>
                         
                    
 
@@ -43,8 +43,13 @@
         </table>        
         
     </div>
-</div>
+</div >
 
       
 
 </div>
+
+
+
+
+

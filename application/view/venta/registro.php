@@ -63,7 +63,7 @@
 
            <div class="row">
                
-                <div class="col-md-4 mt-4 ml-2 mb-2 card">
+                <div class="col-md-6 mt-4 ml-2 mb-2 card">
                     <div class="widget">
                         <div class="widget-content">
                             <table id="tabla_venta" class="table ">
@@ -72,7 +72,8 @@
                                         <th>Producto</th>
                                         <th>Precio</th>
                                         <th>Cantidad</th>
-                                        <th>Subtotal</th>                                  
+                                        <th>Subtotal</th>  
+                                        <th>Opciones</th>                                
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -33,6 +33,16 @@ class Clientecontroller{
     public function guardar()
     {
         session_start();
+
+        $documento = $_POST["documento"];
+        $datos = new Cliente();
+        $resp = $datos->consultar($documento);
+
+        if($resp != null){
+            $_SESSION["error"] = "Error!";
+        }
+
+
         $cliente = new Cliente();
         $cliente->__SET("Documento", $_POST["documento"]);
         $cliente->__SET("Nombre", $_POST["nombre"]);
@@ -79,13 +89,13 @@ class Clientecontroller{
     public function actualizar()
     {
         session_start();
-        /*$documento = $_POST["documento"];
+        $documento = $_POST["documento"];
         $datos = new Cliente();
         $resp = $datos->consultar($documento);
 
-        if($resp == true){
-            $_SESSION["error"] = "Datos ";
-        }*/
+        if($resp != null){
+            $_SESSION["errore"] = "Error!";
+        }
 
         $cliente = new Cliente();
         $cliente->__SET("Documento", $_POST["documento"]);

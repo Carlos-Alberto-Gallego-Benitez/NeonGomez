@@ -87,13 +87,6 @@ class Cliente extends Model
     }
 
 
-    public function consultar($documento)
-    {
-        $sql = "SELECT * FROM cliente WHERE Documento = $documento LIMIT 1";
-        $stm = $this->db->prepare($sql);
-        $stm->execute();        
-        return $stm->fetch();
-    }
 
     public function listaractivos()
     {   
@@ -102,6 +95,15 @@ class Cliente extends Model
         $stm->execute();        
         return $stm->fetchAll();
 
+    }
+
+
+    public function consultar($documento)
+    {
+        $sql = "SELECT * FROM cliente WHERE Documento = $documento LIMIT 1";
+        $stm = $this->db->prepare($sql);
+        $stm->execute();        
+        return $stm->fetch();
     }
     
 }

@@ -1,4 +1,4 @@
-<h1 class="text-center ">Gestión de compras</h1>
+<h1 class="text-center mt-4">Gestión de compras</h1>
 
 <div class="container">
         <a href="<?php echo URL; ?>compra/registro " class="btn btn-info mb-2">Agregar</a>

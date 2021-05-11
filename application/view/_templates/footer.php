@@ -77,7 +77,39 @@
             })
         </script>          
                 
-        
+        <!-- pendiente -->
+
+    <script>
+        $(function(){
+            
+            <?php if (isset($_SESSION["error"])  != null ):?>  
+
+                Swal.fire({
+                    icon: 'error',
+                    title: '<?= $_SESSION["error"] ?>',
+                    text: 'Registro fallido!',                       
+                })       
+
+                <?php $_SESSION["error"] = null; ?> 
+            <?php endif; ?>
+        })
+    </script>
+    
+    <script>
+        $(function(){
+            
+            <?php if (isset($_SESSION["errore"])  != null ):?>  
+
+                Swal.fire({
+                    icon: 'error',
+                    title: '<?= $_SESSION["errore"] ?>',
+                    text: 'Actualización fallida!',                       
+                })       
+
+                <?php $_SESSION["errore"] = null; ?> 
+            <?php endif; ?>
+        })
+    </script>      
         
     </body>
 </html>
