@@ -142,7 +142,7 @@ class Venta extends Model{
 
     public function obtenerDetalleVenta($id)
     {    
-        $sql = "SELECT D.Cantidad, D.Precio, D.Subtotal, P.Nombre, D.IDDetalle FROM detalle_venta d JOIN producto_terminado p ON p.IDProducto = d.IDProducto WHERE d.IDVenta = $id ";
+        $sql = "SELECT D.Cantidad, D.Precio, D.Subtotal, P.Nombre, D.IDDetalle, D.ValorTotal FROM detalle_venta d JOIN producto_terminado p ON p.IDProducto = d.IDProducto WHERE d.IDVenta = $id ";
         $stm = $this->db->prepare($sql);
         $stm->execute();        
         return $stm->fetchAll();

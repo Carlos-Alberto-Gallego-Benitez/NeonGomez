@@ -20,7 +20,7 @@ class HomeController
     public function index()
     {
         // load views
-        require APP . 'view/home/login.php';
+        require APP . 'view/home/dashboard.php';
        
     }
     
