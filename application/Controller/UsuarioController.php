@@ -155,7 +155,7 @@ class Usuariocontroller{
         session_start();
         
         unset($_SESSION['valor']);
-        header('location: ' . URL . 'home/index');
+        header('location: ' . URL . 'usuario/Login');
     }
 
     public function index(){

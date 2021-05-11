@@ -161,9 +161,16 @@ class Ventacontroller{
             $venta->__SET("IDVenta", $_POST["idventa"]);
 
             $venta->actualizar();
+            
+                $total0 = 0;
 
-                
-        
+                foreach($_POST["id_producto"] as $key => $value){
+                         
+                    $total0 += $_POST['SubTotal'][$key];
+
+
+                }
+            
                 foreach($_POST["id_producto"] as $key => $value){
         
                     $detalle = new Venta();
@@ -172,7 +179,7 @@ class Ventacontroller{
                     $detalle->__SET("Precio", $_POST["precio"][$key]);  
                     $detalle->__SET("Cantida", $_POST["canti"][$key]);                      
                     $detalle->__SET("Subtotal", $_POST['SubTotal'][$key]);
-                    $detalle->__SET("ValorTotal", $_POST['total'][$key]);
+                    $detalle->__SET("ValorTotal", $total0);
                     
                     $detalle->registrarDetalle();
                 }
