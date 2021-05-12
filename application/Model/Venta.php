@@ -51,6 +51,16 @@ class Venta extends Model{
 
     }
 
+    public function TraerDetalle($iddetalle)
+    {   
+        $sql = "SELECT IDVenta, Subtotal FROM detalle_venta WHERE IDDetalle = $iddetalle";
+        $query = $this->db->prepare($sql);
+        $query->execute();        
+        return $query->fetch();
+
+    }
+
+
 
     public function registrarMensaje($mensaje)
     {
@@ -161,6 +171,17 @@ class Venta extends Model{
 
        
        $stm->execute();
+    }
+
+    public function actualizarDetalle($valor, $idventa)
+    {
+        $sql = "UPDATE detalle_venta SET ValorTotal = :ValorTotal WHERE IDVenta= :IDVenta";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':ValorTotal' => $valor, ':IDVenta' => $idventa);
+                
+        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+        $query->execute($parameters);
     }
 
 

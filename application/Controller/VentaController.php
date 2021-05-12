@@ -111,9 +111,12 @@ class Ventacontroller{
         
        
     }
+     
 
     public function buscar($IDVenta)
-    {        
+    {      
+        $acumulado = 0; 
+
         if (isset($IDVenta)) {
             
             $venta = new Venta(); 
@@ -121,6 +124,13 @@ class Ventacontroller{
             $cliente = new Cliente();           
             $ventas = $venta->obtenerVenta($IDVenta);
             $ventasdetalle = $venta->obtenerDetalleVenta($IDVenta);
+            
+            foreach($ventasdetalle as  $valor){
+
+                $acumulado += $valor->Subtotal;
+
+            }
+
 
             $productos = $producto->listaractivos();
             $clientes = $cliente->listaractivos();
@@ -145,13 +155,32 @@ class Ventacontroller{
     public function eliminarDetalle($iddetalle)
     {
        $detalle = new Venta();
+        
+       $traida = $detalle->TraerDetalle($iddetalle);
+
+       $ventasdetalle = $detalle->obtenerDetalleVenta($traida->IDVenta);
+        $acumulado1 = 0;
+                
+
+        foreach($ventasdetalle as  $valor){
+
+            $acumulado1 += $valor->Subtotal;
+
+        }
+
+        $totalborrar = $acumulado1 - $traida->Subtotal;
+
+        
+        $detalle->actualizarDetalle($totalborrar, $traida->IDVenta);
+    
+ 
        $detalle = $detalle->eliminarDetalle($iddetalle);
 
     }
 
     public function actualizar()
     {
-        if (isset($_POST["nuevaVenta"])) {
+        
             
             
             $venta = new Venta();
@@ -161,33 +190,62 @@ class Ventacontroller{
             $venta->__SET("IDVenta", $_POST["idventa"]);
 
             $venta->actualizar();
-            
+             
+                $ventasdetalle = $venta->obtenerDetalleVenta($_POST["idventa"]);
+                $acumulado0 = 0;
                 $total0 = 0;
 
+                foreach($ventasdetalle as  $valor){
+
+                  $acumulado0 += $valor->Subtotal;
+
+                }
+
                 foreach($_POST["id_producto"] as $key => $value){
-                         
+                    
                     $total0 += $_POST['SubTotal'][$key];
 
 
                 }
-            
-                foreach($_POST["id_producto"] as $key => $value){
-        
-                    $detalle = new Venta();
-                    $detalle->__SET("IDVenta", $_POST['idventa']);
-                    $detalle->__SET("IDProducto", $value);
-                    $detalle->__SET("Precio", $_POST["precio"][$key]);  
-                    $detalle->__SET("Cantida", $_POST["canti"][$key]);                      
-                    $detalle->__SET("Subtotal", $_POST['SubTotal'][$key]);
-                    $detalle->__SET("ValorTotal", $total0);
+                $final = $acumulado0 + $total0;
+               //para registrar un producto nuevo
+                if($total0 >0){
                     
-                    $detalle->registrarDetalle();
+                    foreach($_POST["id_producto"] as $key => $value){
+        
+                        $detalle = new Venta();
+                        $detalle->__SET("IDVenta", $_POST['idventa']);
+                        $detalle->__SET("IDProducto", $value);
+                        $detalle->__SET("Precio", $_POST["precio"][$key]);  
+                        $detalle->__SET("Cantida", $_POST["canti"][$key]);                      
+                        $detalle->__SET("Subtotal", $_POST['SubTotal'][$key]);
+                        $detalle->__SET("ValorTotal", $final);
+                        
+                        $detalle->registrarDetalle();
+                       
+                    }
+                    $detalle0 = new Venta();
+                    $detalle0->actualizarDetalle($final, $_POST['idventa']);
+
                 }
-            
+                else{
 
+                    foreach($_POST["id_producto"] as $key => $value){
+        
+                        $detalle = new Venta();
+                        $detalle->__SET("IDVenta", $_POST['idventa']);
+                        $detalle->__SET("IDProducto", $value);
+                        $detalle->__SET("Precio", $_POST["precio"][$key]);  
+                        $detalle->__SET("Cantida", $_POST["canti"][$key]);                      
+                        $detalle->__SET("Subtotal", $_POST['SubTotal'][$key]);
+                        $detalle->__SET("ValorTotal", $final);
+                        
+                        $detalle->registrarDetalle();
+                    }
+ 
 
-         
-        }    
+                }
+        
         header('location: ' . URL . 'venta  /index');
     }
 }

@@ -150,9 +150,58 @@ function ponerPrecio(){
 }
 
 
-var total = 0;
+
 
 function agregarVenta(){ 
+
+    
+    let id_producto = $("#id_producto").val();
+    let producto = $("#id_producto option:selected").text();
+    let cantida = $("#canti").val();  
+    let precio = $("#precio").val();  
+    let subTotal = parseInt(precio)*parseInt(cantida);
+      
+
+    if (id_producto == null || producto == "Seleccione" || cantida == "" || precio == null) {
+
+        Swal.fire({
+            icon: 'error',
+            text: 'Complete todos los campos',            
+        })
+        
+    }
+    else if(cantida < 0 || cantida == 0){
+        Swal.fire({
+            icon: 'error',
+            text: 'la cantidad debe ser mayor a 0',            
+        })
+        
+    }
+    else{
+
+        let precioTotal = $("#valorTotal").text() || 0;
+        $("#valorTotal").text(parseInt(precioTotal) + (parseInt(subTotal)));
+
+        $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' value='"+subTotal+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td id='sub' class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_producto("+id_producto+","+subTotal+")' class='btn btn-danger'>Eliminar</button></td></tr>")
+        
+        
+        
+        
+
+     
+
+         
+      
+        
+    }
+
+    
+    
+        
+    
+}
+
+function EditarVenta(){ 
 
     
     let id_producto = $("#id_producto").val();
