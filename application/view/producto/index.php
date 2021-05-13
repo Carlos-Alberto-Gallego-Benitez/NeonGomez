@@ -6,7 +6,7 @@
         <table class="table table-striped border tablas">
             <thead >
                 <tr>           
-                    <td>ID Producto</td>
+                    <td>Código</td>
                     <td>Nombre</td>
                     <td>Cantidad</td>
                     <td>Precio</td>
@@ -30,7 +30,7 @@
                         <span data-key="usu" class="badge badge-danger"><?php if($producto->Estado=="Inactivo"){echo($producto->Estado);};?></span>
                         <span data-key="usu" class="badge badge-success"><?php if($producto->Estado=="Activo"){echo($producto->Estado);};?></span>
                     </td>    
-                    <td><img width="30" src="data:image/jpeg;base64,<?php echo base64_encode($producto->Foto);?>"</td>
+                    <td><img width="30" src="data:image/jpeg;base64,<?php echo base64_encode($producto->Foto);?>"></td>
                     
                     <td><a href="<?php echo URL . 'producto/editar/' . ($producto->IDProducto); ?>" class="btn btn-info mx-md-n4">Editar</a></td>
                     <td><a href="<?php echo URL . 'producto/reporte/' .($producto->IDProducto); ?>" class="btn btn-secondary mx-md-n2">Reporte</a></td>

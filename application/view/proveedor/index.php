@@ -7,7 +7,7 @@
             <thead >
             <tr>
                 <td>IDProveedor</td>
-                <td>Codigo</td>
+                <td>Código</td>
                 <td>Nombre</td>
                 <td>Telefono</td>
                 <td>Direccion</td>
