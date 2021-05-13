@@ -8,24 +8,17 @@ use Mini\Model\Proveedor;
 class CompraController
 {
   public function index(){
-
-    if($_SESSION['valor'] == null){
-
-            
-      echo("debes iniciar sesión carechimba hp");
-  }else{
-
+    
     $objeto = new Insumo();
     $insumos = $objeto->listadoInsumosS(); 
 
      $compra = new Compra();
      $compras = $compra->listarCompras();
      $ayudas = $compra->listarMensajes();
+
      require APP . 'view/_templates/header.php';
      require APP . 'view/compra/index.php';
      require APP . 'view/_templates/footer.php';
-  }
-    
   }
 
 
