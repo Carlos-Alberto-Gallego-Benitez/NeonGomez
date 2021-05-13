@@ -6,7 +6,7 @@
         <table class="table table-striped border tablas">
             <thead >
                 <tr>
-                    <td>ID Compra</td>                    
+                    <td>Código</td>                    
                     <td>Fecha</td>  
                     <td>Proveedor</td>
                     <td>Estado</td>
