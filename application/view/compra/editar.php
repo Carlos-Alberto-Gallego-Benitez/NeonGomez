@@ -42,7 +42,7 @@
                     <label for="insumos">Insumos</label>
                     <select class="form-control"  id="id_insumo" name="id_insumo">
                     <option>Seleccione</option>
-                    <?php foreach ($insumos as $datos): ?>
+                    <?php foreach ($insumos0 as $datos): ?>
                         <option value="<?= $datos->IDInsumo ?>"><?=$datos->Nombre?></option>
                     <?php endforeach  ?>
                     </select>

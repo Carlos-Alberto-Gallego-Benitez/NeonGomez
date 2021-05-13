@@ -50,11 +50,11 @@ class Usuario extends Model
     }
 
 
-    public function registrarMensaje($mensaje)
+    public function registrarMensaje($mensaje, $doc)
     {
-        $sql = "INSERT INTO mensaje (Mensaje) VALUES (:Mensaje)";
+        $sql = "INSERT INTO mensaje (Mensaje, IDUsuario) VALUES (:Mensaje, :IDUsuario)";
         $query = $this->db->prepare($sql);
-        $parameters = array(':Mensaje' => $mensaje);        
+        $parameters = array(':Mensaje' => $mensaje, ':IDUsuario' => $doc);        
         //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
         $query->execute($parameters);
     }

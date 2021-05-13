@@ -14,57 +14,8 @@ class Usuariocontroller{
         
         require APP . 'view/home/login.php'; 
     }
-    public function agregarMensaje()
-    {
-        define('CHAT_TOKEN','your_token');
-        define('CHAT_URL','your_url_instance');
-        
-        function sendMessage($to, $msg){
-
-            $data = [
-
-                'phone' => $to,
-                'body' => $msg
-
-            ];
-            $json = json_encode($data);
-            $url = CHAT_URL.'sendMessage?token='.CHAT_TOKEN;
-            
-            $options = stream_context_create(['http' =>[
-               
-                'method' => 'POST',
-                'header' => 'Content-type: application/json',
-                'content' => $json
-
-              ]
-            ]);
-
-            $result = file_get_contents($url, false, $options);
-
-            if ($result) return json_decode($result); 
-
-            return false;
-              
-            
-
-        }
-
-        $msg = "texto prueba";
-        $result = sendMessage('573205345680',$msg);
-        if( $result !== false ){
-
-            if($result->sent == 1){
-                echo("Messsage sent<br>");
-                echo($result->message);
-            }
-            else{
-                echo($result->message);
-            }
-        }
-        else{
-            var_dump($result);
-        }
-    }
+    
+    
     public function Recuperar()
     {
         
