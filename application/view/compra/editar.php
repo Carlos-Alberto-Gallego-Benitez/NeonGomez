@@ -61,7 +61,7 @@
                 </div>             
             </div>
                 
-            <button class="btn btn-info mb-2" type="button" onclick="agregarInsumosc()">Agregar Insumos</button>
+            <button class="btn btn-info mb-2" type="button" onclick="editarCompra()">Agregar Insumos</button>
 
 
             <div class="row">
@@ -80,7 +80,7 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                <?php foreach ($lista as $datos){ ?>
+                                <?php foreach ($comprasdetalle as $datos){ ?>
                                         <tr id=<?= $datos->IDDetalle ?>>                 
                                             <td><?= $datos->Nombre ?> </td>                                     
                                             <td><?= $datos->Cantidad ?></td> 
@@ -89,15 +89,27 @@
 
                                           <td><input class="btn btn-danger" value="Eliminar" type="button" onclick='eliminarDetallec("<?php echo ($datos->IDDetalle); ?>")'></td>
 
-                                          <?php
-                                            $total = $datos->TotalCompra;
-                                          ?>
                                         </tr>
                                     <?php } ?>  
                                 </tr>
+                                <?php
+                                            
+                                            foreach($comprasdetalle as $datos) {
+
+                                                if($datos->TotalCompra <= 0){
+                                                   $acum = "sin total";
+                                                }
+                                                if($datos->TotalCompra > 0){
+                                                    $acum = $datos->TotalCompra;
+                                                }
+
+                                            }
+
+                                ?>       
                                 </tbody>
                             </table>
-                            <p><b>Total Compra: </b><span id="total"><?php echo $total;?></span></p>
+                            <input type="hidden" disabled name="acumulado1" id="acumulado1" value="<?php echo $acumulado1?>" id="">
+                            <p><b>Total Compra: </b><span id="valorTotal"><?php echo $acumulado1?></span></p>                
                         </div>
                     </div>
                 </div>

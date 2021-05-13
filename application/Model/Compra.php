@@ -102,7 +102,7 @@ class Compra extends Model
         return $stm->fetch();
   }
 
-  public function otenerInsumos($idcompra){
+  public function obtenerInsumos($idcompra){
     $sql = "SELECT compra.Fecha, compra.IDProveedor, compra.Estado,detalle_compra.IDDetalle ,detalle_compra.IDCompra,
     detalle_compra.IDInsumo, detalle_compra.TotalCompra, detalle_compra.Cantidad, detalle_compra.Subtotal, detalle_compra.Precio,detalle_compra.TotalCompra, insumo.IDInsumo, insumo.Nombre
     FROM detalle_compra 
@@ -130,6 +130,26 @@ class Compra extends Model
     $stm->bindParam(4,$this->IDCompra);
     $stm->execute();
   }
+
+  public function actualizarDetalle($valor, $idcompra)
+    {
+        $sql = "UPDATE detalle_compra SET TotalCompra = :TotalCompra WHERE IDCompra= :IDCompra";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':TotalCompra' => $valor, ':IDCompra' => $idcompra);
+                
+        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+        $query->execute($parameters);
+    }
+
+    public function TraerDetalle($iddetalle)
+    {   
+        $sql = "SELECT IDCompra, Subtotal FROM detalle_compra WHERE IDDetalle = $iddetalle";
+        $query = $this->db->prepare($sql);
+        $query->execute();        
+        return $query->fetch();
+
+    }
 
 
 }

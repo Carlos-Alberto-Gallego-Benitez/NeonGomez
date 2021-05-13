@@ -98,6 +98,39 @@ class CompraController
     header('location: ' . URL . 'compra/index');
   }
 
+  public function buscar($idcompra)
+    {      
+        $acumulado1 = 0; 
+
+        if (isset($idcompra)) {
+            
+            $compra = new Compra(); 
+            $insumo = new Insumo();
+            $proveedor = new Proveedor();           
+            $compras = $compra->obtenerCompra($idcompra);
+            $comprasdetalle = $compra->obtenerInsumos($idcompra);
+            
+            foreach($comprasdetalle as  $valor){
+
+                $acumulado1 += $valor->Subtotal;
+
+            }
+
+
+            $compras = $compra->obtenerCompra($idcompra);
+            $insumos = $insumo->listadoInsumos();
+            $proveedores = $proveedor->listarProveedores2();
+    
+             require APP . 'view/_templates/header.php';
+             require APP . 'view/compra/editar.php';
+             require APP . 'view/_templates/footer.php';
+
+        } else {
+            
+            header('location: ' . URL . 'cliente/index');
+        }
+    }
+
   public function editar($idcompra){
     if (isset($idcompra)) {
 
@@ -109,7 +142,7 @@ class CompraController
         $compras = $compra->obtenerCompra($idcompra);
         $insumos = $insumo->listadoInsumos();
         $proveedores = $proveedor->listarProveedores2();
-        $lista = $lista->otenerInsumos($idcompra);
+        $lista = $lista->obtenerInsumos($idcompra);
 
          require APP . 'view/_templates/header.php';
          require APP . 'view/compra/editar.php';
@@ -121,8 +154,20 @@ class CompraController
   }
 
   public function eliminarDetalle($iddetalle){
+    $acumulador = 0;
     $detalle = new Compra();
+    $consulta = $detalle->TraerDetalle($iddetalle);
+    $comprasdetalle = $detalle->obtenerInsumos($consulta->IDCompra);
+            
+            foreach($comprasdetalle as  $valor){
+
+                $acumulador += $valor->Subtotal;
+
+            }
+    $resta = $acumulador - $consulta->Subtotal;
+    $consulta2 = $detalle->actualizarDetalle($resta,$consulta->IDCompra);
     $detalle = $detalle->eliminarDetalle($iddetalle);
+
   }
 
 
@@ -136,10 +181,21 @@ class CompraController
     $compra->__SET("IDCompra", $_POST['idcompra']);
     $respuesta = $compra->actualizar();
 
+
+      $comprasDetalle = $compra->obtenerInsumos($_POST['idcompra']);
+      $acumulado1 = 0;
       $total1 = 0;
+
+      foreach ($comprasDetalle as $valor) {
+          $acumulado1 += $valor->Subtotal;
+      }
+
       foreach ($_POST['id_insumo'] as $key => $value) {
             $total1 += $_POST['subTotal'][$key]; 
       }
+      $final = $acumulado1 + $total1;
+
+      if($total1 > 0){
 
       foreach($_POST["id_insumo"] as $key => $value){
 
@@ -149,15 +205,14 @@ class CompraController
           $detalle->__SET("Precio", $_POST["precio"][$key]);  
           $detalle->__SET("Cantidad", $_POST["cant"][$key]);                      
           $detalle->__SET("Subtotal", $_POST["subTotal"][$key]);
-          $detalle->__SET("TotalCompra", $total1);
+          $detalle->__SET("TotalCompra", $final);
           $detalle->registrarDetalle();
 
-          //descontar insumos
-          /*$ins = $value;
-          $cantidad = $_POST["cant"][$key];
-          $insumo = new Insumo();
-          $insumo->descontar($ins, $cantidad);*/
       }
+      $detalle1 = new Compra();
+      $detalle1 -> actualizarDetalle($final, $_POST['idcompra']);
+
+    }
       try{
         if($detalle = true){
             $_SESSION["editar"] = "Datos actualizados correctamente";
