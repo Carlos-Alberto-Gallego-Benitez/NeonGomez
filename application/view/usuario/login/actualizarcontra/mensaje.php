@@ -72,10 +72,10 @@
                         <input type="text" id="estado" name="estado" disabled="" value="<?php echo htmlspecialchars($usuario->Estado, ENT_QUOTES, 'UTF-8'); ?>" required>
 
                         <label for="names">Ingrese su nueva contraseña</label>
-                        <input type="text" id="contra1" name="contra1" value="" required>
+                        <input type="password" id="contra1" name="contra1" value="" required>
 
                         <label for="names">Confirme su contraseña</label>
-                        <input type="text" id="contra2" name="contra2" value="" required>
+                        <input type="password" id="contra2" name="contra2" value="" required>
         
                         <input type="submit" value="Actualizar" id="btnSend">
                         
