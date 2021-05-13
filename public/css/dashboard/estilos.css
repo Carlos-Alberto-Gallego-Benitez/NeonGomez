@@ -1,0 +1,184 @@
+body{
+    font-family: 'Titillium Web', sans-serif;
+}
+
+h1 { 
+    font-size: 66px; 
+    font-weight: 700; 
+    line-height: 80px; 
+    color: rgb(255, 255, 255);
+}
+
+
+h2 { 
+    font-size: 48px;
+    margin-bottom: 30px; 
+}
+
+h3 { 
+    font-size: 33px; 
+}
+
+
+h5 { 
+    margin-bottom: 0px; 
+}
+
+p {
+    font-size: 20px;
+    color: #000000;
+    /* color: var(--dark-color); */
+    /* opacity: .5; */
+    line-height: 1.8;
+    margin-bottom: 0px;
+}
+
+a{
+    text-decoration: none;
+}
+/* espacio de las secciones */
+section{
+    padding: 100px 0;
+}
+
+.content-center{
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+} 
+
+.topmargin-lg{
+    margin-top: 80px;
+    
+}
+
+.navbar{
+    background-color: #333;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05) ;
+    min-height: 100px;
+}
+
+.nav-link{
+    color: rgb(255, 255, 255);
+}
+
+.nav-link:hover{
+    color: #1dacb2;
+}
+
+/* logo */
+.logo-brand {    
+     /* max-width: 180px; 
+     min-width: 160px;       
+      /* height: -500px;  */
+     /* width: -1550px; */
+}
+
+/* quitarle el efecto de recuadro al boton del responsive */
+.navbar-toggler { font-size: 40px; }
+.navbar-toggler:focus { outline: none; }
+
+
+#hero {
+    /* background-image: url(img/principal/principal.jpeg); */
+    background-size: cover;
+    padding-top: 90px;
+    min-height: 700px;
+    color: var(--white-color);
+}
+
+#hero p{
+    color: #ffffff;
+}
+
+
+.imagen{
+    width: 700px;
+}
+
+.catalogo{
+    background: #e7e2e2;
+    margin-top: -150px;
+}
+
+.catalogo-content{
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0;
+    border-radius: 2px;
+}
+
+.catalogo-content img{
+    -moz-transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.catalogo-content:hover img {
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+/* texto de la imagen pediente de poner  */
+.catalogo-details{
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    z-index: 9000;
+}
+
+.catalogo-details h2{
+    margin-bottom: 0px;
+}
+
+.catalogo-details a h2, .catalogo-details a p{
+    color: #ffffff;
+}
+
+/* ******************* */
+
+.bg-light-grey{ 
+    background-color: #f5f5f5;
+}
+
+.nosotros{
+    padding: 59px; 
+    margin-left: 80px;
+    background: #ffffff;
+}
+
+.prueba{
+ width: 550px;
+ margin-left: 9px;
+    
+}
+
+.texto{
+    margin-left: 850px;
+   
+}
+
+.texto1{
+    margin-left: 270px;
+}
+
+
+.texto2{
+    margin-left: 600px;
+}
+
+@media (max-width: 575.98px) { 
+    h1{
+        font-size: 40px;
+        line-height: normal;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {  }
+
+@media (min-width: 768px) and (max-width: 991.98px) {  }
+
+@media (min-width: 992px) and (max-width: 1199.98px) { }
+
+@media (min-width: 1200px) {  }
