@@ -186,20 +186,16 @@ class Productocontroller
         $producto = $producto->obtenerProducto($idproducto);
         $lista = $lista->obtenerInsumos($idproducto);                
         $insumosx = $insumo->listadoInsumos();
-
-        
-       
         
         require APP . 'view/reportes/producto/reportei.php';
         
-    } else {
+        } else {
         
         header('location: ' . URL . 'producto/index');
-    }
+        }
     }
 
-
-  
+    
 }
 
 
