@@ -33,51 +33,9 @@
                 </div>
             </form>
             <!-- ayuda oline--->
-<<<<<<< HEAD
              <a href="https://chat.whatsapp.com/JaFl53YL0ZfGkicDMomjAb"><h6 class="text-white mr-5"> ¿Necesitas ayuda?<img src="<?= URL ?>public/img/ayuda/wplog.png" width="40" height="40" ></h6></a>
             
-=======
-            <h6 class="text-white">¡Ayuda!</h6>
-            <ul class="navbar-nav ml-auto ml-md-0 mr-5">
-                <li class="nav-item dropdown">
-                    <a class="nav-link " id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-exclamation-circle"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                  
-                         <form action="" method="POST" name="form">
-
-                            
-                     
-                            <a class="dropdown-item mb-3" href="#">Hola <?php echo($_SESSION['valor']->Nombre);?>, ¿en qué podemos ayudarte? </a>
-                            <?php foreach($ayudas as $ayuda){?>
-
-                               
-
-                                <a class="dropdown-item mb-1 ml-5" href="#"><?php if($ayuda->IDUsuario != $_SESSION['valor']->IDUsuario){echo("otro: ".$ayuda->Mensaje);}?></a>
-
-                                <a class="dropdown-item mb-3" href="#"><?php if($ayuda->IDUsuario == $_SESSION['valor']->IDUsuario){echo("Tú: ".$ayuda->Mensaje);}?></a>
-
-                            <?php }?>
-                            <div class="form-row">
-
-                                <div class="form-group col-md-9 ml-3 mt-3">
-                                            
-                                    <input type="text" class="form-control" id="mensaje" placeholder="Escribe aquí tu duda" required name="mensaje" >
-                                    <input type="hidden" class="form-control" value="<?php $_SESSION['valor']->IDUsuario?>" id="doc" name="doc">
-                               </div>
-                               <div class="form-group col-md-2 mt-4">
-                                            
-                                    <input type="button" class=" ml-3 fas fa-arrow-alt-circle-up" onclick="ayudaOnline()" >
-                                    
-                               </div>
-                               <font color="Red"><p id="res" class="ml-5"></p> </font>
-                             </div>
-                     
-                        </form>
-                       
-                    </div>
-                </li>
-            </ul>
->>>>>>> Pablo
+            
             <!-- Notification-->
             
             <?php $i=0; foreach($insumos  as $insumo){?>
