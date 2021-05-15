@@ -47,10 +47,13 @@
       <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="<?= URL ?>public/img/dashboard/principal.jpeg" class="d-block w-100" alt="...">
+            <img src="<?= URL ?>public/img/dashboard/portada1.jpg" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="<?= URL ?>public/img/dashboard/principal.jpeg" class="d-block w-100" alt="...">
+            <img src="<?= URL ?>public/img/dashboard/portada2.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="<?= URL ?>public/img/dashboard/portada3.jpg" class="d-block w-100" alt="...">
           </div>
           
         </div>
@@ -97,11 +100,11 @@
           
 
 
-    <div class="row row-cols-1 row-cols-md-3 ">
+    <div class="row row-cols-1 row-cols-md-3 mt-5">
   <div class="col">
     <div class="card">
       <img
-        src="https://mdbootstrap.com/img/new/standard/city/041.jpg"
+        src="<?= URL ?>public/img/dashboard/nosotros1.jpg"
         class="card-img-top"
         alt="..."
       />      
@@ -110,7 +113,7 @@
   <div class="col">
     <div class="card">
       <img
-        src="https://mdbootstrap.com/img/new/standard/city/042.jpg"
+        src="<?= URL ?>public/img/dashboard/nosotros2.jpg"
         class="card-img-top"
         alt="..."
       />
@@ -120,7 +123,7 @@
   <div class="col">
     <div class="card">
       <img
-        src="https://mdbootstrap.com/img/new/standard/city/043.jpg"
+        src="<?= URL ?>public/img/dashboard/nosotros3.jpg"
         class="card-img-top"
         alt="..."
       />
