@@ -83,6 +83,13 @@ class Ventacontroller{
                     $detalle->__SET("ValorTotal", $total);
                     
                     $detalle->registrarDetalle();
+
+                   
+
+                        
+                    $_SESSION["registroventa"] = "Registro exitoso";
+
+                     
                 }
             }
 
@@ -228,23 +235,7 @@ class Ventacontroller{
                     $detalle0->actualizarDetalle($final, $_POST['idventa']);
 
                 }
-                else{
-
-                    foreach($_POST["id_producto"] as $key => $value){
-        
-                        $detalle = new Venta();
-                        $detalle->__SET("IDVenta", $_POST['idventa']);
-                        $detalle->__SET("IDProducto", $value);
-                        $detalle->__SET("Precio", $_POST["precio"][$key]);  
-                        $detalle->__SET("Cantida", $_POST["canti"][$key]);                      
-                        $detalle->__SET("Subtotal", $_POST['SubTotal'][$key]);
-                        $detalle->__SET("ValorTotal", $final);
-                        
-                        $detalle->registrarDetalle();
-                    }
- 
-
-                }
+              
         
         header('location: ' . URL . 'venta  /index');
     }

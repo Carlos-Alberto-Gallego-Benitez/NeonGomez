@@ -58,7 +58,9 @@
                     // })       
                 <?php endif; ?>
             })
-        </script>  
+        </script> 
+     
+        
     
         <script>
 
@@ -108,6 +110,32 @@
                 <?php endif; ?>
             })
         </script>    
+
+         <script>
+
+            $(function(){
+                
+                <?php if (isset($_SESSION["registroventa"]) && $_SESSION["registroventa"] != null ):?>
+                    
+                    Swal.fire({
+  
+                        icon: 'success',
+                        title: 'Registro exitoso',                        
+                        showConfirmButton: false,
+                        timer: 1800
+                    })
+                    
+                    <?php $_SESSION["registroventa"] = null; ?>          
+    
+                    // Swal.fire({
+                    //     icon: 'error',
+                    //     title: 'Oops...',
+                    //     text: 'Something went wrong!',                       
+                    // })       
+                <?php endif; ?>
+            })
+        </script>    
+        
         
         
     </body>
