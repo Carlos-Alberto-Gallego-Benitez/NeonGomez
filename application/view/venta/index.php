@@ -1,4 +1,4 @@
-<h1 class="text-center mt-4">Gestión de Ventas</h1>
+<h1 class="text-center mt-4">Gestión de ventas</h1>
 
 <div class="container">
         <a href="<?php echo URL; ?>venta/registro" class="btn btn-info mb-2">Agregar</a>

@@ -62,13 +62,13 @@
                 
                 <input type="hidden" name="correo" value="<?= $usuario->Correo?>"/>
 
-                <label for="email">¿Cuál es tu numero de documento?</label>
+                <label for="email">¿Cuál es tu número de documento?</label>
                 <input type="text" id="nel" id="correo" name="docu" required>
 
                 <label for="email">¿Cuál es tu apellido?</label>
                 <input type="text" id="nel" id="correo" name="apellido" required>
 
-                <label for="email">¿Cuál es tu numero de telefono?</label>
+                <label for="email">¿Cuál es tu número de telefono?</label>
                 <input type="text" id="nel" id="correo" name="tel" required>
 
 

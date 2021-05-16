@@ -1,4 +1,4 @@
-<h1 class="text-center mt-4">Gestión de Usuarios</h1>
+<h1 class="text-center mt-4">Gestión de usuarios</h1>
 
 <div class="container">
         <a href="<?php  echo URL; ?>usuario/registro" class="btn btn-info mb-2">Agregar</a>

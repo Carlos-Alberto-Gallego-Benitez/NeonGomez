@@ -121,7 +121,7 @@
                 if (usuario=="" ) {
                     falsa=false;
 
-                    $("#p1").text("El usuario es requerido");
+                    $("#p1").text("Él usuario es requerido");
                     $("#usuario").focus();
     
                 }
@@ -138,7 +138,7 @@
 
                     if (usuario.length <= 14 ){
                       falsa=false;
-                      $("#p1").text("El correo requiere minimo 15 caracteres");
+                      $("#p1").text("Él usuario requiere minimo 15 caracteres");
                       $("#usuario").focus();
                    
                     }

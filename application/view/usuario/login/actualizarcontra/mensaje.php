@@ -131,7 +131,7 @@
 
            swal({
               icon: "error",    
-              title: "La contraseña ya está habil como tu contraseña",
+              title: "La contraseña ya está hábil como tu contraseña",
             }).then(function (result) {
   
              

@@ -94,7 +94,7 @@
 
            swal({
               icon: "success",
-              title: "Se envío el link a su correo exitosamente",
+              title: "Se envió el link a su correo exitosamente",
   
             }).then(function (result) {
   

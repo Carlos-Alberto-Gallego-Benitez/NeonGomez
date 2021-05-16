@@ -38,7 +38,7 @@ $mail = new PHPMailer(true);
      // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Aviso de cambio de contrasenia exitoso';
-    $mail->Body    = '<h2>Señor usuario, avisos NEÓN le comunica, que su contraseña se modificó con exito</h2> <hr> <br> <h4> 
+    $mail->Body    = '<h2>Señor usuario, avisos NEÓN le comunica, que su contraseña se modificó con éxito</h2> <hr> <br> <h4> 
     </h4>';
 
     $mail->send();

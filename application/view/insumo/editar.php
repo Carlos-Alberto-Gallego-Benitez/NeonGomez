@@ -1,4 +1,4 @@
-<h1 class="text-center mt-4">Editar Insumo <?php echo($insumo1->Nombre);?></h1>
+<h1 class="text-center mt-4">Editar insumo <?php echo($insumo1->Nombre);?></h1>
 <div class="container">
     <hr>  
     <form action="<?php echo URL; ?>insumo/actualizar" id="editarInsumo" method="POST" > 
