@@ -114,7 +114,7 @@ class CompraController
               //aumentar insumos
               $ins = $value;
               $cantidad = $_POST["cant"][$key];
-              $insumo = new Insumo();
+              $insumo = new Compra();
               $insumo->aumentar($ins, $cantidad);
               
               try{
@@ -125,7 +125,7 @@ class CompraController
                 }
               }catch(\Excepetion $e){
                 $_SESSION["registro"] = $e->getMessage();
-            }
+              } 
               
           }
       }
