@@ -5,8 +5,7 @@
         <a href="<?php echo URL; ?>proveedor/reportes" class="btn btn-secondary  mb-2">Reporte general</a>
         <table class="table table-striped border tablas">
             <thead >
-            <tr>
-                <td>IDProveedor</td>
+            <tr>                
                 <td>Codigo</td>
                 <td>Nombre</td>
                 <td>Telefono</td>
@@ -21,7 +20,6 @@
             <tbody>
             <?php foreach ($proveedores as $proveedor) { ?>
                 <tr>                
-                    <td><?php if (isset($proveedor->IDProveedor)) echo htmlspecialchars($proveedor->IDProveedor, ENT_QUOTES, 'UTF-8'); ?></td>
                     <td><?php if (isset($proveedor->Codigo)) echo htmlspecialchars($proveedor->Codigo, ENT_QUOTES, 'UTF-8'); ?></td>
                     <td><?php if (isset($proveedor->Nombre)) echo htmlspecialchars($proveedor->Nombre, ENT_QUOTES, 'UTF-8'); ?></td>
                     <td><?php if (isset($proveedor->Telefono)) echo htmlspecialchars($proveedor->Telefono, ENT_QUOTES, 'UTF-8'); ?></td>
