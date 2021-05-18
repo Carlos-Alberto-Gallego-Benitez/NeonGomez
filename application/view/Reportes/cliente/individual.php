@@ -34,12 +34,12 @@ h1{
             </div> 
             <br>  
             <div>
-                <label for="contraseña">Direccion:   </label>
+                <label for="contraseña">Dirección:   </label>
                 <?php echo ($cliente->Direccion); ?>
             </div>
             <br>  
             <div>
-                <label for="telefono">Telefono:   </label>
+                <label for="telefono">Teléfono:   </label>
                 <?php echo ($cliente->Telefono); ?>
             </div> 
         </div>        

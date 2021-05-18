@@ -29,12 +29,12 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label for="contraseña">Direccion</label>
+                <label for="contraseña">Dirección</label>
                 <input type="text" class="form-control" id="direccion" name="direccion">
             </div>
 
             <div class="form-group col-md-4">
-                <label for="telefono">Telefono</label>
+                <label for="telefono">Teléfono</label>
                 <input type="number" class="form-control" id="telefono" name="telefono">
             </div>    
         </div>        

@@ -28,7 +28,7 @@
             </div>    
 
             <div class="form-group col-md-4">
-                <label for="telefono">Telefono</label>
+                <label for="telefono">Teléfono</label>
                 <input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo htmlspecialchars($usuarios->Telefono, ENT_QUOTES, 'UTF-8'); ?>">
             </div> 
 

@@ -10,8 +10,8 @@
                     <td>Nombre</td>
                     <td>Apellido</td>
                     <td>Correo</td>
-                    <td>Direccion</td>
-                    <td>Telefono</td>
+                    <td>Dirección</td>
+                    <td>Teléfono</td>
                     <td>Estado</td>
                     <td></td>
                     <td></td>

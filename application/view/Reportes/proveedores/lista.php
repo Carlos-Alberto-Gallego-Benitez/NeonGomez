@@ -46,13 +46,12 @@ thead{
     <table>
     <thead>
 				<tr>
-					<th>ID Proveedor</th><th>Codigo</th><th>Nombre</th><th>Telefono</th><th>Direccion</th><th>Correo</th><th>Estado</th>
+					<th>Código</th><th>Nombre</th><th>Teléfono</th><th>Dirección</th><th>Correo</th><th>Estado</th>
 				</tr>
 			</thead>
     <tbody>
         <?php foreach ($reportes as $datos) { ?>
-              <tr>                
-                  <td><?php echo ($datos->IDProveedor); ?></td>
+              <tr> 
                   <td><?php echo ($datos->Codigo); ?></td>
                   <td><?php echo ($datos->Nombre); ?></td>
                   <td><?php echo ($datos->Telefono); ?></td>

@@ -65,7 +65,7 @@
                     Swal.fire({
   
                         icon: 'success',
-                        title: '<?= $_SESSION["editar"] ?>',                        
+                        title: 'Datos actualizados correctamente',                        
                         showConfirmButton: false,
                         timer: 1800
                     })

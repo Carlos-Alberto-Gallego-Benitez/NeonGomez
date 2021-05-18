@@ -6,7 +6,7 @@
         <table class="table table-striped border tablas">
             <thead >
             <tr>
-                <td>IDInsumo</td>
+                <td>Código</td>
                 <td>Nombre</td>
                 <td>Cantidad</td>
                 <td>Estado</td>

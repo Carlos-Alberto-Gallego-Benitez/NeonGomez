@@ -6,10 +6,10 @@
         <table class="table table-striped border tablas">
             <thead >
             <tr>                
-                <td>Codigo</td>
+                <td>Código</td>
                 <td>Nombre</td>
-                <td>Telefono</td>
-                <td>Direccion</td>
+                <td>Teléfono</td>
+                <td>Dirección</td>
                 <td>Correo</td>
                 <td>Estado</td>
                 <td></td>

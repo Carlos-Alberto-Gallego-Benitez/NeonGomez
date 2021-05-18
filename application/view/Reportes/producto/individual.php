@@ -33,7 +33,12 @@ h1{
 <br>
     <form >
     
-        <div class="form-row">    
+        <div class="form-row">  
+        <div>
+                <label for="nombre">Código:  </label>
+                <?php echo ($producto->IDProducto); ?>
+            </div>
+            <br>  
             <div>
                 <label for="nombre">Nombre:  </label>
                 <?php echo ($producto->Nombre); ?>

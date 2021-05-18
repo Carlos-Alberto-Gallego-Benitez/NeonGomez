@@ -6,7 +6,7 @@
         <table class="table table-striped border tablas">
             <thead >
                 <tr>           
-                    <td>ID Producto</td>
+                    <td>Código</td>
                     <td>Nombre</td>
                     <td>Cantidad</td>
                     <td>Precio</td>

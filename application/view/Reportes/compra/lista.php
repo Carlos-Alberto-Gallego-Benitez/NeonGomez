@@ -47,7 +47,7 @@ thead{
     <table>
     <thead>
 				<tr>
-					<th>ID Compra</th><th>Fecha</th><th>Proveedor</th><th>Estado</th>
+					<th>Código</th><th>Fecha</th><th>Proveedor</th><th>Estado</th>
 				</tr>
 			</thead>
     <tbody>

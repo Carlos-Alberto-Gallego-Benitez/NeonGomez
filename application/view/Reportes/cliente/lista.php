@@ -38,8 +38,8 @@ h1{
             <th>Nombre</th>
             <th>Apellido</th>
             <th>Correo</th>
-            <th>Direccion</th>
-            <th>Telefono</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
             <th>Estado</th>
             
                          

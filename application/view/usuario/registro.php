@@ -47,7 +47,7 @@
            
 
             <div class="form-group col-md-4">
-                <label for="telefono">Telefono</label>
+                <label for="telefono">Teléfono</label>
                 <input type="text" class="form-control" id="telefono" name="telefono">
             </div>              
 
