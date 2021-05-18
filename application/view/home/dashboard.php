@@ -95,7 +95,7 @@
   <div class="container nosotros">
           <h2 class="text-dark text-center">Acerca de nosotros</h2>
 
-          <p class="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo, repellat ea odio nobis beatae ab nesciunt voluptates reprehenderit sed asperiores accusantium aut quod quidem ducimus quasi? Aliquam perferendis delectus id?</p>
+          <p class="text-center">"Neón Gómez" nos dedicamos a la fabricación y venta de avisos publicitarios fabricados a base de neón y acrilico destando que los insumos oara su producción son de alta calidad brindando asi a nuestros clientes un producto de alta calidad.</p>
 
           
 
