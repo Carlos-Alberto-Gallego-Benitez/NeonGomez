@@ -379,4 +379,23 @@ $("#editarProveedores").validate({
 }
 });
 
+//validaciones perfil, cambio de contraseña
+
+$("#formContra").validate({ 
+
+    rules: {
+    contrasena1:{
+        required: true,
+        
+        
+    },
+    contrasena2:{
+        required: true,
+
+    }
+  
+   
+    }
+});
+
 

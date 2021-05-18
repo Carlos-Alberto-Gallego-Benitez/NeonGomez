@@ -10,14 +10,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= URL ?>public/css/dashboard/estilos.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link href="<?= URL ?>public/css/dashboard/estilos.css" rel="stylesheet" />
     <title>inicio</title>
     <link rel="icon" type="image/x-icon" href="<?= URL ?>public/img/login/logo.png" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-        <a class="logo-brand" href="#"><img src="<?= URL ?>/public/img/dashboard/principal/LOGO.png" alt="logo" width="120px"></a>
+        <a href="#hero"><img class="logo" src="<?= URL ?>public/img/login/logo.png" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </button>
@@ -25,16 +26,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">           
             <li class="nav-item">
-              <a class="nav-link" href="#catalogo" >Catalogo</a>
+              <a class="nav-link" href="#catalogo" >Catálogo</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#nosotros" >Nosotros</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" >Cotiza con nosotros</a>
+                <a class="nav-link" href="#contacto">Contáctanos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/neonGomez/usuario/Login" id="login">Login</a>
+                <a class="nav-link" href="<?= URL ?>usuario/login" id="login">Login</a>
             </li>           
           </ul>
           
@@ -47,10 +48,13 @@
       <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="<?= URL ?>/public/img/dashboard/principal/principal.jpeg" class="d-block w-100" alt="...">
+            <img src="<?= URL ?>public/img/dashboard/portada1.jpg" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="<?= URL ?>/public/img/dashboard/principal/principal.jpeg" class="d-block w-100" alt="...">
+            <img src="<?= URL ?>public/img/dashboard/portada2.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="<?= URL ?>public/img/dashboard/portada3.jpg" class="d-block w-100" alt="...">
           </div>
           
         </div>
@@ -62,118 +66,154 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
-      </div>
-      
+      </div>      
     </section>
 
 <!-- *************  catalogo  *************** -->
-<div class="catalogo">
-  
-    <section id="catalogo">
-      <div class="container">
-      <div class="container-fluid">
-        <div class="content-center">
-          <h2 class="text-dark">Algunos de nuestros productos</h2>
-        </div>
-
+<section id="catalogo">
+  <div class="container espacio">
+    <div class="container-fluid">
+      <div class="content-center">
+        <h2 class="text-dark">Algunos de nuestros productos</h2>
+        </div>        
         <div class="row">
-          <div class="col-md-3">
-            <div class="catalogo-content">
-              <div class="catalogo-details">
-                  
-            </div>
-                <img src="<?= URL ?>/public/img/dashboard/principal/1.png" class="img-fluid imagen" alt="catalogo-1">
-              </div>
-            </div>
-
+        <?php foreach ($producto as $productos) { ?>
             <div class="col-md-3">
-              <div class="catalogo-content">
-                <div class="catalogo-details">
-
+              <div class="catalogo-content">              
+                <div class="catalogo-details">                
                 </div>
-                <img src="<?= URL ?>/public/img/dashboard/principal/2.png" class="img-fluid imagen" alt="catalogo-1">
-              </div>
+                  <img class="img-fluid imagen" src="data:image/jpeg;base64,<?php echo base64_encode($productos->Foto);?>"> 
+                </div>                            
             </div>
-
-            <div class="col-md-3">
-              <div class="catalogo-content">
-                <div class="catalogo-details">
-
-                </div>
-                <img src="<?= URL ?>/public/img/dashboard/principal/3.png" class="img-fluid imagen" alt="catalogo-1">
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <div class="catalogo-content">
-                <div class="catalogo-details">
-
-                </div>
-                <img src="<?= URL ?>/public/img/dashboard/principal/4.png" class="img-fluid imagen" alt="catalogo-1">
-              </div>
-            </div>                                   
-        </div>
-
-
-      </div>
-    </div>
-    </div>
-  
+            <?php } ?>                                              
+        </div>        
+      </div>      
+    </div>    
+  </div>  
   </section>
-</div>
 
-      
-    
-    <!-- *************  Nosotros  *************** -->
-  
-    <section id="nosotros" class="bg-light-grey nosotros">
-      <div class="container">
-        <div class="texto2">
-          <h2 class="text-dark ">Nosotros</h2>
+<section id="nosotros">
+  <div class="container nosotros">
+          <h2 class="text-dark text-center">Acerca de nosotros</h2>
+
+          <p class="text-center">"Neón Gómez" nos dedicamos a la fabricación y venta de avisos publicitarios creados a base de neón y acrilico, destacando los insumos a la hora de su producción por su alta calidad, brindando así, a nuestros clientes un buen servicio y trabajo.</p>
+
           
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4">
-          <div class="nosotros-content">
-            <div class="nosotros-details">
-              
-            </div>
-            <img src="<?= URL ?>/public/img/dashboard/principal/principal.jpeg" class=" prueba" alt="catalogo-1">
-          </div>
-        </div>
 
 
-        <div class="row">
-          
-            <div class="row">
-              <div class="content-center texto1">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>  Voluptate sunt nemo dolor omnis adipisci eveniet quas <br> vel praesentium, et molestias facilis doloribus,  nostrum <br> fugit ab perspiciatis,  exercitationem odit atque libero!</p>
-                
-              </div>
-            </div>
-         
-      </div>
+    <div class="row row-cols-1 row-cols-md-3 mt-5">
+  <div class="col">
+    <div class="card">
+      <img
+        src="<?= URL ?>public/img/dashboard/nosotros1.jpg"
+        class="card-img-top"
+        alt="..."
+      />      
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img
+        src="<?= URL ?>public/img/dashboard/nosotros2.jpg"
+        class="card-img-top"
+        alt="..."
+      />
      
-  </section>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img
+        src="<?= URL ?>public/img/dashboard/nosotros3.jpg"
+        class="card-img-top"
+        alt="..."
+      />
+      
+    </div>
+  </div>
   
+      
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+
+
+<section id="contacto">
+
+<div class="container contacto">
+  <h2 class="text-center">Contáctanos</h2>
+
+  <div class="row">
   
+  <div class="col-xl-6 col-md-6">
+      <div class="card bg-light text-dark mb-3">
+          <div class="card-body"><i class="fas fa-user-clock icono "></i><h5 class="text-center ">Horario de atención</h5></div>
+          <div class="card-footer d-flex align-items-center justify-content-between">
+              <a>8:00 a.m a 5:00 p.m lunes a viernes <br>8:00 a.m a 2:00 p.m sábados</a>
+              
+          </div>
+      </div>
+  </div>
 
-    
+  <div class="col-xl-6 col-md-6">
+      <div class="card bg-light text-dark mb-3">
+          <div class="card-body"><i class="fas fa-map-marker-alt"></i><h5 class="text-center ">Dirección</h5></div>
+          <div class="card-footer d-flex align-items-center justify-content-between">
+              <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
+              
+          </div>
+      </div>
+  </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+  <div class="col-xl-6 col-md-6">
+      <div class="card bg-light text-dark mb-3">
+          <div class="card-body"><i class="fas fa-phone-alt"></i><h5 class="text-center ">Teléfono</h5></div>
+          <div class="card-footer d-flex align-items-center justify-content-between">
+          <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
+              
+          </div>
+      </div>
+  </div>
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <div class="col-xl-6 col-md-6">
+      <div class="card bg-light text-dark mb-3">
+          <div class="card-body"><i class="fas fa-envelope"></i><h5 class="text-center ">Email</h5></div>
+          <div class="card-footer d-flex align-items-center justify-content-between">
+          <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
+              
+          </div>
+      </div>
+  </div>
+</section>
+ 
+ 
+  <div>
+  <footer id="footer" class="color-footer">
+  <div class="container">
+  <a href="#"> <img class="logoF" src="<?= URL ?>public/img/dashboard/LOGO.png" alt="logo" ></a>
+    <ul class="list-inline">
+      <li class="list-inline-item footer-menu"><a href="">Inicio</a></li>
+      <li class="list-inline-item footer-menu"><a href="#catalogo">Catalogo</a></li>
+      <li class="list-inline-item footer-menu"><a href="#nosotros">Nosotros</a></li>
+      <li class="list-inline-item footer-menu"><a href="#contacto">Contáctanos</a></li>
+    </ul>  
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+      <li class="list-inline-item"><a  href="https://www.instagram.com/avisosneon_medellin/?hl=es-la"><i class="fab fa-instagram"></i></a></li>      
+    </ul>  
+    <div class="mb-2">
+    <small class="text-light"> &copy; copyrigh - Neón Gómez <?=date('Y') ?> </p></small>
+    </div>
+  </div>
+  </footer>
+  </div> 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    -->
     <script src="https://kit.fontawesome.com/f489c8aeef.js" crossorigin="anonymous"></script>   
   </body>
 </html>

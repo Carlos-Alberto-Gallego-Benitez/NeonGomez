@@ -307,8 +307,8 @@ class Usuariocontroller{
 
                 unset($_SESSION['valida']);
 
-                echo '<script>alert("cambio exitoso")</script>';
-                echo"<script>setTimeout(\"location.href='http://localhost/neonGomez/usuario/perfil'\",100)</script>";
+                echo '<script>alert("La contraseña ha sido actualizada con éxito")</script>';
+                echo"<script>setTimeout(\"location.href='http://localhost/neonGomez/usuario/CerrarSesion'\",100)</script>";
                 
             }
             else{

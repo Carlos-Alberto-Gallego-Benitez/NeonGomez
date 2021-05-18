@@ -10,6 +10,7 @@
  */
 
 namespace Mini\Controller;
+use Mini\Model\Producto;
 
 class HomeController
 {
@@ -20,6 +21,8 @@ class HomeController
     public function index()
     {
         // load views
+        $catalogo = new Producto();
+        $producto = $catalogo->catalogo();         
         require APP . 'view/home/dashboard.php';
        
     }

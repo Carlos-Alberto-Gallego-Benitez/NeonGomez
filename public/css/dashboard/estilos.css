@@ -52,6 +52,10 @@ section{
     
 }
 
+.divider{
+    border-bottom: 2px solid #f5f5f5;
+
+}
 .navbar{
     background-color: #333;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.05) ;
@@ -66,24 +70,20 @@ section{
     color: #1dacb2;
 }
 
-/* logo */
-/* .logo-brand {    
-    max-width: 180px;
-    min-width: 160px;     
-}  */
+
 
 /* quitarle el efecto de recuadro al boton del responsive */
 .navbar-toggler { font-size: 40px; }
 .navbar-toggler:focus { outline: none; }
 
 
-#hero {
-    /* background-image: url(img/principal/principal.jpeg); */
-    background-size: cover;
+/*#hero {
+    background-image: url(img/principal/principal.jpeg); */
+    /*background-size: cover;
     padding-top: 90px;
     min-height: 700px;
     color: var(--white-color);
-}
+}*/
 
 #hero p{
     color: #ffffff;
@@ -96,7 +96,11 @@ section{
 
 .catalogo{
     background: #e7e2e2;
-    margin-top: -150px;
+   
+}
+
+.espacio{
+    margin-top: -15px;
 }
 
 .catalogo-content{
@@ -123,7 +127,7 @@ section{
     position: absolute;
     bottom: 25px;
     left: 25px;
-    z-index: 9000;
+    z-index: 9000;    
 }
 
 .catalogo-details h2{
@@ -140,11 +144,11 @@ section{
     background-color: #f5f5f5;
 }
 
-.nosotros{
+/*.nosotros{
     padding: 59px; 
     margin-left: 80px;
     background: #ffffff;
-}
+}*/
 
 .prueba{
  width: 550px;
@@ -166,11 +170,78 @@ section{
     margin-left: 600px;
 }
 
+.color-footer{
+    background-color: #333 !important;
+}
+
+#footer{
+    padding: 1px 0;
+    text-align: center;
+}
+
+#footer a{
+    color: #ffffff;
+}
+
+#footer a:hover{
+    color: #ffffff;
+}
+
+#footer a{
+    text-decoration: none;
+}
+
+#footer .list-inline .list-inline-item {
+    padding: 10px 15px;
+}
+
+i{
+    font-size: 40px;
+    
+}
+
+.nosotros{
+    margin-top: -10px;
+}
+
+/* logo */
+.logo {
+    width: 130px;
+    height: 70px;
+}  
+
+.logoF {
+    width: 280px;
+    height: 110px;   
+}
+
+
+
+.icono{
+    
+    margin-right: 40px;   
+    
+    
+ }
+
+ .contacto{
+    margin-top: -10px;
+}
+
+
+
 @media (max-width: 575.98px) { 
     h1{
         font-size: 40px;
         line-height: normal;
     }
+    .footer-menu { 
+        display: block !important;
+        padding: 20px 0 !important;
+        font-size: 20px;
+    
+    }
+    
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {  }
@@ -179,4 +250,4 @@ section{
 
 @media (min-width: 992px) and (max-width: 1199.98px) { }
 
-@media (min-width: 1200px) {  }
+@media (min-width: 1200px) {  } 

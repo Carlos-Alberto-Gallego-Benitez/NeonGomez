@@ -12,6 +12,9 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="<?php echo URL; ?>plugins/jqueryvalidator/jquery.validate.min.js"></script> 
+        <script type="text/javascript" src="<?php echo URL; ?>plugins/jqueryvalidator/localization/messages_es.min.js"></script> 
+        <script src="<?php echo URL;?>public/js/validaciones/validaciones.js"></script>  
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="<?= URL ?>public/css/perfil/styles.css" rel="stylesheet"/>
     </head>
@@ -79,33 +82,109 @@
                         
 
                        <div class="form-group col-md-5 ml-5  text-center">
-                          <label for="Contraseña">Contraseña Actual</label>
+                          <label for="Contraseña">Contraseña actual</label>
                           <input type="password" disabled class="form-control" value="<?php echo($_SESSION['valor']->Contrasena);?>"  name="contra">
                         </div>
 
                     </div>
 
-                    <form action="<?php echo URL?>usuario/cambiodeClave" method="POST">
+                    <form action="<?php echo URL?>usuario/cambiodeClave" id="formContra" method="POST">
                     <input type="hidden"  class="form-control" value="<?php echo($_SESSION['valor']->IDUsuario);?>"  name="id">
                     
                     <div class="form-row">
 
                         <div class="form-group ml-5 col-md-5 text-center ">
-                          <label for="Contraseña">Nueva Contraseña</label>
-                          <input type="text" required  class="form-control"  name="contra1">
+                          <label for="Contraseña">Nueva contraseña</label>
+                          <input type="password" id="contrasena1" class="form-control"  name="contra1">
+                          <font color="Red" id="p1"></font>
                         </div>  
                          
 
                         <div class="form-group col-md-5 text-center ml-4">
-                          <label for="Contraseña">Confirma Tu Contraseña</label>
-                          <input type="text" required  class="form-control"  name="contra2">
+                          <label for="Contraseña">Confirme la contraseña</label>
+                          <input type="password" id="contrasena2"  class="form-control"  name="contra2">
+                          <font color="Red" id="p2"></font>
                         </div> 
                      
                     </div>
                     <input type="submit" name="agregarusuario" class="btn btn-info text-center mt-4 ml-5" value="Actualizar"/>  
                     
+                    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+                    <script>
+                    $(document).ready(function(){
+
+                    var form = $("#formContra");
+
+
+                        form.submit(function(){
+
+                        var contra1 = ($("#contrasena1").val());
+                        var contra2  = ($("#contrasena2").val());
+
+                        var falsa="";
+                        var mensaje="";
+
                 
+                        if (contra2=="" ) {
+                           falsa=false;
+
+                           $("#p2").text("Este campo es requerido");
+                           $("#contrasena2").focus();
+    
+                        }
+
+                        if (contra1=="") {
+                           falsa=false;
+
+                           $("#p1").text("Este campo es requerido");
+                           $("#contrasena1").focus();
                     
+                        }
+
+                        if (contra2!="") {
+
+                            if (contra2.length<=7 ) {
+                               falsa=false;
+                                $("#p2").text("Este campo requiere 8 caracteres");
+                                $("#contrasena2").focus();
+                            }
+                    
+                        }
+                         
+                        if (contra1!="") {
+
+                            if (contra1.length <=7 ){
+                                falsa=false;
+                                $("#p1").text("Este campo requiere 8 caracteres");
+                                $("#contrasena1").focus();
+                   
+                            }
+                    
+                        }
+                        if (contra1 != " " && contra2 != "") {
+
+                            if (contra2.length>7 && contra1.length>7 ) {
+
+                                if (contra1 != contra2) {
+                                    falsa=false;
+                                    $("#p1").text("las contraseñas ingresadas no coinciden");
+                                    
+                                    
+                                }
+                                
+                            }
+                            
+                        }
+                
+                
+                        return falsa ;
+
+                    });
+
+
+                   });
+
+                    </script>
                     </form>
 
 

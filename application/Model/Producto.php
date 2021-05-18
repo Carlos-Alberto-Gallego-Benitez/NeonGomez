@@ -172,6 +172,14 @@ class Producto extends Model
        $stm->bindParam(6, $this->IDProducto);     
        $stm->execute();
     }
+
+    public function catalogo()
+    {  
+        $sql = "SELECT * FROM producto_terminado WHERE Estado = 'Activo' ORDER BY RAND() LIMIT 12";
+        $stm = $this->db->prepare($sql);
+        $stm->execute();        
+        return $stm->fetchAll();
+    }
     
 }
 
