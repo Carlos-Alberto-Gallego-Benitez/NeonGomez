@@ -17,6 +17,7 @@ class Clientecontroller{
 
         require APP . 'view/_templates/header.php';
         require APP . 'view/cliente/index.php';
+        
         require APP . 'view/_templates/footer.php';
     }
 

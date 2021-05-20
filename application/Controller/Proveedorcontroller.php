@@ -18,6 +18,7 @@ class ProveedorController{
 
 		 require APP . 'view/_templates/header.php';
 		 require APP . 'view/proveedor/index.php';
+		 
 		 require APP . 'view/_templates/footer.php';
 	}
 

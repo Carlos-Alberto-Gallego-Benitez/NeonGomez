@@ -12,6 +12,11 @@ class Ventacontroller{
 
     public function index(){
 
+        if ($_SESSION['valor']==null) {
+
+            require APP . 'view/home/login.php';
+        }
+
         $venta = new Venta();
         $ventas = $venta->listarVentas();
         $ayudas = $venta->listarMensajes();
@@ -21,6 +26,7 @@ class Ventacontroller{
 
         require APP . 'view/_templates/header.php';
         require APP . 'view/venta/index.php';
+        
         require APP . 'view/_templates/footer.php';
     }
     

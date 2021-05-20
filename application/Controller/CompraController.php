@@ -18,6 +18,7 @@ class CompraController
 
      require APP . 'view/_templates/header.php';
      require APP . 'view/compra/index.php';
+     
      require APP . 'view/_templates/footer.php';
   }
 

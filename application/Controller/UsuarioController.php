@@ -182,9 +182,10 @@ class Usuariocontroller{
            
             $contra = $_POST["contra"];
             $contrasena = password_hash($contra, PASSWORD_DEFAULT);
-          
+
+            $estado = "Activo";
             $usuario = new Usuario();
-            $value = $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$_POST["estado"],$contrasena);
+            $value = $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$estado,$contrasena);
 
             //encriptar la contraseña
             try {

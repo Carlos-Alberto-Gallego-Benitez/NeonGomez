@@ -51,14 +51,7 @@
                 <input type="text" class="form-control" id="telefono" name="telefono">
             </div>              
 
-            <div class="form-group col-md-4">
-                <label for>Estado</label>
-                <select name="estado" id="estado" class="form-control">
-                    <option value="">Seleccione</option>
-                    <option  value="Activo">Activo</option>
-                    <option  value="Inactivo">Inactivo</option>
-                </select>
-            </div>
+           
             </div>
 
         <input type="submit" name="agregarusuario" class="btn btn-info ml-4 mt-3 mb-3" value="Registrar "/>         

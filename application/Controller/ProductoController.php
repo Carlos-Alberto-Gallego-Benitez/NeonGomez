@@ -18,6 +18,7 @@ class Productocontroller
 
         require APP . 'view/_templates/header.php';
         require APP . 'view/producto/index.php';
+        
         require APP . 'view/_templates/footer.php';
     }
 
