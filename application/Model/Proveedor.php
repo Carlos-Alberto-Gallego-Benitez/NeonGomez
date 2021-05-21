@@ -35,11 +35,11 @@
 			return $query->fetchAll();
 		}
 
-		public function registrar($codigo, $nombre, $telefono, $direccion, $correo, $estado)
+		public function registrar($codigo, $nombre, $telefono, $direccion, $correo)
 		{
 			$sql = "INSERT INTO proveedor ( Codigo, Nombre, Telefono, Direccion, Correo, Estado) VALUES (:Codigo, :Nombre, :Telefono, :Direccion, :Correo, :Estado )";
 			$query = $this->db->prepare($sql);
-			$parameters = array(':Codigo' => $codigo, ':Nombre' => $nombre, ':Telefono' => $telefono, ':Direccion' => $direccion, ':Correo' => $correo, ':Estado' => $estado);
+			$parameters = array(':Codigo' => $codigo, ':Nombre' => $nombre, ':Telefono' => $telefono, ':Direccion' => $direccion, ':Correo' => $correo, ':Estado' => 'Activo');
 			$query->execute($parameters);
 		}
 

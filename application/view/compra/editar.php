@@ -1,5 +1,5 @@
 <div class="container card mt-2" style="width: 68rem;">
-<h1 class="text-center">Editar compra con el ID # <?= $compras->IDCompra?></h1>
+<h1 class="text-center">Editar compra <?= $compras->IDCompra?></h1>
     <hr>
 
     <form action="<?php echo URL; ?>compra/actualizar" method="POST"  enctype="multipart/form-data" id="editarCompra">

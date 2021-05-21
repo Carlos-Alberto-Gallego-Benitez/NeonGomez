@@ -30,22 +30,7 @@
                 <label for="correo">Correo</label>
                 <input type="text" class="form-control" id="correo" name="correo">
             </div>
-
-            <div class="form-group  col-md-4">
-                <label for>Estado</label>
-                <select name="estado" class="form-control">
-                    <option value="">Seleccione</option>
-                    <option  value="Activo">Activo</option>
-                    <option  value="Inactivo">Inactivo</option>
-                </select>
-            </div>
-
-           
         </div>
-
-
-        
-
         <input type="submit" name="agregarProveedor" class="btn btn-info mt-3 mb-3" value="Registrar "/>         
         <a class="btn btn-secondary " href="<?php echo URL; ?>proveedor/index"> Cancelar</a>
     </form>

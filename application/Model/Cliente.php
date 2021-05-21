@@ -39,15 +39,14 @@ class Cliente extends Model
     public function registrar()
     {
         $sql = "INSERT INTO cliente (Documento, Nombre, Apellido, Correo,Direccion, Telefono, Estado) 
-        VALUES (?,?,?,?,?,?,?)";
+        VALUES (?,?,?,?,?,?,'Activo')";
         $stm = $this->db->prepare($sql);
         $stm->bindParam(1, $this->Documento);
         $stm->bindParam(2, $this->Nombre);
         $stm->bindParam(3, $this->Apellido);
         $stm->bindParam(4, $this->Correo);
         $stm->bindParam(5, $this->Direccion);  
-        $stm->bindParam(6, $this->Telefono);       
-        $stm->bindParam(7, $this->Estado);        
+        $stm->bindParam(6, $this->Telefono);
         $stm->execute();
     }
 

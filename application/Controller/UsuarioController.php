@@ -178,7 +178,7 @@ class Usuariocontroller{
             $contrasena = password_hash($contra, PASSWORD_DEFAULT);
             
             $usuario = new Usuario();
-            $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$_POST["estado"],$contrasena);
+            $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$contrasena);
         }
                 
         header('location: ' . URL . 'usuario/index');

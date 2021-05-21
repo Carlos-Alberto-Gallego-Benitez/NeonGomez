@@ -1,4 +1,5 @@
-<h1 class="text-center mt-4">Editar Insumo <?php echo($insumo1->Nombre);?></h1>
+<div class="container card mt-2" style="width: 68rem;">
+<h1 class="text-center mt-4">Editar insumo <?php echo($insumo1->Nombre);?></h1>
 <div class="container">
     <hr>  
     <form action="<?php echo URL; ?>insumo/actualizar" id="editarInsumo" method="POST" > 
@@ -26,7 +27,8 @@
             </div>
         </div>
 
-        <input type="submit" name="agregarInsumo" class="btn btn-info mt-3" value="Actualizar"/>         
-        <a class="btn btn-secondary ml-3 mt-3" href="<?php echo URL; ?>insumo/index"><i class="far fa-window-close"></i> Cancelar</a>
+        <input type="submit" name="agregarInsumo" class="btn btn-info mt-3 mb-3" value="Guardar"/>         
+        <a class="btn btn-secondary ml-3 mt-3 mb-3" href="<?php echo URL; ?>insumo/index"> Cancelar</a>
     </form>
-</div> 
+</div > 
+</div>

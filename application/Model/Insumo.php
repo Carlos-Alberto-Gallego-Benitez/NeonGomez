@@ -50,11 +50,11 @@ class Insumo extends Model
 
     }
 
-    public function AgregarInsumo($nombre, $cantidad, $estado){
+    public function AgregarInsumo($nombre, $cantidad){
 
         $sql = "INSERT INTO insumo (Nombre, Cantidad, Estado) VALUES (:Nombre, :Cantidad, :Estado)";
         $query = $this->db->prepare($sql);
-        $parameters = array(':Nombre' => $nombre, ':Cantidad' => $cantidad, ':Estado' => $estado);        
+        $parameters = array(':Nombre' => $nombre, ':Cantidad' => $cantidad, ':Estado' => 'Activo');        
         //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
         $query->execute($parameters);
     }

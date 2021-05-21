@@ -50,7 +50,7 @@ class Clientecontroller{
         $cliente->__SET("Correo", $_POST["correo"]);
         $cliente->__SET("Direccion", $_POST["direccion"]);
         $cliente->__SET("Telefono", $_POST["telefono"]);
-        $cliente->__SET("Estado", $_POST["estado"]);
+        
         $respuesta = $cliente->registrar();
         
        try{
@@ -89,13 +89,13 @@ class Clientecontroller{
     public function actualizar()
     {
         session_start();
-        $documento = $_POST["documento"];
+        /*$documento = $_POST["documento"];
         $datos = new Cliente();
         $resp = $datos->consultar($documento);
 
         if($resp != null){
             $_SESSION["errore"] = "Error!";
-        }
+        }*/
 
         $cliente = new Cliente();
         $cliente->__SET("Documento", $_POST["documento"]);
@@ -112,7 +112,7 @@ class Clientecontroller{
             if($respuesta = true){
                 $_SESSION["editar"] = "Datos actualizados correctamente";
             }else{
-              $_SESSION["editar"] = "Error de actualizacion";
+              $_SESSION["editar"] = "Error de actualización";
             }
         }catch(\Excepetion $e){
             $_SESSION["editar"] = $e->getMessage();

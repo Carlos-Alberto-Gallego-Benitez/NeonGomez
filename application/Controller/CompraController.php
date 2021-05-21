@@ -44,8 +44,7 @@ class CompraController
     session_start();
     $compra = new Compra();
     $compra->__SET("Fecha",$_POST['fecha']);    
-    $compra->__SET("IDProveedor",$_POST['idproveedor']);    
-    $compra->__SET("Estado",$_POST['estado']);
+    $compra->__SET("IDProveedor",$_POST['idproveedor']);   
     $respuesta = $compra->registrar();
     
 

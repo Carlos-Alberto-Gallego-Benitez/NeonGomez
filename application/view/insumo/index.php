@@ -1,4 +1,4 @@
-<h1 class="text-center mt-4">Gestión de Insumos</h1>
+<h1 class="text-center mt-4">Gestión de insumos</h1>
 
 <div class="container">
         <a href="<?php echo URL; ?>insumo/registro" class="btn btn-info mb-2">Agregar</a>

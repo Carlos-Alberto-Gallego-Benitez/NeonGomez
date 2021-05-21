@@ -27,7 +27,7 @@ class Usuario extends Model
 
     }
 
-    public function registrar($documento,$nombre, $apellido, $correo, $rol ,$telefono ,$estado,$contra)
+    public function registrar($documento,$nombre, $apellido, $correo, $rol ,$telefono ,$contra)
     {
         $sql = "INSERT INTO usuario ( Documento, Nombre, Apellido, Correo, Contrasena, 
         Telefono, Rol, Estado ) VALUES (:Documento, :Nombre, :Apellido, :Correo, :Contrasena, :Telefono, 
@@ -35,7 +35,7 @@ class Usuario extends Model
         $query = $this->db->prepare($sql);
         $parameters = array(':Documento' => $documento, ':Nombre' => $nombre, ':Apellido' => $apellido,
         ':Correo' => $correo, ':Contrasena'=>$contra, ':Telefono' => $telefono, ':Rol'=>$rol,
-        ':Estado' => $estado);        
+        ':Estado' => 'Activo');        
         //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
         $query->execute($parameters);
     }

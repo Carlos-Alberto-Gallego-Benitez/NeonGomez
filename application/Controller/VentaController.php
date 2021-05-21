@@ -48,8 +48,7 @@ class Ventacontroller{
             $venta = new Venta();
             $venta->__SET("Fecha", $_POST["fecha"]);
             $venta->__SET("IDCliente", $_POST["cliente"]);
-            $venta->__SET("Estado", $_POST["estado"]);
-
+            
             $respuesta = $venta->registrar();
 
             if ($respuesta != false) {

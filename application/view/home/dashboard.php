@@ -49,9 +49,7 @@
           <div class="carousel-item active">
             <img src="<?= URL ?>public/img/dashboard/portada1.jpg" class="d-block w-100" alt="...">
           </div>
-          <div class="carousel-item">
-            <img src="<?= URL ?>public/img/dashboard/portada2.png" class="d-block w-100" alt="...">
-          </div>
+          
           <div class="carousel-item">
             <img src="<?= URL ?>public/img/dashboard/portada3.jpg" class="d-block w-100" alt="...">
           </div>

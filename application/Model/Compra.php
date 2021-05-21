@@ -50,11 +50,10 @@ class Compra extends Model
   }
 
   public function registrar(){
-    $sql = "INSERT INTO compra (Fecha, IDProveedor, Estado) VALUES (?,?,?)";
+    $sql = "INSERT INTO compra (Fecha, IDProveedor, Estado) VALUES (?,?,'Activo')";
     $stm = $this->db->prepare($sql);
     $stm->bindParam(1,$this->Fecha);    
-    $stm->bindParam(2,$this->IDProveedor);
-    $stm->bindParam(3,$this->Estado);
+    $stm->bindParam(2,$this->IDProveedor);    
     if ($stm->execute()) {
       return $this->ultimo();
     }else {

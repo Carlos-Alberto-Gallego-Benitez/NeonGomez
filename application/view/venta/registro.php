@@ -5,12 +5,12 @@
     <form action="<?php echo URL; ?>venta/guardar" method="POST"  id="registroVenta" enctype="multipart/form-data">
 
         <div class="form-row mt-3">    
-            <div class="form-group col-4">
+            <div class="form-group col-6">
                 <label for="nombre">Fecha</label>
                 <input type="date" class="form-control" id="fecha" name="fecha">
             </div>
 
-            <div class="form-group col-4">
+            <div class="form-group col-6">
                    <label for="insumos">Cliente</label>
                     <select class="form-control"  id="cliente" name="cliente"> 
                     <option value="">Seleccione</option>                      
@@ -21,15 +21,7 @@
                     </select> 
             </div>
 
-            <div class="form-group col-4">
-                <label for>Estado</label>
-                <select name="estado" class="form-control" id="estado">
-                    <option value="">Seleccione</option>
-                    <option  value="Activo">Activo</option>
-                    <option  value="Inactivo">Inactivo</option>
-                </select>   
             
-            </div>       
         </div> 
 
         <div class="form-row mt-5">    

@@ -29,18 +29,7 @@
                     <option  value="Neon">Neon</option>
                     <option  value="Acrilico">Acrilico</option>
                 </select>
-            </div>   
-
-            <div class="form-group col-md-4">
-                    <label for>Estado</label>
-                    <select name="estado" class="form-control" id="estado">
-                        <option value="">Seleccione</option>
-                        <option  value="Activo">Activo</option>
-                        <option  value="Inactivo">Inactivo</option>
-                    </select>
-            </div> 
-
-                         
+            </div>       
         </div>
         
         <div class="mt-4">
@@ -60,7 +49,7 @@
                         <option value="<?= $datos->IDInsumo ?>"><?=$datos->Nombre?></option>
                     <?php endforeach  ?>
                     </select>
-                    </select>                    
+                                       
                 </div>
 
                 </div>

@@ -75,12 +75,10 @@ class Venta extends Model{
 
     public function registrar()
     {
-        $sql = "INSERT INTO venta (Fecha, IDCliente, Estado) VALUES (?,?,?)";
+        $sql = "INSERT INTO venta (Fecha, IDCliente, Estado) VALUES (?,?,'Activo')";
         $stm = $this->db->prepare($sql);        
         $stm->bindParam(1, $this->Fecha);
         $stm->bindParam(2, $this->IDCliente);
-        $stm->bindParam(3, $this->Estado);
-           
         
         if($stm->execute()){
             return $this->ultimo(); 

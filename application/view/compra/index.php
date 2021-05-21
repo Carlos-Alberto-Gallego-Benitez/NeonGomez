@@ -19,7 +19,7 @@
                     <tr>
                     <td><?php echo($compra->IDCompra)?></td>
                     <td><?php echo ($compra->Fecha); ?></td>                     
-                    <td><?php echo ($compra->Nombre); ?></td> 
+                    <td><?php echo ($compra->Nombre); ?></td>                     
                     <td><span data-key="usu" class="badge badge-danger"><?php if($compra->Estado=="Inactivo"){echo($compra->Estado);};?></span>
                         <span data-key="usu" class="badge badge-success"><?php if($compra->Estado=="Activo"){echo($compra->Estado);};?></span></td>
                     <td><a href="<?php echo URL . 'compra/editar/' . ($compra->IDCompra); ?>" class="btn btn-info mx-md-n4">Editar</a></td>
