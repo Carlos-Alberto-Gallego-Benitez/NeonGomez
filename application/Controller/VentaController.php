@@ -12,10 +12,7 @@ class Ventacontroller{
 
     public function index(){
 
-        if ($_SESSION['valor']==null) {
-
-            require APP . 'view/home/login.php';
-        }
+       
 
         $venta = new Venta();
         $ventas = $venta->listarVentas();

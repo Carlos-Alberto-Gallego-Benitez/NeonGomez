@@ -10,6 +10,7 @@
                 <td>Fecha</td>
                 <td>Cliente</td>
                 <td>Estado</td>
+                
                 <td></td>
                 <td></td>
             </tr>
@@ -20,6 +21,7 @@
                     <td><?php echo($venta->IDVenta); ?></td>
                     <td><?php echo($venta->Fecha); ?></td>
                     <td><?php echo($venta->Nombre." ".$venta->Apellido); ?></td>
+                    
                     <td>
                         <span data-key="usu" class="badge badge-danger"><?php if($venta->Estado=="Inactivo"){echo($venta->Estado);};?></span>
                         <span data-key="usu" class="badge badge-success"><?php if($venta->Estado=="Activo"){echo($venta->Estado);};?></span>

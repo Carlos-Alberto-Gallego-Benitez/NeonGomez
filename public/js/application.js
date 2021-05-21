@@ -101,6 +101,8 @@ function agregarInsumosc()
     let cantida = $("#cant").val();
     let precio = $("#precio").val();
     let subTotal = parseInt(precio)*parseInt(cantida);
+    
+
 
     $("#tabla_insumos").append(
         "<tr id='tr"+id_insumo+"'> <input type='hidden' name='id_insumo[]' value='"+id_insumo+"'>  <input type='hidden' name='cant[]' value='"+cantida+"'> <input type='hidden' name='precio[]' value='"+precio+"'> <input type='hidden' name='subTotal[]' value='"+subTotal+"'> <td>"+text_insumo+"</td><td>"+cantida+"</td><td>"+precio+"</td><td class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_insumo("+id_insumo+","+subTotal+")' class='btn btn-danger boton'>Eliminar</button></td><tr>"

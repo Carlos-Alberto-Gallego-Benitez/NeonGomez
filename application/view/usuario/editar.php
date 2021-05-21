@@ -7,7 +7,7 @@
         <div class="form-row mt-3">
             <div class="form-group col-md-4">
                 <label for="documento">Documento</label>            
-                <input type="text" class="form-control" id="documento" disabled name="documento" value="<?php echo htmlspecialchars($usuarios->Documento, ENT_QUOTES, 'UTF-8'); ?>">
+                <input type="text" class="form-control" id="documento"  name="documento" value="<?php echo htmlspecialchars($usuarios->Documento, ENT_QUOTES, 'UTF-8'); ?>">
             </div>
 
             <div class="form-group col-4">

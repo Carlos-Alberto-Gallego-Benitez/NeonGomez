@@ -185,22 +185,25 @@ class Usuariocontroller{
 
             $estado = "Activo";
             $usuario = new Usuario();
-            $value = $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$estado,$contrasena);
+            $consulta = $usuario->Consulta($_POST["documento"]);
 
-            //encriptar la contraseña
-            try {
-                if ($usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$_POST["estado"],$contrasena)) {
-                    $_SESSION['registro'] = "Registro exitoso";
-                }  
- 
-            } catch (\Excepetion $e) {
+            if ($consulta != null) {
+                echo '<script>alert("El documento ya se encuentra asociado a un usuario")</script>';
                 
-               $_SESSION['valuen'];
-
+                header('location: ' . URL . 'usuario/registro');
             }
+            else{
+                 
+                $value = $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$estado,$contrasena);
+            }
+
+            
+            
+        }else{
+            header('location: ' . URL . 'usuario/index');
         }
                 
-        header('location: ' . URL . 'usuario/index');
+       
     }
 
     public function editar($idusuario)

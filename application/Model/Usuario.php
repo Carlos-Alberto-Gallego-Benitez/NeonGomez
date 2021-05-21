@@ -69,6 +69,15 @@ class Usuario extends Model
         return $query->fetch();
     }
 
+    public function Consulta($doc)
+    {
+        $sql = "SELECT * FROM usuario WHERE Documento= :Documento LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':Documento' => $doc);
+        $query->execute($parameters);
+        return $query->fetch();
+    }
+
     public function obtenerUsuariologin($correo)
     {
         $sql = "SELECT IDUsuario, Correo, Contrasena, Rol, Nombre, Apellido, Estado, Foto, Documento, Telefono FROM usuario WHERE Correo = :Correo LIMIT 1";
