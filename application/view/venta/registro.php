@@ -81,7 +81,7 @@
      
           
         <button  type="submit" name="nuevaVenta"class="btn btn-info mt-3 mb-3">Guardar</button> 
-        <a class="btn btn-secondary mt-3 ml-3 mb-3" href="<?php echo URL; ?>venta/index"> <i class="far fa-window-close"></i> Cancelar</a>
+        <a class="btn btn-secondary mt-3 ml-3 mb-3" href="<?php echo URL; ?>venta/index"> Cancelar</a>
         </div> 
      
         </div>

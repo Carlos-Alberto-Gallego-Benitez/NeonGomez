@@ -8,17 +8,27 @@ use Mini\Model\Proveedor;
 class CompraController
 {
   public function index(){
-
+    
     $objeto = new Insumo();
     $insumos = $objeto->listadoInsumosS(); 
 
      $compra = new Compra();
      $compras = $compra->listarCompras();
-    
+     $ayudas = $compra->listarMensajes();
+
      require APP . 'view/_templates/header.php';
      require APP . 'view/compra/index.php';
+     
      require APP . 'view/_templates/footer.php';
   }
+
+
+    public function agregarMensaje($mensaje)
+    {
+        
+        $objeto = new Usuario();
+        $entrada = $objeto->registrarMensaje($mensaje);
+    }
 
   public function registro(){
     
@@ -39,75 +49,105 @@ class CompraController
     require APP . 'view/_templates/footer.php';
   }
 
-  public function guardar(){
-    
-    session_start();
-    $compra = new Compra();
-    $compra->__SET("Fecha",$_POST['fecha']);    
-    $compra->__SET("IDProveedor",$_POST['idproveedor']);   
-    $respuesta = $compra->registrar();
-    
 
-    if ($respuesta != false) {
-        $ultimo = $respuesta->id;
+  public function buscar($idcompra)
+    {      
+        $acumulado1 = 0; 
 
-        foreach($_POST["id_insumo"] as $key => $value){
-
-            $detalle = new Compra();
-            $detalle->__SET("IDCompra",$ultimo);
-            $detalle->__SET("IDInsumo", $value);
-            $detalle->__SET("Precio", $_POST["precio"][$key]);  
-            $detalle->__SET("Cantidad", $_POST["cant"][$key]);                      
-            $detalle->__SET("Subtotal", $_POST["subTotal"][$key]);
-            $detalle->__SET("TotalCompra", $value);
-            $detalle->registrarDetalle();
-
-            //aumentar insumos
-            /*$ins = $value;
-            $cantidad = $_POST["cant"][$key];
+        if (isset($idcompra)) {
+            
+            $compra = new Compra(); 
             $insumo = new Insumo();
-            $insumo->aumentar($ins, $cantidad);*/
+            $proveedor = new Proveedor();           
+            $compras = $compra->obtenerCompra($idcompra);
+            $comprasdetalle = $compra->obtenerInsumos($idcompra);
             
-            try{
-              if($detalle = true){
-                  $_SESSION["registro"] = "Registro exitoso";
-              }else{
-                $_SESSION["registro"] = "Error de registro";
-              }
-            }catch(\Excepetion $e){
-              $_SESSION["registro"] = $e->getMessage();
-          }
+            foreach($comprasdetalle as  $valor){
+
+                $acumulado1 += $valor->Subtotal;
+
+            }
+
+
+            $compras = $compra->obtenerCompra($idcompra);
+            $insumos = $insumo->listadoInsumos();
+            $proveedores = $proveedor->listarProveedores2();
+    
+             require APP . 'view/_templates/header.php';
+             require APP . 'view/compra/editar.php';
+             require APP . 'view/_templates/footer.php';
+
+        } else {
             
+            header('location: ' . URL . 'cliente/index');
         }
     }
-    header('location: ' . URL . 'compra/index');
-  }
-
-  public function editar($idcompra){
-    if (isset($idcompra)) {
-
-        $compra = new Compra();
-        $insumo = new Insumo();
-        $proveedor = new Proveedor();
-        $lista = new Compra();
-        
-        $compras = $compra->obtenerCompra($idcompra);
-        $insumos = $insumo->listadoInsumos();
-        $proveedores = $proveedor->listarProveedores2();
-        $lista = $lista->otenerInsumos($idcompra);
-
-         require APP . 'view/_templates/header.php';
-         require APP . 'view/compra/editar.php';
-         require APP . 'view/_templates/footer.php';
-
-    }else{
-        header("location: " . URL . "compra/index");
+    
+    public function guardar(){
+    
+      session_start();
+      $compra = new Compra();
+      $compra->__SET("Fecha",$_POST['fecha']);    
+      $compra->__SET("IDProveedor",$_POST['idproveedor']); 
+      $respuesta = $compra->registrar();
+      
+  
+      if ($respuesta != false) {
+          $ultimo = $respuesta->id;
+  
+          $total = 0;
+          foreach ($_POST['id_insumo'] as $key => $value) {
+                $total += $_POST['subTotal'][$key]; 
+          }
+  
+          foreach($_POST["id_insumo"] as $key => $value){
+  
+              $detalle = new Compra();
+              $detalle->__SET("IDCompra",$ultimo);
+              $detalle->__SET("IDInsumo", $value);
+              $detalle->__SET("Precio", $_POST["precio"][$key]);  
+              $detalle->__SET("Cantidad", $_POST["cant"][$key]);                      
+              $detalle->__SET("Subtotal", $_POST["subTotal"][$key]);
+              $detalle->__SET("TotalCompra", $total);
+              $detalle->registrarDetalle();
+  
+              //aumentar insumos
+              $ins = $value;
+              $cantidad = $_POST["cant"][$key];
+              $insumo = new Compra();
+              $insumo->aumentar($ins, $cantidad);
+              
+              try{
+                if($detalle = true){
+                    $_SESSION["registro"] = "Registro exitoso";
+                }else{
+                  $_SESSION["registro"] = "Error de registro";
+                }
+              }catch(\Excepetion $e){
+                $_SESSION["registro"] = $e->getMessage();
+              } 
+              
+          }
+      }
+      header('location: ' . URL . 'compra/index');
     }
-  }
+
 
   public function eliminarDetalle($iddetalle){
+    $acumulador = 0;
     $detalle = new Compra();
+    $consulta = $detalle->TraerDetalle($iddetalle);
+    $comprasdetalle = $detalle->obtenerInsumos($consulta->IDCompra);
+            
+            foreach($comprasdetalle as  $valor){
+
+                $acumulador += $valor->Subtotal;
+
+            }
+    $resta = $acumulador - $consulta->Subtotal;
+    $consulta2 = $detalle->actualizarDetalle($resta,$consulta->IDCompra);
     $detalle = $detalle->eliminarDetalle($iddetalle);
+
   }
 
 
@@ -121,6 +161,22 @@ class CompraController
     $compra->__SET("IDCompra", $_POST['idcompra']);
     $respuesta = $compra->actualizar();
 
+
+      $comprasDetalle = $compra->obtenerInsumos($_POST['idcompra']);
+      $acumulado1 = 0;
+      $total1 = 0;
+
+      foreach ($comprasDetalle as $valor) {
+          $acumulado1 += $valor->Subtotal;
+      }
+
+      foreach ($_POST['id_insumo'] as $key => $value) {
+            $total1 += $_POST['subTotal'][$key]; 
+      }
+      $final = $acumulado1 + $total1;
+
+      if($total1 > 0){
+
       foreach($_POST["id_insumo"] as $key => $value){
 
           $detalle = new Compra();
@@ -129,15 +185,14 @@ class CompraController
           $detalle->__SET("Precio", $_POST["precio"][$key]);  
           $detalle->__SET("Cantidad", $_POST["cant"][$key]);                      
           $detalle->__SET("Subtotal", $_POST["subTotal"][$key]);
-          $detalle->__SET("TotalCompra", $_POST["valorTotal"][$key]);
+          $detalle->__SET("TotalCompra", $final);
           $detalle->registrarDetalle();
 
-          //descontar insumos
-          /*$ins = $value;
-          $cantidad = $_POST["cant"][$key];
-          $insumo = new Insumo();
-          $insumo->descontar($ins, $cantidad);*/
       }
+      $detalle1 = new Compra();
+      $detalle1 -> actualizarDetalle($final, $_POST['idcompra']);
+
+    }
       try{
         if($detalle = true){
             $_SESSION["editar"] = "Datos actualizados correctamente";

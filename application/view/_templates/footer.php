@@ -40,79 +40,52 @@
          
 
 
-        <script>        
-            $(function(){
-                <?php if (isset($_SESSION["registro"]) && $_SESSION["registro"] != null ):?>
-                                        
-                    Swal.fire({
-  
-                        icon: 'success',
-                        title: '<?= $_SESSION["registro"] ?>',                        
-                        showConfirmButton: false,
-                        timer: 1800
-                    })
-                    
-                    <?php $_SESSION["registro"] = null; ?>          
-    
-                         
-                <?php endif; ?>
-            })
-        </script>  
-    
-        <script>
-
-            $(function(){
+    <script>        
+        $(function(){
+            <?php if(isset($_SESSION["registro"])  != null ):?>            
+                Swal.fire({
+                    icon: 'success',
+                    title: '<?= $_SESSION["registro"] ?>',                        
+                    showConfirmButton: false,
+                    timer: 1800
+                })      
                 
-                <?php if (isset($_SESSION["editar"]) && $_SESSION["editar"] != null ):?>
-                    
-                    Swal.fire({
-  
-                        icon: 'success',
-                        title: 'Datos actualizados correctamente',                        
-                        showConfirmButton: false,
-                        timer: 1800
-                    })
-                    
-                    <?php $_SESSION["editar"] = null; ?>          
-    
-                        
-                <?php endif; ?>
-            })
-        </script>          
-                
-        <!-- pendiente -->
+                <?php $_SESSION["registro"] = null; ?>  
+            <?php endif; ?>
+        })
+    </script> 
 
     <script>
         $(function(){
             
-            <?php if (isset($_SESSION["error"])  != null ):?>  
+            <?php if (isset($_SESSION["editar"]) != null ):?>
+                
+                //alert ('<?= $_SESSION["editar"] ?>');
+                Swal.fire({
 
+                    icon: 'success',
+                    title: '<?= $_SESSION["editar"] ?>',                        
+                    showConfirmButton: false,
+                    timer: 1800
+                })        
+                <?php $_SESSION["editar"] = null; ?>               
+            <?php endif; ?>
+        })
+    </script>  
+    
+    <script>
+        $(function(){
+            
+            <?php if (isset($_SESSION["error"])  != null ):?> 
                 Swal.fire({
                     icon: 'error',
-                    title: '<?= $_SESSION["error"] ?>',
-                    text: 'Registro fallido!',                       
+                    title: 'Error!',
+                    text: '<?= $_SESSION["error"] ?>',                       
                 })       
 
                 <?php $_SESSION["error"] = null; ?> 
             <?php endif; ?>
         })
-    </script>
-    
-    <script>
-        $(function(){
-            
-            <?php if (isset($_SESSION["errore"])  != null ):?>  
-
-                Swal.fire({
-                    icon: 'error',
-                    title: '<?= $_SESSION["errore"] ?>',
-                    text: 'Actualización fallida!',                       
-                })       
-
-                <?php $_SESSION["errore"] = null; ?> 
-            <?php endif; ?>
-        })
-    </script>      
-        
-    </body>
+    </script> 
+</body>
 </html>

@@ -1,7 +1,5 @@
-
-
-    <!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,7 +92,7 @@
 
            swal({
               icon: "success",
-              title: "Se envío el link a su correo exitosamente",
+              title: "Se envió el link a su correo exitosamente",
   
             }).then(function (result) {
   
@@ -129,7 +127,3 @@
    
 </body>
 </html>
-
-
-
-

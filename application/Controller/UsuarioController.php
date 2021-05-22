@@ -14,6 +14,8 @@ class Usuariocontroller{
         
         require APP . 'view/home/login.php'; 
     }
+    
+    
     public function Recuperar()
     {
         
@@ -42,13 +44,13 @@ class Usuariocontroller{
                 if($encriptada != true){
 
                     $_SESSION['error']="falso"; 
-                    require APP . 'view/home/prueba.php';
+                    header('location: ' . URL . 'usuario/login');
     
                 }
                 else if($_SESSION['valor']->Estado=="Inactivo"){
     
-                    $_SESSION['error']="Inactivo";
-                    require APP . 'view/home/prueba.php';
+                    $_SESSION['sip']= $usuarios;
+                    header('location: ' . URL . 'usuario/login');
                 }
                 else{
                     
@@ -63,8 +65,8 @@ class Usuariocontroller{
                 
             }else{
 
-                $_SESSION['error']="no";
-                require APP . 'view/home/prueba.php';
+                $_SESSION['nop']="no";
+                header('location: ' . URL . 'usuario/login');
                 
             }
             
@@ -142,13 +144,16 @@ class Usuariocontroller{
         session_start();
         
         unset($_SESSION['valor']);
-        header('location: ' . URL . 'home/index');
+        header('location: ' . URL . 'usuario/Login');
     }
 
     public function index(){
 
+            
         $usuario = new Usuario();
         $usuarios = $usuario->listarUsuario();
+
+        //$ayudas = $usuario->listarMensajes();
         
         $objeto = new Insumo();
         $insumos = $objeto->listadoInsumosS(); 
@@ -156,6 +161,9 @@ class Usuariocontroller{
         require APP . 'view/_templates/header.php';
         require APP . 'view/usuario/index.php';
         require APP . 'view/_templates/footer.php';
+
+        
+
     }
 
     public function registro()
@@ -172,16 +180,30 @@ class Usuariocontroller{
     {
         if (isset($_POST["agregarusuario"])) {
            
-
-            //encriptar la contraseña
             $contra = $_POST["contra"];
             $contrasena = password_hash($contra, PASSWORD_DEFAULT);
-            
+
+            $estado = "Activo";
             $usuario = new Usuario();
-            $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$contrasena);
+            $consulta = $usuario->Consulta($_POST["documento"]);
+
+            if ($consulta != null) {
+                echo '<script>alert("El documento ya se encuentra asociado a un usuario")</script>';
+                
+                header('location: ' . URL . 'usuario/registro');
+            }
+            else{
+                 
+                $value = $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$estado,$contrasena);
+            }
+
+            
+            
+        }else{
+            header('location: ' . URL . 'usuario/index');
         }
                 
-        header('location: ' . URL . 'usuario/index');
+       
     }
 
     public function editar($idusuario)
@@ -238,7 +260,6 @@ class Usuariocontroller{
    
 
     public function agregarFoto(){
-
         
        $_SESSION['foto']=$_FILES["foto"]["tmp_name"];
          
@@ -259,13 +280,9 @@ class Usuariocontroller{
            echo '<script>alert("Su foto de perfil se actualizó con exito\nPara notar el cambio inicie sesión de nuevo")</script>';
            echo"<script>setTimeout(\"location.href='http://localhost/neonGomez/usuario/perfil'\",100)</script>";
         }
-        
-
     } 
 
     public function cambiodeClave(){
-        
-      
 
         if ($_POST["contra1"]==$_POST['contra2']) {
 
@@ -289,8 +306,8 @@ class Usuariocontroller{
 
                 unset($_SESSION['valida']);
 
-                echo '<script>alert("cambio exitoso")</script>';
-                echo"<script>setTimeout(\"location.href='http://localhost/neonGomez/usuario/perfil'\",100)</script>";
+                echo '<script>alert("La contraseña ha sido actualizada con éxito")</script>';
+                echo"<script>setTimeout(\"location.href='http://localhost/neonGomez/usuario/CerrarSesion'\",100)</script>";
                 
             }
             else{
@@ -299,10 +316,6 @@ class Usuariocontroller{
                 echo"<script>setTimeout(\"location.href='http://localhost/neonGomez/usuario/perfil'\",100)</script>";
 
             }
-            
-            
-
-           
         }
         else{
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,7 @@
     
 </head>
 <body>
+
     <img class="wave" src="<?= URL ?>public/img/login/wave.png">
     <div class="container">
         <div class="img">
@@ -48,8 +49,12 @@
                         
                     </div>
                 </div>
-                <div>       
+                <div>  
+                
                 <p id="p2"></p>
+                <br>
+                <font color="Red"><p id="p3"></p></font>
+                
                 
                 
                 </div>
@@ -64,11 +69,35 @@
     <script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js " > </script> 
     <script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js "> </script> 
     
-    
-    
-    
+     <!--- validacion de entradas--->
+    <?php session_start(); if( $_SESSION['error'] != null){?>
+    <script>
+
+     $("#p3").text("La contraseña es incorrecta :(");
+
+     </script>
+    <?php $_SESSION['error'] = null; }?>
+
+    <?php session_start(); if( $_SESSION['sip'] != null){?>
+    <script>
+     
+     $("#p3").text("Él usuario se encuentra inactivo :(");
+     
+     </script>
+    <?php $_SESSION['sip'] = null; }?>
+
+    <?php session_start(); if( $_SESSION['nop'] != null){?>
+    <script>
+
+     $("#p3").text("Usuario no registrad@ en el sistema :(");
+     
+     </script>
+    <?php $_SESSION['nop'] = null; }?>
     
     <script>
+
+
+
         $(document).ready(function(){
 
             var form = $("#formulario");
@@ -92,27 +121,30 @@
                 if (usuario=="" ) {
                     falsa=false;
 
-                    $("#p1").text("El usuario es requerido");
+                    $("#p1").text("Él usuario es requerido");
                     $("#usuario").focus();
     
                 }
-                if (contra!="" && usuario!="") {
+                if (contra!="") {
 
                     if (contra.length<6 ) {
                         falsa=false;
                         $("#p2").text("La contraseña requiere minimo 6 caracteres");
                        $("#contra").focus();
                     }
-                    if (usuario.length<6 ){
+                    
+                }
+                if (usuario!="") {
+
+                    if (usuario.length <= 14 ){
                       falsa=false;
-                      $("#p1").text("El correo requiere minimo 7 caracteres");
+                      $("#p1").text("Él usuario requiere minimo 15 caracteres");
                       $("#usuario").focus();
                    
                     }
                     
                 }
-               
-
+                
                 return falsa ;
 
             });

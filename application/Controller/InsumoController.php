@@ -40,6 +40,8 @@ class Insumocontroller{
             $insumo = new Insumo();
             $insumo->AgregarInsumo($nombre, $cantidad);
 
+            
+
             header('location: ' . URL . 'insumo/index');
         }
 

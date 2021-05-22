@@ -116,6 +116,14 @@ class Usuario extends Model
         return $query->fetch();
 
     }
+
+    public function consultar($correo)
+    {
+        $sql = "SELECT * FROM usuario WHERE Documento = $correo LIMIT 1";
+        $stm = $this->db->prepare($sql);
+        $stm->execute();        
+        return $stm->fetch();
+    }
 }
 
 

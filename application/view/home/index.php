@@ -1,4 +1,3 @@
-
 <?php if($_SESSION['valor']->Rol=="Administrador"){ ?>
     <div class="container">
 

@@ -1,15 +1,7 @@
-
-
 <?php
-
-  
-
-
 $errores = [];
 
 if(!empty($_POST)){
- 
-    //nombre
 
     if (empty($_POST['usuario'])) {
         $errores['usu']='El Usuario es requerido';
@@ -27,10 +19,6 @@ if(!empty($_POST)){
         $errores['contra']='La Contraseña debe contener Minimo 6 caracteres';
 
     }
-   
-
-    
-
 }
 
 
@@ -38,7 +26,4 @@ echo json_encode([
     'respuesta'=>count($errores)===0,
     'error'=>$errores
 ]);
-
-
-
 ?>
