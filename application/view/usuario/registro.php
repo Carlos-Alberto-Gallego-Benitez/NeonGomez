@@ -49,10 +49,13 @@
             <div class="form-group col-md-4">
                 <label for="telefono">Teléfono</label>
                 <input type="text" class="form-control" id="telefono" name="telefono">
-            </div>              
-
-           
             </div>
+                
+                        
+            
+
+
+        </div>
 
         <input type="submit" name="agregarusuario" class="btn btn-info ml-4 mt-3 mb-3" value="Registrar "/>         
         <a class="btn btn-secondary mt-3 ml-3 mb-3" href="<?php echo URL; ?>usuario/index"> Cancelar</a>

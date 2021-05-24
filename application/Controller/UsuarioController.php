@@ -188,13 +188,23 @@ class Usuariocontroller{
             $consulta = $usuario->Consulta($_POST["documento"]);
 
             if ($consulta != null) {
-                echo '<script>alert("El documento ya se encuentra asociado a un usuario")</script>';
-                
-                header('location: ' . URL . 'usuario/registro');
+                 
+                $objeto = new Insumo();
+                $insumos = $objeto->listadoInsumosS(); 
+        
+                require APP . 'view/_templates/header.php';
+                require APP . 'view/usuario/valdocumento.php';
+                require APP . 'view/_templates/footer.php';
             }
             else{
                  
                 $value = $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$estado,$contrasena);
+                $objeto = new Insumo();
+                $insumos = $objeto->listadoInsumosS(); 
+
+                require APP . 'view/_templates/header.php';
+                require APP . 'view/usuario/valregistro.php';
+                require APP . 'view/_templates/footer.php';
             }
 
             
@@ -205,7 +215,6 @@ class Usuariocontroller{
                 
        
     }
-
     public function editar($idusuario)
     {        
         if (isset($idusuario)) {
@@ -229,9 +238,20 @@ class Usuariocontroller{
     {
         
         if (isset($_POST["editarusuario"])) {
+
             
             $usuario = new Usuario();
             $usuario->actualizar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["telefono"],$_POST["rol"],$_POST["estado"],$_POST["idusuario"]);
+
+            $objeto = new Insumo();
+            $insumos = $objeto->listadoInsumosS(); 
+
+            $usuario = new Usuario();
+            $usuarios = $usuario->listarUsuario();
+           
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/usuario/valactualizar.php';
+            require APP . 'view/_templates/footer.php';
         }
      
         // where to go after song has been added
