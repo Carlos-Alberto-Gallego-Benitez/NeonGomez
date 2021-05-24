@@ -35,7 +35,7 @@ class ProveedorController{
 			session_start();
 			if (isset($_POST['agregarProveedor'])) {
 				$proveedor = new Proveedor();
-				$proveedor->registrar($_POST['codigo'],$_POST['nombre'],$_POST['telefono'],$_POST['direccion'],$_POST['correo'],$_POST['estado']);
+				$proveedor->registrar($_POST['codigo'],$_POST['nombre'],$_POST['telefono'],$_POST['direccion'],$_POST['correo']);
 
 				try{
 					if($proveedor = true){

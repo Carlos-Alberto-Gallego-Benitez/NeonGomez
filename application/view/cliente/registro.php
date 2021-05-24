@@ -29,26 +29,17 @@
             </div>
 
             <div class="form-group col-md-4">
-                <label for="contraseña">Direccion</label>
+                <label for="contraseña">Dirección</label>
                 <input type="text" class="form-control" id="direccion" name="direccion">
             </div>
 
             <div class="form-group col-md-4">
-                <label for="telefono">Telefono</label>
+                <label for="telefono">Teléfono</label>
                 <input type="number" class="form-control" id="telefono" name="telefono">
             </div>    
         </div>        
 
-        <div class="form-row">            
-            <div class="form-group col-md-4">
-                <label for="estado">Estado</label>
-                <select name="estado" id="estado" class="form-control" >
-                    <option value="">Seleccione</option>
-                    <option  value="Activo">Activo</option>
-                    <option  value="Inactivo">Inactivo</option>
-                </select>
-            </div>
-        </div>
+        
         <div class="mb-4">
             <input type="submit" name="agregarcliente" class="btn btn-info" value="Registrar "/>         
             <a class="btn btn-secondary" href="<?php echo URL; ?>cliente/index"> Cancelar</a>

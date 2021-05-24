@@ -50,7 +50,7 @@ font-size: 24px;
 <table>
     <thead >
         <tr class="table">
-            <td>IDInsumo</td>
+            <td>Código</td>
             <td>Nombre</td>
             <td>Cantidad</td>
             <td>Estado</td>

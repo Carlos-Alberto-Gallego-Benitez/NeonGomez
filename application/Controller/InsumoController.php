@@ -35,11 +35,12 @@ class Insumocontroller{
         if (isset($_POST['agregarInsumo'])){
 
             $nombre = $_POST['nombre'];
-            $cantidad = $_POST['cantidad'];
-            $estado = $_POST['estado'];
+            $cantidad = $_POST['cantidad'];            
 
             $insumo = new Insumo();
-            $insumo->AgregarInsumo($nombre, $cantidad, $estado);
+            $insumo->AgregarInsumo($nombre, $cantidad);
+
+            
 
             header('location: ' . URL . 'insumo/index');
         }

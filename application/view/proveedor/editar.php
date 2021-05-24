@@ -5,7 +5,7 @@
     <input type="hidden" name="idproveedor" value="<?php echo htmlspecialchars($proveedor->IDProveedor, ENT_QUOTES, 'UTF-8'); ?>" />
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="codigo">Codigo</label>            
+                <label for="codigo">Código</label>            
                 <input type="text" class="form-control" id="codigo" name="codigo" value="<?php echo htmlspecialchars($proveedor->Codigo, ENT_QUOTES, 'UTF-8'); ?>">
             </div>
 
@@ -15,7 +15,7 @@
             </div>
 
             <div class="form-group col-4">
-            <label for="telefono">Telefono</label>
+            <label for="telefono">Teléfono</label>
             <input type="text" class="form-control" id="telefono" name="telefono" value="<?php echo htmlspecialchars($proveedor->Telefono, ENT_QUOTES, 'UTF-8'); ?>">
             </div>
         </div>
@@ -23,7 +23,7 @@
 
         <div class="form-row">
             <div class="form-group col-4">
-                <label for="direccion">Direccion</label>
+                <label for="direccion">Dirección</label>
                 <input type="text" class="form-control" id="direccion" name="direccion" value="<?php echo htmlspecialchars($proveedor->Direccion, ENT_QUOTES, 'UTF-8'); ?>">
             </div> 
 

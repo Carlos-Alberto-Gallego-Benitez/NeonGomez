@@ -5,12 +5,12 @@
     <form action="<?php echo URL; ?>venta/guardar" method="POST"  id="registroVenta" enctype="multipart/form-data">
 
         <div class="form-row mt-3">    
-            <div class="form-group col-4">
+            <div class="form-group col-6">
                 <label for="nombre">Fecha</label>
                 <input type="date" class="form-control" id="fecha" name="fecha">
             </div>
 
-            <div class="form-group col-4">
+            <div class="form-group col-6">
                    <label for="insumos">Cliente</label>
                     <select class="form-control"  id="cliente" name="cliente"> 
                     <option value="">Seleccione</option>                      
@@ -21,15 +21,7 @@
                     </select> 
             </div>
 
-            <div class="form-group col-4">
-                <label for>Estado</label>
-                <select name="estado" class="form-control" id="estado">
-                    <option value="">Seleccione</option>
-                    <option  value="Activo">Activo</option>
-                    <option  value="Inactivo">Inactivo</option>
-                </select>   
             
-            </div>       
         </div> 
 
         <div class="form-row mt-5">    
@@ -63,7 +55,7 @@
 
            <div class="row">
                
-                <div class="col-md-4 mt-4 ml-2 mb-2 card">
+                <div class="col-md-6 mt-4 ml-2 mb-2 card">
                     <div class="widget">
                         <div class="widget-content">
                             <table id="tabla_venta" class="table ">
@@ -72,7 +64,8 @@
                                         <th>Producto</th>
                                         <th>Precio</th>
                                         <th>Cantidad</th>
-                                        <th>Subtotal</th>                                  
+                                        <th>Subtotal</th>  
+                                        <th>Opciones</th>                                
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -88,7 +81,7 @@
      
           
         <button  type="submit" name="nuevaVenta"class="btn btn-info mt-3 mb-3">Guardar</button> 
-        <a class="btn btn-secondary mt-3 ml-3 mb-3" href="<?php echo URL; ?>venta/index"> <i class="far fa-window-close"></i> Cancelar</a>
+        <a class="btn btn-secondary mt-3 ml-3 mb-3" href="<?php echo URL; ?>venta/index"> Cancelar</a>
         </div> 
      
         </div>

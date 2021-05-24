@@ -47,13 +47,12 @@ thead{
     <table>
     <thead>
 				<tr>
-                <th>ID Proveedor</th><th>Codigo</th><th>Nombre</th><th>Telefono</th><th>Direccion</th><th>Correo</th><th>Estado</th>
+                <th>Código</th><th>Nombre</th><th>Teléfono</th><th>Dirección</th><th>Correo</th><th>Estado</th>
 
 				</tr>
 			</thead>
     <tbody>
               <tr>                
-                  <td><?php echo ($reportesi->IDProveedor); ?></td>
                   <td><?php echo ($reportesi->Codigo); ?></td>
                   <td><?php echo ($reportesi->Nombre); ?></td>
                   <td><?php echo ($reportesi->Telefono); ?></td>

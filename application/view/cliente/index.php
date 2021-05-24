@@ -1,8 +1,8 @@
-<h1 class="text-center">Gestión de clientes</h1>
-<!-- hbfhbfhrehj -->
+<h1 class="text-center mt-4">Gestión de clientes</h1>
+
 <div class="container">
         <a href="<?php echo URL; ?>cliente/registro" class="btn btn-info mb-2">Agregar</a>
-        <a href="<?php echo URL; ?>cliente/reportes" class="btn btn-secondary mb-2">Reporte</a>
+        <a href="<?php echo URL; ?>cliente/reportes" class="btn btn-secondary mb-2">Reporte general</a>
         <table class="table table-striped border tablas">
             <thead >
                 <tr>
@@ -10,8 +10,8 @@
                     <td>Nombre</td>
                     <td>Apellido</td>
                     <td>Correo</td>
-                    <td>Direccion</td>
-                    <td>Telefono</td>
+                    <td>Dirección</td>
+                    <td>Teléfono</td>
                     <td>Estado</td>
                     <td></td>
                     <td></td>

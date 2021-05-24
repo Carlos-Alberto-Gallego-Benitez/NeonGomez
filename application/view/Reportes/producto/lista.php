@@ -31,7 +31,7 @@ h1{
         <table id="tabla_p">
             <thead >
                 <tr>           
-                    <th>Codig</th>
+                    <th>Código</th>
                     <th>Nombre</th>
                     <th>Cantidad</th>
                     <th>Precio</th>

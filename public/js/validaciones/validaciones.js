@@ -274,6 +274,7 @@ $("#editarVenta").validate({
 
 //Validaciones Compra
 $("#registroCompra").validate({
+    
     rules: {
         fecha: {
         required: true

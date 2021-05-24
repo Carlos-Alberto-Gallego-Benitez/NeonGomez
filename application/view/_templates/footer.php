@@ -25,6 +25,11 @@
         <script>
             var url = "<?php echo URL; ?>"
         </script> 
+
+
+
+        <script type="text/javascript" src="<?php echo URL; ?>plugins/select2/dist/js/select2.min.js"></script> 
+        <script src="<?php echo URL;?>public/js/select2/select.js"></script> 
         
         <!-- validaciones  -->
         <script type="text/javascript" src="<?php echo URL; ?>plugins/jqueryvalidator/jquery.validate.min.js"></script> 
@@ -32,60 +37,55 @@
         <script src="<?php echo URL;?>public/js/validaciones/validaciones.js"></script>  
         <!-- ****************** -->
 
-        <script type="text/javascript" src="<?php echo URL; ?>plugins/select2/dist/js/select2.min.js"></script> 
-
-        <script src="<?php echo URL;?>public/js/select2/select.js"></script>  
+         
 
 
-        <script>        
-            $(function(){
-                <?php if (isset($_SESSION["registro"]) && $_SESSION["registro"] != null ):?>
-                                        
-                    Swal.fire({
-  
-                        icon: 'success',
-                        title: '<?= $_SESSION["registro"] ?>',                        
-                        showConfirmButton: false,
-                        timer: 1800
-                    })
-                    
-                    <?php $_SESSION["registro"] = null; ?>          
-    
-                    // Swal.fire({
-                    //     icon: 'error',
-                    //     title: 'Oops...',
-                    //     text: 'Something went wrong!',                       
-                    // })       
-                <?php endif; ?>
-            })
-        </script>  
-    
-        <script>
-
-            $(function(){
+    <script>        
+        $(function(){
+            <?php if(isset($_SESSION["registro"])  != null ):?>            
+                Swal.fire({
+                    icon: 'success',
+                    title: '<?= $_SESSION["registro"] ?>',                        
+                    showConfirmButton: false,
+                    timer: 1800
+                })      
                 
-                <?php if (isset($_SESSION["editar"]) && $_SESSION["editar"] != null ):?>
-                    
-                    Swal.fire({
-  
-                        icon: 'success',
-                        title: '<?= $_SESSION["editar"] ?>',                        
-                        showConfirmButton: false,
-                        timer: 1800
-                    })
-                    
-                    <?php $_SESSION["editar"] = null; ?>          
-    
-                    // Swal.fire({
-                    //     icon: 'error',
-                    //     title: 'Oops...',
-                    //     text: 'Something went wrong!',                       
-                    // })       
-                <?php endif; ?>
-            })
-        </script>          
+                <?php $_SESSION["registro"] = null; ?>  
+            <?php endif; ?>
+        })
+    </script> 
+
+    <script>
+        $(function(){
+            
+            <?php if (isset($_SESSION["editar"]) != null ):?>
                 
-        
-        
-    </body>
+                //alert ('<?= $_SESSION["editar"] ?>');
+                Swal.fire({
+
+                    icon: 'success',
+                    title: '<?= $_SESSION["editar"] ?>',                        
+                    showConfirmButton: false,
+                    timer: 1800
+                })        
+                <?php $_SESSION["editar"] = null; ?>               
+            <?php endif; ?>
+        })
+    </script>  
+    
+    <script>
+        $(function(){
+            
+            <?php if (isset($_SESSION["error"])  != null ):?> 
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error!',
+                    text: '<?= $_SESSION["error"] ?>',                       
+                })       
+
+                <?php $_SESSION["error"] = null; ?> 
+            <?php endif; ?>
+        })
+    </script> 
+</body>
 </html>

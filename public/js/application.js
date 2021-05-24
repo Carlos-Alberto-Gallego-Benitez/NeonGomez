@@ -101,6 +101,8 @@ function agregarInsumosc()
     let cantida = $("#cant").val();
     let precio = $("#precio").val();
     let subTotal = parseInt(precio)*parseInt(cantida);
+    
+
 
     if (id_insumo == null || id_insumo == "Seleccione" || cantida == "" || precio == null) {
 
@@ -124,6 +126,42 @@ function agregarInsumosc()
         $("#valorTotal").text(parseInt(precioTotal) + (parseInt(subTotal))); 
         //subtotalc();
     }
+}
+
+function editarCompra(){ 
+
+    
+    let id_insumo = $("#id_insumo").val();
+    let text_insumo = $("#id_insumo option:selected").text();
+    let cantida = $("#cant").val();  
+    let precio = $("#precio").val();  
+    let subTotal = parseInt(precio)*parseInt(cantida);
+      
+
+    if (id_insumo == null || text_insumo == "Seleccione" || cantida == "" || precio == null) {
+
+        Swal.fire({
+            icon: 'error',
+            text: 'Complete todos los campos',            
+        })
+        
+    }
+    else if(cantida < 0 || cantida == 0){
+        Swal.fire({
+            icon: 'error',
+            text: 'la cantidad debe ser mayor a 0',            
+        })
+        
+    }
+    else{
+
+        let precioTotal = $("#valorTotal").text() || 0;
+        $("#valorTotal").text(parseInt(precioTotal) + (parseInt(subTotal)));
+      
+        $("#tabla_insumos").append("<tr id='tr"+id_insumo+"'><input type='hidden' name='id_insumo[]' value='"+id_insumo+"'><input type='hidden' name='cant[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='subTotal[]' value='"+subTotal+"'><td>"+text_insumo+"</td><td>"+precio+"</td><td>"+cantida+"</td><td id='sub' class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_insumo("+id_insumo+","+subTotal+")' class='btn btn-danger'>Eliminar</button></td></tr>")
+        
+    }
+
 }
 
 function eliminar_insumo(id_insumo,subtotal){
@@ -167,14 +205,16 @@ function ponerPrecio(){
 
 
 
+
 function agregarVenta(){ 
 
+    
     let id_producto = $("#id_producto").val();
     let producto = $("#id_producto option:selected").text();
     let cantida = $("#canti").val();  
     let precio = $("#precio").val();  
     let subTotal = parseInt(precio)*parseInt(cantida);
-        
+      
 
     if (id_producto == null || producto == "Seleccione" || cantida == "" || precio == null) {
 
@@ -184,7 +224,7 @@ function agregarVenta(){
         })
         
     }
-    else if(cantida < 0){
+    else if(cantida < 0 || cantida == 0){
         Swal.fire({
             icon: 'error',
             text: 'la cantidad debe ser mayor a 0',            
@@ -193,14 +233,75 @@ function agregarVenta(){
     }
     else{
 
-        $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' value='"+subTotal+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td id='sub' class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_producto("+id_producto+","+subTotal+")' class='btn btn-danger'>Eliminar</button></td></tr>")
-        
         let precioTotal = $("#valorTotal").text() || 0;
-        
         $("#valorTotal").text(parseInt(precioTotal) + (parseInt(subTotal)));
 
+        $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' value='"+subTotal+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td id='sub' class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_producto("+id_producto+","+subTotal+")' class='btn btn-danger'>Eliminar</button></td></tr>")
+        
+        
+        
+        
+
+     
+
+         
+      
         
     }
+
+    
+    
+        
+    
+}
+
+function EditarVenta(){ 
+
+    
+    let id_producto = $("#id_producto").val();
+    let producto = $("#id_producto option:selected").text();
+    let cantida = $("#canti").val();  
+    let precio = $("#precio").val();  
+    let subTotal = parseInt(precio)*parseInt(cantida);
+      
+
+    if (id_producto == null || producto == "Seleccione" || cantida == "" || precio == null) {
+
+        Swal.fire({
+            icon: 'error',
+            text: 'Complete todos los campos',            
+        })
+        
+    }
+    else if(cantida < 0 || cantida == 0){
+        Swal.fire({
+            icon: 'error',
+            text: 'la cantidad debe ser mayor a 0',            
+        })
+        
+    }
+    else{
+
+        let precioTotal = $("#valorTotal").text() || 0;
+        $("#valorTotal").text(parseInt(precioTotal) + (parseInt(subTotal)));
+
+        $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' value='"+subTotal+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td id='sub' class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_producto("+id_producto+","+subTotal+")' class='btn btn-danger'>Eliminar</button></td></tr>")
+        
+        
+        
+        
+
+     
+
+         
+      
+        
+    }
+
+    
+    
+        
+    
 }
 
 function eliminar_producto(id_producto,subtotal){
@@ -229,5 +330,30 @@ function eliminarDetalle2(iddetalle)
     });
 }
 
+//mensaje de ayuda online
 
+function ayudaOnline()
+{        
+    let mensaje = $("#mensaje").val();  
+    let doc = $("#doc").val();  
+    
+    if (mensaje == "") {
+        $('#res').text("¡Completa este campo!");
+    }
+    else{
 
+        $.ajax({
+            dataType:'json',
+            type:'post',
+            url:url+"usuario/agregarMensaje",
+            data:{mensaje:mensaje_add, doc:doc_add},
+    
+        })
+        Swal.fire({
+            icon: 'success',
+            text: 'Duda registrada (refresh)',            
+        })
+
+    }
+    
+}

@@ -40,7 +40,6 @@ class Productocontroller
         $producto->__SET("Cantidad", $_POST["cantidad"]);
         $producto->__SET("Precio", $_POST["precio"]);
         $producto->__SET("Tipo", $_POST["tipo"]);
-        $producto->__SET("Estado", $_POST["estado"]);
         $producto->__SET("Foto", file_get_contents($_FILES["foto"]["tmp_name"]));
         
         $respuesta = $producto->registrar();
@@ -186,20 +185,16 @@ class Productocontroller
         $producto = $producto->obtenerProducto($idproducto);
         $lista = $lista->obtenerInsumos($idproducto);                
         $insumosx = $insumo->listadoInsumos();
-
-        
-       
         
         require APP . 'view/reportes/producto/reportei.php';
         
-    } else {
+        } else {
         
         header('location: ' . URL . 'producto/index');
-    }
+        }
     }
 
-
-  
+    
 }
 
 

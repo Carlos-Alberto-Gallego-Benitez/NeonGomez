@@ -51,7 +51,7 @@ font-size: 19px;
 <table>
     <thead >
         <tr class="table">
-            <td>IDInsumo</td>
+            <td>Código</td>
             <td>Nombre</td>
             <td>Cantidad</td>
             <td>Estado</td>

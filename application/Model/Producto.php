@@ -65,14 +65,13 @@ class Producto extends Model
 
     public function registrar()
     {
-        $sql = "INSERT INTO producto_terminado (Nombre, Cantidad, Precio, Tipo, Estado, Foto) VALUES (?,?,?,?,?,?)";
+        $sql = "INSERT INTO producto_terminado (Nombre, Cantidad, Precio, Tipo, Estado, Foto) VALUES (?,?,?,?,'Activo',?)";
         $stm = $this->db->prepare($sql);        
         $stm->bindParam(1, $this->Nombre);
         $stm->bindParam(2, $this->Cantidad);
         $stm->bindParam(3, $this->Precio);
-        $stm->bindParam(4, $this->Tipo);
-        $stm->bindParam(5, $this->Estado);
-        $stm->bindParam(6, $this->Foto);        
+        $stm->bindParam(4, $this->Tipo);        
+        $stm->bindParam(5, $this->Foto);        
         
         if($stm->execute()){
             return $this->ultimo(); 
@@ -152,6 +151,17 @@ class Producto extends Model
        $stm->bindParam(5, $this->Estado);        
        $stm->bindParam(6, $this->IDProducto);     
        $stm->execute();
+    }
+
+
+    
+
+    public function catalogo()
+    {  
+        $sql = "SELECT * FROM producto_terminado WHERE Estado = 'Activo' ORDER BY RAND() LIMIT 12";
+        $stm = $this->db->prepare($sql);
+        $stm->execute();        
+        return $stm->fetchAll();
     }
     
 }

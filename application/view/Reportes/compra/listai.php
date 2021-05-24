@@ -41,13 +41,13 @@ thead{
 </head>
 <body>
   <hr>
-  <h1>Neon Gomez - Reporte de compra con el ID # <?= $reporteI->IDCompra?></h1>
+  <h1>Neon Gomez - Reporte de compra con el Codigo # <?= $reporteI->IDCompra?></h1>
   <hr>
   <div class="main-container">
     <table>
     <thead>
 				<tr>
-					<th>ID Compra</th><th>Fecha</th><th>Proveedor</th><th>Estado</th>
+					<th>Código</th><th>Fecha</th><th>Proveedor</th><th>Estado</th>
 				</tr>
 			</thead>
     <tbody>

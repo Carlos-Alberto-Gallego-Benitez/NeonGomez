@@ -42,6 +42,36 @@ class Venta extends Model{
 
     }
 
+    public function listarMensajes()
+    {   
+        $sql = "SELECT Mensaje FROM mensaje";
+        $query = $this->db->prepare($sql);
+        $query->execute();        
+        return $query->fetchAll();
+
+    }
+
+    public function TraerDetalle($iddetalle)
+    {   
+        $sql = "SELECT IDVenta, Subtotal FROM detalle_venta WHERE IDDetalle = $iddetalle";
+        $query = $this->db->prepare($sql);
+        $query->execute();        
+        return $query->fetch();
+
+    }
+
+
+
+    public function registrarMensaje($mensaje)
+    {
+        $sql = "INSERT INTO mensaje ( Mensaje) VALUES (:Mensaje)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':Mensaje' => $mensaje);        
+        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+        $query->execute($parameters);
+    }
+
+
     public function listarVentasr()
     {   
         $sql = "SELECT V.IDVenta, V.Fecha, V.Estado, C.Nombre, C.Apellido, D.Subtotal, D.ValorTotal, D.Cantidad, P.Nombre AS nombre FROM venta v 
@@ -75,13 +105,11 @@ class Venta extends Model{
 
     public function registrar()
     {
-        $sql = "INSERT INTO venta (Fecha, IDCliente, Estado) VALUES (?,?,?)";
+        $sql = "INSERT INTO venta (Fecha, IDCliente, Estado) VALUES (?,?,'Activo')";
         $stm = $this->db->prepare($sql);        
         $stm->bindParam(1, $this->Fecha);
         $stm->bindParam(2, $this->IDCliente);
-        $stm->bindParam(3, $this->Estado);
-           
-        
+               
         if($stm->execute()){
             return $this->ultimo(); 
         }else{
@@ -122,7 +150,7 @@ class Venta extends Model{
 
     public function obtenerDetalleVenta($id)
     {    
-        $sql = "SELECT D.Cantidad, D.Precio, D.Subtotal, P.Nombre, D.IDDetalle FROM detalle_venta d JOIN producto_terminado p ON p.IDProducto = d.IDProducto WHERE d.IDVenta = $id ";
+        $sql = "SELECT D.Cantidad, D.Precio, D.Subtotal, P.Nombre, D.IDDetalle, D.ValorTotal FROM detalle_venta d JOIN producto_terminado p ON p.IDProducto = d.IDProducto WHERE d.IDVenta = $id ";
         $stm = $this->db->prepare($sql);
         $stm->execute();        
         return $stm->fetchAll();
@@ -143,38 +171,14 @@ class Venta extends Model{
        $stm->execute();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
-/* 
-public function listarVentas()
-    {   
-        $sql = "SELECT V.IDVenta, V.Fecha, V.Estado, C.Nombre, C.Apellido FROM venta v 
-        JOIN cliente c ON c.IDCliente = v.IDCliente";
+    public function actualizarDetalle($valor, $idventa)
+    {
+        $sql = "UPDATE detalle_venta SET ValorTotal = :ValorTotal WHERE IDVenta= :IDVenta";
         $query = $this->db->prepare($sql);
-        $query->execute();        
-        return $query->fetchAll();
+        $parameters = array(':ValorTotal' => $valor, ':IDVenta' => $idventa);
+                
+        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
 
+        $query->execute($parameters);
     }
-
-*/
+}

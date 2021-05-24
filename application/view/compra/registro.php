@@ -4,13 +4,13 @@
 
     <form action="<?php echo URL; ?>compra/guardar" method="POST" id="registroCompra">
         <div class="form-row">
-            <div class="form-group col-4">
+            <div class="form-group col-6">
                 <label for="fecha">Fecha</label>
                 <input type="date" class="form-control" id="fecha" name="fecha">
             </div>
 
             <!--Proveedore-->
-            <div class="form-group col-4">
+            <div class="form-group col-6">
             <label for="idproveedor">Proveedor</label>
             <select class="form-control"  id="idproveedor" name="idproveedor">
                     <option value="">Seleccione</option>
@@ -21,14 +21,7 @@
                     </select>
             </div>
 
-            <div class="form-group col-md-4">
-                <label for>Estado</label>
-                <select name="estado" class="form-control" id="estado">
-                    <option value="">Seleccione</option>
-                    <option  value="Activo">Activo</option>
-                    <option  value="Inactivo">Inactivo</option>
-                </select>
-            </div>
+            
         </div>        
         <!-- <button class="btn btn-info" type="button" onclick="agregarInsumos()">+</button> -->
 

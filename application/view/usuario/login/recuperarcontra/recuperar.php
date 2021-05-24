@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,17 +71,17 @@
                 if (usuario=="") {
                     falsa=false;
 
-                    $("#p2").text("completa el campo correo y sin espacios");
+                    $("#p2").text("completa el campo correo, sin espacios");
             
                     $("#usuario").focus();
         
                 }
                 if (usuario!="") {
                     
-                    if (usuario.length<17) {
+                    if (usuario.length<= 15) {
                         falsa=false;
                        
-                        $("#p2").text("El correo requiere minimo 17 caracteres");
+                        $("#p2").text("El correo requiere minimo 16 caracteres");
             
                         $("#usuario").focus();
                     
