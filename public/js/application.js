@@ -102,12 +102,28 @@ function agregarInsumosc()
     let precio = $("#precio").val();
     let subTotal = parseInt(precio)*parseInt(cantida);
 
-    $("#tabla_insumos").append(
-        "<tr id='tr"+id_insumo+"'> <input type='hidden' name='id_insumo[]' value='"+id_insumo+"'>  <input type='hidden' name='cant[]' value='"+cantida+"'> <input type='hidden' name='precio[]' value='"+precio+"'> <input type='hidden' name='subTotal[]' value='"+subTotal+"'> <td>"+text_insumo+"</td><td>"+cantida+"</td><td>"+precio+"</td><td class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_insumo("+id_insumo+","+subTotal+")' class='btn btn-danger boton'>Eliminar</button></td><tr>"
-    )
-    let precioTotal = $("#valorTotal").text() || 0;
-    $("#valorTotal").text(parseInt(precioTotal) + (parseInt(subTotal))); 
-    //subtotalc();
+    if (id_insumo == null || id_insumo == "Seleccione" || cantida == "" || precio == null) {
+
+        Swal.fire({
+            icon: 'error',
+            text: 'Complete todos los campos',            
+        })
+        
+    }
+    else if(cantida < 0){
+        Swal.fire({
+            icon: 'error',
+            text: 'la cantidad debe ser mayor a 0',            
+        })
+        
+    }else{
+        $("#tabla_insumos").append(
+            "<tr id='tr"+id_insumo+"'> <input type='hidden' name='id_insumo[]' value='"+id_insumo+"'>  <input type='hidden' name='cant[]' value='"+cantida+"'> <input type='hidden' name='precio[]' value='"+precio+"'> <input type='hidden' name='subTotal[]' value='"+subTotal+"'> <td>"+text_insumo+"</td><td>"+cantida+"</td><td>"+precio+"</td><td class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_insumo("+id_insumo+","+subTotal+")' class='btn btn-danger boton'>Eliminar</button></td><tr>"
+        )
+        let precioTotal = $("#valorTotal").text() || 0;
+        $("#valorTotal").text(parseInt(precioTotal) + (parseInt(subTotal))); 
+        //subtotalc();
+    }
 }
 
 function eliminar_insumo(id_insumo,subtotal){
