@@ -6,6 +6,7 @@ use Mini\Model\Usuario;
 use Mini\Model\Insumo;
 use sweetalert2;
 
+
 class Usuariocontroller{
 
 
@@ -37,6 +38,8 @@ class Usuariocontroller{
                    
             $usuarios = $usuario->obtenerUsuariologin($correo);
             $_SESSION['valor']=$usuarios;
+
+            
 
             if ($_SESSION['valor']!=null) {
                 $encriptada = password_verify($contra, $usuarios->Contrasena);
@@ -149,18 +152,28 @@ class Usuariocontroller{
 
     public function index(){
 
-            
-        $usuario = new Usuario();
-        $usuarios = $usuario->listarUsuario();
+       if($_SESSION['valor']->Nombre != ""){
 
-        $ayudas = $usuario->listarMensajes();
+            $usuario = new Usuario();
+            $usuarios = $usuario->listarUsuario();
+
+            $ayudas = $usuario->listarMensajes();
         
-        $objeto = new Insumo();
-        $insumos = $objeto->listadoInsumosS(); 
+            $objeto = new Insumo();
+            $insumos = $objeto->listadoInsumosS(); 
 
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/usuario/index.php';
-        require APP . 'view/_templates/footer.php';
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/usuario/index.php';
+            require APP . 'view/_templates/footer.php';
+
+        }
+        if ($_SESSION['valor']->Nombre == null) {
+            header('location: ' . URL . 'usuario/Login');
+            
+        }
+
+            
+        
 
         
 
