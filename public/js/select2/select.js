@@ -14,3 +14,9 @@ $(document).ready(function() {
     $('#cliente').select2();
     
 });
+
+$(document).ready(function() {
+    
+    $('#idproveedor').select2();
+    
+});
