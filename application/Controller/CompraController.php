@@ -36,7 +36,7 @@ class CompraController
     $insumos = $objeto->listadoInsumosS(); 
 
     $insumo = new Insumo();
-    $insumos = $insumo->listadoInsumos();
+    $insumos3 = $insumo->listadoInsumos();
 
     $proveedor = new Proveedor();
     $proveedores = $proveedor->listarProveedores2();
