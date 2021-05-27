@@ -150,6 +150,10 @@ class Usuariocontroller{
         header('location: ' . URL . 'usuario/Login');
     }
 
+    public function ayudaonline(){
+        require APP . 'view/_templates/ayudaonline.php';
+    }
+
     public function index(){
 
        if($_SESSION['valor']->Nombre != ""){

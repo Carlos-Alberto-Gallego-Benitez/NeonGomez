@@ -38,11 +38,13 @@
                    <select class="form-control"  id="id_producto" name="id_producto" onchange="ponerPrecio()"> 
                     <option>Seleccione</option>                      
                     <?php foreach ($productos as $producto): ?>                         
-                        <option precio="<?= $producto->Precio ?>" value="<?= $producto->IDProducto ?>"><?=$producto->Nombre?></option>
+                        <option cantida2="<?= $producto->Cantidad ?>" precio="<?= $producto->Precio ?>" value="<?= $producto->IDProducto ?>"><?=$producto->Nombre?></option>
                     <?php endforeach  ?>
                     </select>
                     </select> 
             </div>
+
+            <input type="hidden" name="" value="0" id="cantidad3">
 
             <div class="form-group col-4">
               <label for="">Precio</label>

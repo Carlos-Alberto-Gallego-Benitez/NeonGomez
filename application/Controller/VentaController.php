@@ -34,6 +34,18 @@ class Ventacontroller{
         $entrada = $objeto->registrarMensaje($mensaje);
     }
 
+    public function Restar($idproducto, $cantidad){
+
+        $objeto = new Venta();
+        $traido = $objeto->TraerProducto($idproducto);
+
+        $resta = $traido->Cantidad - $cantidad;
+
+        $objeto->actualizarProducto($idproducto, $resta);
+
+
+    }
+
     public function registro()
     {
         $cliente = new Cliente();

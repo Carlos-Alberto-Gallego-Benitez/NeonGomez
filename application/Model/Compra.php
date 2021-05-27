@@ -29,7 +29,7 @@ class Compra extends Model
   }
 
   public function listarCompras(){
-    $sql = "SELECT c.IDCompra, c.Fecha, c.Estado, p.Nombre FROM compra c JOIN proveedor p ON p.IDProveedor = c.IDProveedor";
+    $sql = "SELECT c.IDCompra, c.Fecha, c.Estado, p.Nombre FROM compra c JOIN proveedor p ON p.IDProveedor = c.IDProveedor ORDER BY C.Fecha desc ";
     $stm = $this->db->prepare($sql);
     $stm->execute();
     return $stm->fetchAll();

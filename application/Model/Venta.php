@@ -60,7 +60,25 @@ class Venta extends Model{
 
     }
 
+    public function TraerProducto($idproducto)
+    {   
+        $sql = "SELECT Cantidad FROM producto_terminado WHERE IDProducto = $idproducto";
+        $query = $this->db->prepare($sql);
+        $query->execute();        
+        return $query->fetch();
 
+    }
+
+    public function actualizarProducto($idproducto, $valor)
+    {
+        $sql = "UPDATE producto_terminado SET Cantidad = :Cantidad WHERE IDProducto= :IDProducto";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':Cantidad' => $valor, ':IDProducto' => $idproducto);
+                
+        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+        $query->execute($parameters);
+    }
 
     public function registrarMensaje($mensaje)
     {

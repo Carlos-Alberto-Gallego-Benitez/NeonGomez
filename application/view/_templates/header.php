@@ -33,7 +33,7 @@
                 </div>
             </form>
             <!-- ayuda oline--->
-             <a href="https://chat.whatsapp.com/JaFl53YL0ZfGkicDMomjAb"><h6 class="text-white mr-5"> ¿Necesitas ayuda?<img src="<?= URL ?>public/img/ayuda/wplog.png" width="40" height="40" ></h6></a>
+             <a target="_blank" href="<?php echo URL ?>usuario/ayudaonline"><h6 class="text-white mr-5"> ¿Necesitas ayuda?</h6></a>
             
             
             <!-- Notification-->
@@ -122,7 +122,8 @@
                         
                         <a class="dropdown-item" href="<?= URL ?>usuario/perfil">Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?php echo URL ?>usuario/CerrarSesion">Cerrar sesión</a>
+                        <a class="dropdown-item salir" id="salir" href="<?php echo URL ?>usuario/CerrarSesion">Cerrar sesión</a>
+                        
                     </div>
                 </li>
             </ul>
@@ -251,7 +252,9 @@
             <div id="layoutSidenav_content">
                 <main>
 
-        <?php } ?>   
+        <?php } ?> 
+
+      
         
         
           

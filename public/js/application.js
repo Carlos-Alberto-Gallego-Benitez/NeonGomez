@@ -183,8 +183,10 @@ function eliminarDetallec(iddetalle)
 
 function ponerPrecio(){
     var valor = $("#id_producto").val();
-    var precio =  $("#id_producto [value='"+valor+"']").attr("precio");    
+    var precio =  $("#id_producto [value='"+valor+"']").attr("precio"); 
+    var canti =  $("#id_producto [value='"+valor+"']").attr("cantida2");    
     $("#precio").val(precio)
+    $("#cantidad3").val(canti)
 }
 
 
@@ -197,25 +199,34 @@ function agregarVenta(){
     let producto = $("#id_producto option:selected").text();
     let cantida = $("#canti").val();  
     let precio = $("#precio").val();  
+    let stock = $("#cantidad3").val();  
     let subTotal = parseInt(precio)*parseInt(cantida);
-      
 
-    if (id_producto == null || producto == "Seleccione" || cantida == "" || precio == null) {
+    if(parseInt(cantida) > parseInt(stock)){
 
         Swal.fire({
-            icon: 'error',
+            icon: 'warning',
+            text: 'la cantidad ingresada es mayor a la del producto',            
+        })
+
+    }
+    else if (id_producto == null || producto == "Seleccione" || cantida == "" || precio == null) {
+
+        Swal.fire({
+            icon: 'warning',
             text: 'Complete todos los campos',            
         })
         
     }
     else if(cantida < 0 || cantida == 0){
         Swal.fire({
-            icon: 'error',
+            icon: 'warning',
             text: 'la cantidad debe ser mayor a 0',            
         })
         
     }
     else{
+        
 
         let precioTotal = $("#valorTotal").text() || 0;
         $("#valorTotal").text(parseInt(precioTotal) + (parseInt(subTotal)));
@@ -223,7 +234,11 @@ function agregarVenta(){
         $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' value='"+subTotal+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td id='sub' class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_producto("+id_producto+","+subTotal+")' class='btn btn-danger'>Eliminar</button></td></tr>")
         
         
-        
+       /* $.ajax({
+            dataType:'json',
+            type:'post',
+            url:url+"venta/Restar/"+id_producto+"/"+cantida,
+        })*/
         
 
      
