@@ -112,6 +112,8 @@ function agregarInsumosc()
     //subtotalc();
 }
 
+
+
 function editarCompra(){ 
 
     
@@ -189,6 +191,14 @@ function ponerPrecio(){
     $("#cantidad3").val(canti)
 }
 
+function suma(){
+
+    var valor1 = $("#valor1").attr(); 
+    var valor2 = $("#valor1").attr();  
+
+    $("#final").val(parseInt(valor1)+parseInt(valor2))
+
+}
 
 
 

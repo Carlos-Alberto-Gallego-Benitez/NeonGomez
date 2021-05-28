@@ -33,7 +33,6 @@
                 </div>
             </form>
             <!-- ayuda oline--->
-             <a target="_blank" href="<?php echo URL ?>usuario/ayudaonline"><h6 class="text-white mr-5"> ¿Necesitas ayuda?</h6></a>
             
             
             <!-- Notification-->
@@ -121,6 +120,8 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         
                         <a class="dropdown-item" href="<?= URL ?>usuario/perfil">Perfil</a>
+                        <div class="dropdown-divider"></div>
+                        <a target="_darck" class="dropdown-item" href="<?= URL ?>usuario/ayudaonline"> Ayuda</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item salir" id="salir" href="<?php echo URL ?>usuario/CerrarSesion">Cerrar sesión</a>
                         

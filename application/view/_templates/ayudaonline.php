@@ -21,73 +21,68 @@
   <div class="row">
   
   <div class="col-xl-6 col-md-6">
+  <a href="">
       <div class="card bg-light text-dark mb-3">
           <div class="card-body"><i class="fas fa-user-clock icono "></i><h5 class="text-center ">Gestión de usuarios</h5></div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-              <a>8:00 a.m a 5:00 p.m lunes a viernes <br>8:00 a.m a 2:00 p.m sábados</a>
-              
-          </div>
+         
       </div>
+      </a>
   </div>
+  
+  
 
   <div class="col-xl-6 col-md-6">
+      <a href="">
       <div class="card bg-light text-dark mb-3">
           <div class="card-body"><i class="fas fa-chalkboard-teacher"></i><h5 class="text-center ">Gestión de proveedores</h5></div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-              <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
-              
-          </div>
+          
       </div>
+      </a>
   </div>
 
   <div class="col-xl-6 col-md-6">
+      <a href="">
       <div class="card bg-light text-dark mb-3">
           <div class="card-body"><i class="fas fa-box-tissue"></i><h5 class="text-center ">Gestión de insumos</h5></div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-          <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
-              
-          </div>
+         
       </div>
+      </a>
   </div>
 
   <div class="col-xl-6 col-md-6">
+      <a href="">
       <div class="card bg-light text-dark mb-3">
           <div class="card-body"><i class="fas fa-cart-arrow-down"></i><h5 class="text-center ">Gestión de compras</h5></div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-          <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
-              
-          </div>
+         
       </div>
+      </a>
   </div>
 
   <div class="col-xl-6 col-md-6">
+      <a href="">
       <div class="card bg-light text-dark mb-3">
           <div class="card-body"><i class="fas fa-child"></i><h5 class="text-center ">Gestión de clientes</h5></div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-          <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
-              
-          </div>
+          
       </div>
+      </a>
   </div>
 
   <div class="col-xl-6 col-md-6">
+      <a href="">
       <div class="card bg-light text-dark mb-3">
           <div class="card-body"><i class="fas fa-balance-scale"></i><h5 class="text-center ">Gestión de producto_terminado</h5></div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-          <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
-              
-          </div>
+          
       </div>
+      </a>
   </div>
 
   <div class="col-xl-6 col-md-6">
+      <a href="">
       <div class="card bg-light text-dark mb-3">
           <div class="card-body"><i class="fas fa-box"></i><h5 class="text-center ">Gestión de ventas</h5></div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-          <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
-              
-          </div>
+          
       </div>
+      </a>
   </div>
 
 

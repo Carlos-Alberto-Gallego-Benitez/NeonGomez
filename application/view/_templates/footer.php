@@ -136,21 +136,7 @@
             })
         </script>  
 
-          <script>
-
-
-Swal.fire({
-  
-  icon: 'success',
-  title: 'Registro exitoso',  
-  content: "input",                      
-  showConfirmButton: true,
-  buttons: false,
-  angerMode: true,
-})
-                       
-                        
-           </script>  
+        
 
         
 
