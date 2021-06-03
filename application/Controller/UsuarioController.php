@@ -156,7 +156,7 @@ class Usuariocontroller{
 
     public function index(){
 
-       if($_SESSION['valor']->Nombre != ""){
+       
 
             $usuario = new Usuario();
             $usuarios = $usuario->listarUsuario();
@@ -170,11 +170,8 @@ class Usuariocontroller{
             require APP . 'view/usuario/index.php';
             require APP . 'view/_templates/footer.php';
 
-        }
-        if ($_SESSION['valor']->Nombre == null) {
-            header('location: ' . URL . 'usuario/Login');
-            
-        }
+        
+        
 
             
         

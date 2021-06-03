@@ -60,26 +60,6 @@
       
         </div>  
 
-        <div class="form-row mt-5">    
-
-            <div class="form-group col-4">
-              <label for="">Valor 1</label>
-               <input id="number" type="text" class="form-control" id="valor1" onchange="suma()"> 
-               
-            </div>
-
-            <div class="form-group col-4">
-              <label for="cantidad">Valor 2</label>
-              <input type="number" class="form-control" id="valor2" onchange="suma()" >
-            </div>
-
-            <div class="form-group col-4">
-              <label for="cantidad">Resultado</label>
-              <input type="number" disabled class="form-control" id="final" readonly >
-            </div>
-
-      
-        </div>  
 
 
         <button class="btn btn-info mb-2 mt-3" type="button" onclick="agregarVenta()">Agregar Producto</button> 
