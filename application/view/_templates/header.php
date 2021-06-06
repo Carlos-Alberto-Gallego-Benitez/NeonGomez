@@ -20,7 +20,7 @@
      <?php session_start(); ?> 
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <img class="mr-3" height=150  src="<?= URL ?>public/img/LOG.png" > 
+    <img class="mr-3" height=150  src="<?= URL ?>public/img/LOGO.png" > 
             
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
