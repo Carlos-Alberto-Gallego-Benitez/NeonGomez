@@ -11,7 +11,7 @@ class ProveedorController{
 
 		$proveedor = new Proveedor();
 		$proveedores = $proveedor->listarProveedores();
-		$ayudas = $proveedor->listarMensajes();
+		
 
 		$objeto = new Insumo();
         $insumos = $objeto->listadoInsumosS(); 

@@ -160,8 +160,6 @@ class Usuariocontroller{
 
             $usuario = new Usuario();
             $usuarios = $usuario->listarUsuario();
-
-            $ayudas = $usuario->listarMensajes();
         
             $objeto = new Insumo();
             $insumos = $objeto->listadoInsumosS(); 
@@ -171,13 +169,6 @@ class Usuariocontroller{
             require APP . 'view/_templates/footer.php';
 
         
-        
-
-            
-        
-
-        
-
     }
 
     public function registro()

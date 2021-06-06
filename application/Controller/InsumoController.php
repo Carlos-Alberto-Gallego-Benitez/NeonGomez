@@ -10,7 +10,6 @@ class Insumocontroller{
 
         $insumo = new Insumo();
         $insumos1 = $insumo->listadoInsumos2();
-        $ayudas = $insumo->listarMensajes();
 
         $insumo8 = new Insumo();
         $insumos = $insumo8->listadoInsumosS();

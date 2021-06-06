@@ -16,7 +16,7 @@ class Ventacontroller{
 
         $venta = new Venta();
         $ventas = $venta->listarVentas();
-        $ayudas = $venta->listarMensajes();
+        
         
         $objeto = new Insumo();
         $insumos = $objeto->listadoInsumosS(); 

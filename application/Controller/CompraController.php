@@ -14,7 +14,6 @@ class CompraController
 
      $compra = new Compra();
      $compras = $compra->listarCompras();
-     $ayudas = $compra->listarMensajes();
 
      require APP . 'view/_templates/header.php';
      require APP . 'view/compra/index.php';

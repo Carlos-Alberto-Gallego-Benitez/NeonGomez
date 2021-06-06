@@ -42,15 +42,6 @@ class Venta extends Model{
 
     }
 
-    public function listarMensajes()
-    {   
-        $sql = "SELECT Mensaje FROM mensaje";
-        $query = $this->db->prepare($sql);
-        $query->execute();        
-        return $query->fetchAll();
-
-    }
-
     public function TraerDetalle($iddetalle)
     {   
         $sql = "SELECT IDVenta, Subtotal FROM detalle_venta WHERE IDDetalle = $iddetalle";
@@ -79,16 +70,6 @@ class Venta extends Model{
 
         $query->execute($parameters);
     }
-
-    public function registrarMensaje($mensaje)
-    {
-        $sql = "INSERT INTO mensaje ( Mensaje) VALUES (:Mensaje)";
-        $query = $this->db->prepare($sql);
-        $parameters = array(':Mensaje' => $mensaje);        
-        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-        $query->execute($parameters);
-    }
-
 
     public function listarVentasr()
     {   

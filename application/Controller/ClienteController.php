@@ -11,7 +11,7 @@ class Clientecontroller{
 
         $cliente = new Cliente();
         $clientes = $cliente->listarClientes();
-        $ayudas = $cliente->listarMensajes();
+        
         $objeto = new Insumo();
         $insumos = $objeto->listadoInsumosS(); 
 

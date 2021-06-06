@@ -43,26 +43,6 @@ class Compra extends Model
   
   }
 
-  public function listarMensajes()
-  {   
-      $sql = "SELECT Mensaje FROM mensaje";
-      $query = $this->db->prepare($sql);
-      $query->execute();        
-      return $query->fetchAll();
-
-  }
-
-
-  public function registrarMensaje($mensaje)
-  {
-      $sql = "INSERT INTO mensaje ( Mensaje) VALUES (:Mensaje)";
-      $query = $this->db->prepare($sql);
-      $parameters = array(':Mensaje' => $mensaje);        
-      //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-      $query->execute($parameters);
-  }
-
-
   public function listadoCompras(){
     $sql = "SELECT * FROM compra WHERE Estado = 'Activo' ORDER by IDCompra DESC";
     $stm = $this->db->prepare($sql);

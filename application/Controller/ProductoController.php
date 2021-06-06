@@ -11,7 +11,6 @@ class Productocontroller
     {
         $producto = new Producto();
         $productos = $producto->listarProductos();
-        $ayudas = $producto->listarMensajes();
 
         $objeto = new Insumo();
         $insumos = $objeto->listadoInsumosS();      
@@ -20,13 +19,6 @@ class Productocontroller
         require APP . 'view/producto/index.php';
         
         require APP . 'view/_templates/footer.php';
-    }
-
-    public function agregarMensaje($mensaje)
-    {
-        
-        $objeto = new Usuario();
-        $entrada = $objeto->registrarMensaje($mensaje);
     }
 
     public function registro()
