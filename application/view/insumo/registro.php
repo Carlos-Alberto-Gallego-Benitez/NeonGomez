@@ -14,14 +14,7 @@
                 <input type="text" class="form-control" id="nombre" required name="cantidad">
             </div>
 
-            <div class="form-group  col-md-4">
-                <label for>Estado</label>
-                <select name="estado" id="estado" class="form-control">
-                    <option value="" >Seleccione</option>
-                    <option  value="Activo">Activo</option>
-                    <option  value="Inactivo">Inactivo</option>
-                </select>
-            </div>
+            
         </div>
 
         

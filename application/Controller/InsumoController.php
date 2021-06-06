@@ -21,12 +21,6 @@ class Insumocontroller{
         require APP . 'view/_templates/footer.php';
     }
 
-    public function agregarMensaje($mensaje)
-    {
-        
-        $objeto = new Usuario();
-        $entrada = $objeto->registrarMensaje($mensaje);
-    }
 
     public function registro()
     {
@@ -44,10 +38,9 @@ class Insumocontroller{
 
             $nombre = $_POST['nombre'];
             $cantidad = $_POST['cantidad'];
-            $estado = $_POST['estado'];
 
             $insumo = new Insumo();
-            $insumo->AgregarInsumo($nombre, $cantidad, $estado);
+            $insumo->AgregarInsumo($nombre, $cantidad);
 
             header('location: ' . URL . 'insumo/index');
         }

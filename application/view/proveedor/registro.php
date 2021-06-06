@@ -31,14 +31,7 @@
                 <input type="text" class="form-control" id="correo" name="correo">
             </div>
 
-            <div class="form-group  col-md-4">
-                <label for>Estado</label>
-                <select name="estado" class="form-control">
-                    <option value="">Seleccione</option>
-                    <option  value="Activo">Activo</option>
-                    <option  value="Inactivo">Inactivo</option>
-                </select>
-            </div>
+            
 
            
         </div>

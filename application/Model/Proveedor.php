@@ -35,25 +35,14 @@
 			return $query->fetchAll();
 		}
 
-		public function registrar($codigo, $nombre, $telefono, $direccion, $correo, $estado)
+		public function registrar($codigo, $nombre, $telefono, $direccion, $correo)
 		{
 			$sql = "INSERT INTO proveedor ( Codigo, Nombre, Telefono, Direccion, Correo, Estado) VALUES (:Codigo, :Nombre, :Telefono, :Direccion, :Correo, :Estado )";
 			$query = $this->db->prepare($sql);
-			$parameters = array(':Codigo' => $codigo, ':Nombre' => $nombre, ':Telefono' => $telefono, ':Direccion' => $direccion, ':Correo' => $correo, ':Estado' => $estado);
+			$parameters = array(':Codigo' => $codigo, ':Nombre' => $nombre, ':Telefono' => $telefono, ':Direccion' => $direccion, ':Correo' => $correo, ':Estado' => 'Activo');
 			$query->execute($parameters);
 		}
 	
-	
-		public function registrarMensaje($mensaje)
-		{
-			$sql = "INSERT INTO mensaje ( Mensaje) VALUES (:Mensaje)";
-			$query = $this->db->prepare($sql);
-			$parameters = array(':Mensaje' => $mensaje);        
-			//echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-			$query->execute($parameters);
-		}
-	
-
 		public function obtenerProveedor($idproveedor)
 		{
 			$sql = "SELECT * FROM proveedor WHERE IDProveedor = :IDProveedor LIMIT 1";
