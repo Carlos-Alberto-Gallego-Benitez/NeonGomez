@@ -28,28 +28,18 @@ class Venta extends Model{
         return $this->$attr;
     }
    
-    /*select P.productname, C.CategoryID, ProductID  from Products p 
-    join Categories c on c.CategoryID = p.CategoryID 
-    where ProductID = 77*/
-
+    
     public function listarVentas()
     {   
-        $sql = "SELECT V.IDVenta, V.Fecha, V.Estado, C.Nombre, C.Apellido FROM venta v 
-        JOIN cliente c ON c.IDCliente = v.IDCliente ";
+        $sql = "SELECT DISTINCT V.IDVenta, V.Fecha, V.Estado, C.Nombre, C.Apellido, D.ValorTotal FROM venta v 
+        JOIN cliente c ON c.IDCliente = v.IDCliente
+        JOIN detalle_venta d on v.IDVenta = d.IDVenta";
         $query = $this->db->prepare($sql);
         $query->execute();        
         return $query->fetchAll();
 
     }
-
-    public function listarMensajes()
-    {   
-        $sql = "SELECT Mensaje FROM mensaje";
-        $query = $this->db->prepare($sql);
-        $query->execute();        
-        return $query->fetchAll();
-
-    }
+    
 
     public function TraerDetalle($iddetalle)
     {   
@@ -60,23 +50,11 @@ class Venta extends Model{
 
     }
 
-
-
-    public function registrarMensaje($mensaje)
-    {
-        $sql = "INSERT INTO mensaje ( Mensaje) VALUES (:Mensaje)";
-        $query = $this->db->prepare($sql);
-        $parameters = array(':Mensaje' => $mensaje);        
-        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-        $query->execute($parameters);
-    }
-
-
     public function listarVentasr()
     {   
-        $sql = "SELECT V.IDVenta, V.Fecha, V.Estado, C.Nombre, C.Apellido, D.Subtotal, D.ValorTotal, D.Cantidad, P.Nombre AS nombre FROM venta v 
-        JOIN cliente c ON c.IDCliente = v.IDCliente JOIN detalle_venta d ON d.IDVenta = v.IDVenta 
-        JOIN producto_terminado p ON p.IDProducto = d.IDProducto";
+        $sql = "SELECT DISTINCT V.IDVenta, V.Fecha, V.Estado, C.Nombre, C.Apellido, D.ValorTotal FROM venta v 
+        JOIN cliente c ON c.IDCliente = v.IDCliente
+        JOIN detalle_venta d on v.IDVenta = d.IDVenta";
         $query = $this->db->prepare($sql);
         $query->execute();        
         return $query->fetchAll();
@@ -125,11 +103,8 @@ class Venta extends Model{
         $stm->bindParam(3, $this->Precio);      
         $stm->bindParam(4, $this->Cantida);
         $stm->bindParam(5, $this->Subtotal);
-        $stm->bindParam(6, $this->ValorTotal);  
-        
-       
-        $stm->execute();           
-        
+        $stm->bindParam(6, $this->ValorTotal);
+        $stm->execute();    
     }   
     
     public function obtenerVenta($id)
@@ -165,9 +140,6 @@ class Venta extends Model{
        $stm->bindParam(2, $this->IDCliente);
        $stm->bindParam(3, $this->Estado);
        $stm->bindParam(4, $this->IDVenta);
-       
-
-       
        $stm->execute();
     }
 
@@ -176,9 +148,6 @@ class Venta extends Model{
         $sql = "UPDATE detalle_venta SET ValorTotal = :ValorTotal WHERE IDVenta= :IDVenta";
         $query = $this->db->prepare($sql);
         $parameters = array(':ValorTotal' => $valor, ':IDVenta' => $idventa);
-                
-        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-
         $query->execute($parameters);
     }
 }

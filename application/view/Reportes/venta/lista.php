@@ -51,13 +51,10 @@ font-size: 14px;
 <table class="">
     <thead class="">
         <tr class="table">
-            <td>IDVenta</td>
+            <td>Código</td>
             <td>Fecha</td>
             <td>Cliente</td>
-            <td>Producto</td>
-            <td>Cantidad</td>
-            <td>Subtotal</td>
-            <td>ValorTotal</td>
+            <td>Precio</td> 
             <td>Estado</td>
             
                          
@@ -69,9 +66,8 @@ font-size: 14px;
                 <td><?php echo ($venta->IDVenta); ?></td>                
                 <td><?php echo ($venta->Fecha); ?></td>
                 <td><?php echo ($venta->Nombre." ".$venta->Apellido); ?></td>
-                <td><?php echo($venta->nombre);?></td>
-                <td><?php echo($venta->Cantidad);?></td>
-                <td><?php echo ($venta->Subtotal); ?></td>
+                
+               
                 <td><?php echo ($venta->ValorTotal); ?></td>
                 <td><?php echo ($venta->Estado); ?></td>
            

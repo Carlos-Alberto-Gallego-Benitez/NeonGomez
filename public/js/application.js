@@ -1,35 +1,49 @@
 // ************* insumos del producto *********************
+function cantidades(){
+    var valor = $("#id_insumo").val();
+    var stock =  $("#id_insumo [value='"+valor+"']").attr("stock");
+    $("#stock").val(stock);
+}
+
 function agregarInsumos()
 {
     let id_insumo = $("#id_insumo").val();
     let text_insumo = $("#id_insumo option:selected").text();
-    let cantida = $("#cant").val();  
+    let cantida = $("#cant").val(); 
+    let stock = $("#stock").val(); 
+    //console.log(stock); 
 
-    if(cantida == '' || cantida <0 || cantida == 0 || text_insumo === 'Seleccione'){
+    if(parseInt(cantida) > parseInt(stock)){
+        Swal.fire({
+            icon: 'warning',
+            title: 'Espera!',
+            text: 'La cantidad seleccionada no esta disponible',            
+        })
+    }
+
+    else if(cantida == '' || cantida <0 || cantida == 0 || text_insumo === 'Seleccione'){
         cantida == 0;
         Swal.fire({
-            icon: 'error',
-            title: 'Error...',
+            icon: 'warning',
+            title: 'Espera!',
             text: 'La cantidad de insumos debe ser mayor a cero!',            
         }) 
 
         if(text_insumo === 'Seleccione'){
             Swal.fire({
-                icon: 'error',
-                title: 'Error...',
+                icon: 'warning',
+                title: 'Espera!',
                 text: 'Debe selecionar un insumo para poder continuar!',            
             })
         } 
-    }else{
 
         
-
-
-    $("#tabla_insumos").append(
-        "<tr id='tr"+id_insumo+"'> <input type='hidden' name='id_insumo[]' value='"+id_insumo+"'> <input type='hidden' name='cant[]' value='"+cantida+"'> <td>"+text_insumo+"</td><td>"+cantida+"</td><td><button type='button' onclick='$("+'"'+"#tr"+id_insumo+'"'+").remove()' class='btn btn-danger'>Eliminar</button></td><tr>"
-    )
-    }   
-    
+    }else{            
+            $("#tabla_insumos").append(
+                "<tr id='tr"+id_insumo+"'> <input type='hidden' name='id_insumo[]' value='"+id_insumo+"'> <input type='hidden' name='cant[]' value='"+cantida+"'> <td>"+text_insumo+"</td><td>"+cantida+"</td><td><button type='button' onclick='$("+'"'+"#tr"+id_insumo+'"'+").remove()' class='btn btn-danger'>Eliminar</button></td><tr>"
+            )
+        }  
+       
 }
 
 
@@ -183,12 +197,21 @@ function eliminarDetallec(iddetalle)
 
 function ponerPrecio(){
     var valor = $("#id_producto").val();
-    var precio =  $("#id_producto [value='"+valor+"']").attr("precio");    
+    var precio =  $("#id_producto [value='"+valor+"']").attr("precio"); 
+    var canti =  $("#id_producto [value='"+valor+"']").attr("cantida2");    
     $("#precio").val(precio)
+    $("#cantidad3").val(canti)
 }
 
 
+function suma(){
 
+    var valor1 = $("#valor1").attr(); 
+    var valor2 = $("#valor1").attr();  
+
+    $("#final").val(parseInt(valor1)+parseInt(valor2))
+
+}
 
 function agregarVenta(){ 
 
@@ -197,40 +220,41 @@ function agregarVenta(){
     let producto = $("#id_producto option:selected").text();
     let cantida = $("#canti").val();  
     let precio = $("#precio").val();  
+    let stock = $("#cantidad3").val();  
     let subTotal = parseInt(precio)*parseInt(cantida);
-      
 
-    if (id_producto == null || producto == "Seleccione" || cantida == "" || precio == null) {
+    if(parseInt(cantida) > parseInt(stock)){
 
         Swal.fire({
-            icon: 'error',
+            icon: 'warning',
+            text: 'la cantidad ingresada es mayor a la del producto',            
+        })
+
+    }
+    else if (id_producto == null || producto == "Seleccione" || cantida == "" || precio == null) {
+
+        Swal.fire({
+            icon: 'warning',
             text: 'Complete todos los campos',            
         })
         
     }
     else if(cantida < 0 || cantida == 0){
         Swal.fire({
-            icon: 'error',
+            icon: 'warning',
             text: 'la cantidad debe ser mayor a 0',            
         })
         
     }
     else{
+        
 
         let precioTotal = $("#valorTotal").text() || 0;
         $("#valorTotal").text(parseInt(precioTotal) + (parseInt(subTotal)));
 
         $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' value='"+subTotal+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td id='sub' class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_producto("+id_producto+","+subTotal+")' class='btn btn-danger'>Eliminar</button></td></tr>")
-        
-        
-        
-        
-
-     
-
-         
-      
-        
+               
+       
     }
 
     
@@ -238,7 +262,7 @@ function agregarVenta(){
         
     
 }
-
+// **********************************************
 function EditarVenta(){ 
 
     
@@ -246,20 +270,28 @@ function EditarVenta(){
     let producto = $("#id_producto option:selected").text();
     let cantida = $("#canti").val();  
     let precio = $("#precio").val();  
+    let stock = $("#cantidad3").val(); 
     let subTotal = parseInt(precio)*parseInt(cantida);
       
-
-    if (id_producto == null || producto == "Seleccione" || cantida == "" || precio == null) {
+    if(parseInt(cantida) > parseInt(stock)){
 
         Swal.fire({
-            icon: 'error',
-            text: 'Complete todos los campos',            
+            icon: 'warning',
+            text: 'la cantidad ingresada no esta disponible',            
+        })
+
+    }
+    else if (id_producto == null || producto == "Seleccione" || cantida == "" || precio == null) {
+
+        Swal.fire({
+            icon: 'warning',
+            text: 'Complete todos los campos!',            
         })
         
     }
     else if(cantida < 0 || cantida == 0){
         Swal.fire({
-            icon: 'error',
+            icon: 'warning',
             text: 'la cantidad debe ser mayor a 0',            
         })
         
@@ -271,21 +303,7 @@ function EditarVenta(){
 
         $("#tabla_venta").append("<tr id='tr"+id_producto+"'><input type='hidden' name='id_producto[]' value='"+id_producto+"'><input type='hidden' name='canti[]' value='"+cantida+"'><input type='hidden' name='precio[]' value='"+precio+"'><input type='hidden' name='SubTotal[]' value='"+subTotal+"'><td>"+producto+"</td><td>"+precio+"</td><td>"+cantida+"</td><td id='sub' class='subtotal'>"+subTotal+"</td><td><button type='button' onclick='eliminar_producto("+id_producto+","+subTotal+")' class='btn btn-danger'>Eliminar</button></td></tr>")
         
-        
-        
-        
-
-     
-
-         
-      
-        
     }
-
-    
-    
-        
-    
 }
 
 function eliminar_producto(id_producto,subtotal){

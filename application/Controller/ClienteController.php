@@ -8,7 +8,7 @@ use Mini\Model\Insumo;
 class Clientecontroller{
 
     public function index(){
-
+        
         $cliente = new Cliente();
         $clientes = $cliente->listarClientes();
 
@@ -33,12 +33,13 @@ class Clientecontroller{
     public function guardar()
     {
         session_start();
-
         $documento = $_POST["documento"];
         $datos = new Cliente();
         $resp = $datos->consultar($documento);
 
-        
+        if($resp != null){
+            $_SESSION["error"] = "Error de registro";
+        }        
 
         $cliente = new Cliente();
         $cliente->__SET("Documento", $_POST["documento"]);
@@ -49,8 +50,8 @@ class Clientecontroller{
         $cliente->__SET("Telefono", $_POST["telefono"]);        
         $respuesta = $cliente->registrar();
         
-        if($resp != null){
-            $_SESSION["error"] = "Registro fallido! ";
+        if($respuesta != null){
+            $_SESSION["registro"] = "Registro fallido! ";
         }else {
             $_SESSION["registro"] = "Registro exitoso";
         }
@@ -81,14 +82,6 @@ class Clientecontroller{
     public function actualizar()
     {
         session_start();
-        /*$documento = $_POST["documento"];
-        $datos = new Cliente();
-        $resp = $datos->consultar($documento);
-
-        if($resp != null){
-            $_SESSION["errore"] = "Error!";
-        }*/
-
         $cliente = new Cliente();
         $cliente->__SET("Documento", $_POST["documento"]);
         $cliente->__SET("Nombre", $_POST["nombre"]);

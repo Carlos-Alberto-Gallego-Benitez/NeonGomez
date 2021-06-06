@@ -2,7 +2,7 @@
 
 <div class="container">
         <a href="<?php echo URL; ?>producto/registro" class="btn btn-info mb-2">Agregar</a>
-        <a href="<?php echo URL; ?>producto/reportes" class="btn btn-secondary mb-2">Reporte general</a>
+        <a target="blank" href="<?php echo URL; ?>producto/reportes" class="btn btn-secondary mb-2">Reporte general</a>
         <table class="table table-striped border tablas">
             <thead >
                 <tr>           
@@ -33,7 +33,7 @@
                     <td><img width="30" src="data:image/jpeg;base64,<?php echo base64_encode($producto->Foto);?>"></td>
                     
                     <td><a href="<?php echo URL . 'producto/editar/' . ($producto->IDProducto); ?>" class="btn btn-info mx-md-n4">Editar</a></td>
-                    <td><a href="<?php echo URL . 'producto/reporte/' .($producto->IDProducto); ?>" class="btn btn-secondary mx-md-n2 " >Reporte</a></td>
+                    <td><a target="blank" href="<?php echo URL . 'producto/reporte/' .($producto->IDProducto); ?>" class="btn btn-secondary mx-md-n2 " >Reporte</a></td>
                         
                    
 

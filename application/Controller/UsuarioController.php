@@ -6,6 +6,7 @@ use Mini\Model\Usuario;
 use Mini\Model\Insumo;
 use sweetalert2;
 
+
 class Usuariocontroller{
 
 
@@ -38,6 +39,8 @@ class Usuariocontroller{
             $usuarios = $usuario->obtenerUsuariologin($correo);
             $_SESSION['valor']=$usuarios;
 
+            
+
             if ($_SESSION['valor']!=null) {
                 $encriptada = password_verify($contra, $usuarios->Contrasena);
 
@@ -68,13 +71,8 @@ class Usuariocontroller{
                 $_SESSION['nop']="no";
                 header('location: ' . URL . 'usuario/login');
                 
-            }
-            
-  
-                       
+            }                       
         }
-        
-         
     }
 
     public function Email()
@@ -147,23 +145,25 @@ class Usuariocontroller{
         header('location: ' . URL . 'usuario/Login');
     }
 
+    public function ayudaonline(){
+        require APP . 'view/_templates/ayudaonline.php';
+    }
+
     public function index(){
 
-            
-        $usuario = new Usuario();
-        $usuarios = $usuario->listarUsuario();
+       
 
-        //$ayudas = $usuario->listarMensajes();
+            $usuario = new Usuario();
+            $usuarios = $usuario->listarUsuario();
+
+            //$ayudas = $usuario->listarMensajes();
         
-        $objeto = new Insumo();
-        $insumos = $objeto->listadoInsumosS(); 
+            $objeto = new Insumo();
+            $insumos = $objeto->listadoInsumosS(); 
 
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/usuario/index.php';
-        require APP . 'view/_templates/footer.php';
-
-        
-
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/usuario/index.php';
+            require APP . 'view/_templates/footer.php';
     }
 
     public function registro()
@@ -178,6 +178,7 @@ class Usuariocontroller{
 
     public function guardar()
     {
+        session_start(); 
         if (isset($_POST["agregarusuario"])) {
            
             $contra = $_POST["contra"];
@@ -188,13 +189,33 @@ class Usuariocontroller{
             $consulta = $usuario->Consulta($_POST["documento"]);
 
             if ($consulta != null) {
-                echo '<script>alert("El documento ya se encuentra asociado a un usuario")</script>';
+                 
+                $objeto = new Insumo();
+                $insumos = $objeto->listadoInsumosS(); 
+        
+                if($consulta != null){
+                    $_SESSION["error"] = "Error de registro";
+                }       
+                header('location: ' . URL . 'usuario/index');
                 
-                header('location: ' . URL . 'usuario/registro');
             }
             else{
                  
                 $value = $usuario->registrar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["rol"],$_POST["telefono"],$estado,$contrasena);
+                $objeto = new Insumo();
+                $insumos = $objeto->listadoInsumosS(); 
+
+                try{
+                    if($value =  true){
+                        $_SESSION["registro"] = "Registro exitoso";
+                    }else{
+                      $_SESSION["registro"] = "Error de registro";
+                    }
+                  }catch(\Excepetion $e){
+                    $_SESSION["registro"] = $e->getMessage();
+                } 
+             
+                header('location: ' . URL . 'usuario/index');                
             }
 
             
@@ -205,7 +226,6 @@ class Usuariocontroller{
                 
        
     }
-
     public function editar($idusuario)
     {        
         if (isset($idusuario)) {
@@ -227,14 +247,32 @@ class Usuariocontroller{
 
     public function actualizar()
     {
-        
+        session_start();   
         if (isset($_POST["editarusuario"])) {
+
             
             $usuario = new Usuario();
-            $usuario->actualizar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["telefono"],$_POST["rol"],$_POST["estado"],$_POST["idusuario"]);
+            $respuesta = $usuario->actualizar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["telefono"],$_POST["rol"],$_POST["estado"],$_POST["idusuario"]);
+
+            $objeto = new Insumo();
+            $insumos = $objeto->listadoInsumosS(); 
+
+            $usuario = new Usuario();
+            $usuarios = $usuario->listarUsuario();
+
+            try{
+                if($respuesta = true){
+                    $_SESSION["editar"] = "Datos actualizados correctamente";
+                }else{
+                    $_SESSION["editar"] = "Error de actualización";
+                }
+                }catch(\Excepetion $e){
+                $_SESSION["editar"] = $e->getMessage();
+            }           
+            
         }
      
-        // where to go after song has been added
+        
         header('location: ' . URL . 'usuario/index');
     }
     
@@ -260,6 +298,7 @@ class Usuariocontroller{
    
 
     public function agregarFoto(){
+
         
        $_SESSION['foto']=$_FILES["foto"]["tmp_name"];
          
@@ -280,9 +319,13 @@ class Usuariocontroller{
            echo '<script>alert("Su foto de perfil se actualizó con exito\nPara notar el cambio inicie sesión de nuevo")</script>';
            echo"<script>setTimeout(\"location.href='http://localhost/neonGomez/usuario/perfil'\",100)</script>";
         }
+        
+
     } 
 
     public function cambiodeClave(){
+        
+      
 
         if ($_POST["contra1"]==$_POST['contra2']) {
 
@@ -316,6 +359,10 @@ class Usuariocontroller{
                 echo"<script>setTimeout(\"location.href='http://localhost/neonGomez/usuario/perfil'\",100)</script>";
 
             }
+            
+            
+
+           
         }
         else{
 

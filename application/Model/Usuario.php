@@ -27,7 +27,7 @@ class Usuario extends Model
 
     }
 
-    public function registrar($documento,$nombre, $apellido, $correo, $rol ,$telefono ,$contra)
+    public function registrar($documento,$nombre, $apellido, $correo, $rol ,$telefono ,$estado,$contra)
     {
         $sql = "INSERT INTO usuario ( Documento, Nombre, Apellido, Correo, Contrasena, 
         Telefono, Rol, Estado ) VALUES (:Documento, :Nombre, :Apellido, :Correo, :Contrasena, :Telefono, 
@@ -35,16 +35,45 @@ class Usuario extends Model
         $query = $this->db->prepare($sql);
         $parameters = array(':Documento' => $documento, ':Nombre' => $nombre, ':Apellido' => $apellido,
         ':Correo' => $correo, ':Contrasena'=>$contra, ':Telefono' => $telefono, ':Rol'=>$rol,
-        ':Estado' => 'Activo');        
+        ':Estado' => $estado);        
         //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
         $query->execute($parameters);
     }
+
+    /*public function listarMensajes()
+    {   
+        $sql = "SELECT Mensaje, IDUsuario FROM mensaje";
+        $query = $this->db->prepare($sql);
+        $query->execute();        
+        return $query->fetchAll();
+
+    }*/
+
+
+    public function registrarMensaje($mensaje, $doc)
+    {
+        $sql = "INSERT INTO mensaje (Mensaje, IDUsuario) VALUES (:Mensaje, :IDUsuario)";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':Mensaje' => $mensaje, ':IDUsuario' => $doc);        
+        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+        $query->execute($parameters);
+    }
+
 
     public function obtenerUsuarios($idusuario)
     {
         $sql = "SELECT * FROM usuario WHERE IDUsuario = :IDUsuario LIMIT 1";
         $query = $this->db->prepare($sql);
         $parameters = array(':IDUsuario' => $idusuario);
+        $query->execute($parameters);
+        return $query->fetch();
+    }
+
+    public function Consulta($doc)
+    {
+        $sql = "SELECT * FROM usuario WHERE Documento= :Documento LIMIT 1";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':Documento' => $doc);
         $query->execute($parameters);
         return $query->fetch();
     }
@@ -115,14 +144,6 @@ class Usuario extends Model
         $query->execute($parameters);
         return $query->fetch();
 
-    }
-
-    public function consultar($correo)
-    {
-        $sql = "SELECT * FROM usuario WHERE Documento = $correo LIMIT 1";
-        $stm = $this->db->prepare($sql);
-        $stm->execute();        
-        return $stm->fetch();
     }
 }
 

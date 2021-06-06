@@ -1,5 +1,5 @@
-<div class="container card mt-3" style="width: 68rem;">
-    <h1 class="text-center mt-2">Registro de ventas</h1>
+<div class="container card mt-2" style="width: 68rem;">
+    <h1 class="text-center ">Registro de ventas</h1>
     <hr>
 
     <form action="<?php echo URL; ?>venta/guardar" method="POST"  id="registroVenta" enctype="multipart/form-data">
@@ -25,16 +25,18 @@
         </div> 
 
         <div class="form-row mt-5">    
-            <div class="form-group col-4">
+        <div class="form-group col-4">
                    <label for="insumos">Producto</label>
                    <select class="form-control"  id="id_producto" name="id_producto" onchange="ponerPrecio()"> 
                     <option>Seleccione</option>                      
                     <?php foreach ($productos as $producto): ?>                         
-                        <option precio="<?= $producto->Precio ?>" value="<?= $producto->IDProducto ?>"><?=$producto->Nombre?></option>
+                        <option cantida2="<?= $producto->Cantidad ?>" precio="<?= $producto->Precio ?>" value="<?= $producto->IDProducto ?>"><?=$producto->Nombre?></option>
                     <?php endforeach  ?>
                     </select>
                     </select> 
             </div>
+
+            <input type="hidden" name="" value="0" id="cantidad3">
 
             <div class="form-group col-4">
               <label for="">Precio</label>
@@ -79,9 +81,10 @@
             </div>  
 
      
-          
+       
         <button  type="submit" name="nuevaVenta"class="btn btn-info mt-3 mb-3">Guardar</button> 
-        <a class="btn btn-secondary mt-3 ml-3 mb-3" href="<?php echo URL; ?>venta/index"> Cancelar</a>
+        <a class="btn btn-secondary mt-3  mb-3" href="<?php echo URL; ?>venta/index"> Cancelar</a>
+        
         </div> 
      
         </div>
@@ -92,43 +95,4 @@
 <script src = " https://unpkg.com/sweetalert/dist/sweetalert.min.js " > </script> 
 <script src = "https://unpkg.com/sweetalert/dist/sweetalert.min.js "> </script> 
 
-    <script>
-
-
-        $(document).ready(function(){
-
-            var form = $("#formulario");
-
-  
-            form.submit(function(){
-
-
-                var fecha = ($("#fecha").val());
-                var cliente  = ($("#cliente").val());
-                var estado = ($("#estado").val());
-                
-
-                var falsa="";
-                var mensaje="";
-
-                if (cliente == "Seleccione" || estado == "Seleccione" || fecha == "") {
-                    falsa=false;
-
-                    Swal.fire({
-                      icon: 'warning',
-                      text: 'Complete todos los campos',            
-                    })
-                    $("#cliente").focus();
-                    
-                }
-              
-               
-
-                return falsa ;
-
-            });
-
-
-        });
-
-    </script>
+    

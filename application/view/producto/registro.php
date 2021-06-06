@@ -5,24 +5,26 @@
     <form action="<?php echo URL; ?>producto/guardar" method="POST" id="formularioproductos" enctype="multipart/form-data">
 
     <div class="form-row">    
-            <div class="form-group col-4">
+            <div class="form-group col-6">
                 <label for="nombre">Nombre </label>
                 <input type="text" class="form-control" id="nombre" name="nombre">
             </div>
 
-            <div class="form-group col-4">
+            <div class="form-group col-6">
             <label for="cantidad">Cantidad</label>
             <input type="number" class="form-control" id="cantidad" name="cantidad">
             </div>   
 
-            <div class="form-group col-4">
-                <label for="precio">Precio</label>
-                <input type="number" class="form-control" id="precio" name="precio">
-            </div>         
+                  
         </div>    
 
-        <div class="form-row">             
-            <div class="form-group col-md-4">
+        <div class="form-row">     
+        <div class="form-group col-6">
+                <label for="precio">Precio</label>
+                <input type="number" class="form-control" id="precio" name="precio">
+            </div>   
+
+            <div class="form-group col-md-6">
                 <label for>Tipo De Aviso</label>
                 <select name="tipo" class="form-control" id="tipo">
                     <option value="">Seleccione</option>
@@ -35,21 +37,19 @@
         <div class="mt-4">
             <label for="foto">Imagen</label>           
             <input type="file" name="foto" id="foto">            
-        </div>        
-      
+        </div>  
 
         <div class="target mt-4">
         <div class="row">
             <div class="col-md-4">
-                <div class="form-group">
+                <div class="form-group">                 
                     <label for="insumos">Insumos</label>
-                    <select class="form-control"  id="id_insumo" name="id_insumo"> 
-                    <option value="">Seleccione</option>                      
+                    <select class="form-control"  id="id_insumo" name="id_insumo" onchange="cantidades()"> 
+                    <option value="">Seleccione</option>   
                     <?php foreach ($insumos0 as $datos): ?> 
-                        <option value="<?= $datos->IDInsumo ?>"><?=$datos->Nombre?></option>
+                        <option stock="<?=$datos->Cantidad ?>" value="<?= $datos->IDInsumo ?>"><?=$datos->Nombre?></option>
                     <?php endforeach  ?>
-                    </select>
-                                       
+                    </select>                         
                 </div>
 
                 </div>
@@ -59,8 +59,15 @@
                         <input type="number"  class="form-control" id="cant" name="cant">
                     </div>
                 </div>
-            </div>
 
+                <div class="col-md-4">
+                    <div class="form-group ">
+                        <label for="stock"></label>
+                        <input type="hidden"  class="form-control" id="stock" name="stock" value="0" readonly>
+                    </div>
+                </div>
+
+            </div>
             <button class="btn btn-info mb-2" type="button" onclick="agregarInsumos()">Agregar insumo</button> 
 
 

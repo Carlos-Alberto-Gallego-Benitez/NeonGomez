@@ -14,21 +14,13 @@ class CompraController
 
      $compra = new Compra();
      $compras = $compra->listarCompras();
-     $ayudas = $compra->listarMensajes();
 
      require APP . 'view/_templates/header.php';
      require APP . 'view/compra/index.php';
      
      require APP . 'view/_templates/footer.php';
   }
-
-
-    public function agregarMensaje($mensaje)
-    {
-        
-        $objeto = new Usuario();
-        $entrada = $objeto->registrarMensaje($mensaje);
-    }
+    
 
   public function registro(){
     
@@ -68,7 +60,6 @@ class CompraController
 
             }
 
-
             $compras = $compra->obtenerCompra($idcompra);
             $insumos = $insumo->listadoInsumos();
             $proveedores = $proveedor->listarProveedores2();
@@ -83,14 +74,12 @@ class CompraController
         }
     }
     
-    public function guardar(){
-    
+    public function guardar(){   
       session_start();
       $compra = new Compra();
       $compra->__SET("Fecha",$_POST['fecha']);    
       $compra->__SET("IDProveedor",$_POST['idproveedor']); 
-      $respuesta = $compra->registrar();
-      
+      $respuesta = $compra->registrar();      
   
       if ($respuesta != false) {
           $ultimo = $respuesta->id;
@@ -139,15 +128,14 @@ class CompraController
     $consulta = $detalle->TraerDetalle($iddetalle);
     $comprasdetalle = $detalle->obtenerInsumos($consulta->IDCompra);
             
-            foreach($comprasdetalle as  $valor){
+      foreach($comprasdetalle as  $valor){
 
-                $acumulador += $valor->Subtotal;
+          $acumulador += $valor->Subtotal;
 
-            }
+      }
     $resta = $acumulador - $consulta->Subtotal;
     $consulta2 = $detalle->actualizarDetalle($resta,$consulta->IDCompra);
     $detalle = $detalle->eliminarDetalle($iddetalle);
-
   }
 
 
@@ -197,7 +185,7 @@ class CompraController
         if($detalle = true){
             $_SESSION["editar"] = "Datos actualizados correctamente";
         }else{
-          $_SESSION["editar"] = "Error de de actualizacion";
+          $_SESSION["editar"] = "Error de actualización";
         }
       }catch(\Excepetion $e){
         $_SESSION["editar"] = $e->getMessage();
@@ -219,11 +207,5 @@ class CompraController
     require APP . 'view/reportes/compra/reportei.php';
   }
 
-
-
-
-
-
 }
-
- ?>
+?>

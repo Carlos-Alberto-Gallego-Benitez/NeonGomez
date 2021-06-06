@@ -157,7 +157,7 @@ class Productocontroller
             if($respuesta = true){
                 $_SESSION["editar"] = "Datos actualizados correctamente";
             }else{
-              $_SESSION["editar"] = "Error de de actualizacion";
+              $_SESSION["editar"] = "Error de actualización";
             }
         }catch(\Excepetion $e){
             $_SESSION["editar"] = $e->getMessage();

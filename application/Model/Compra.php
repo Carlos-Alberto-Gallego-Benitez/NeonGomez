@@ -43,26 +43,6 @@ class Compra extends Model
   
   }
 
-  public function listarMensajes()
-  {   
-      $sql = "SELECT Mensaje FROM mensaje";
-      $query = $this->db->prepare($sql);
-      $query->execute();        
-      return $query->fetchAll();
-
-  }
-
-
-  public function registrarMensaje($mensaje)
-  {
-      $sql = "INSERT INTO mensaje ( Mensaje) VALUES (:Mensaje)";
-      $query = $this->db->prepare($sql);
-      $parameters = array(':Mensaje' => $mensaje);        
-      //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-      $query->execute($parameters);
-  }
-
-
   public function listadoCompras(){
     $sql = "SELECT * FROM compra WHERE Estado = 'Activo' ORDER by IDCompra DESC";
     $stm = $this->db->prepare($sql);
@@ -140,24 +120,24 @@ class Compra extends Model
   }
 
   public function actualizarDetalle($valor, $idcompra)
-    {
-        $sql = "UPDATE detalle_compra SET TotalCompra = :TotalCompra WHERE IDCompra= :IDCompra";
-        $query = $this->db->prepare($sql);
-        $parameters = array(':TotalCompra' => $valor, ':IDCompra' => $idcompra);
-                
-        //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+  {
+      $sql = "UPDATE detalle_compra SET TotalCompra = :TotalCompra WHERE IDCompra= :IDCompra";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':TotalCompra' => $valor, ':IDCompra' => $idcompra);
+              
+      //echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
 
-        $query->execute($parameters);
-    }
+      $query->execute($parameters);
+  }
 
-    public function TraerDetalle($iddetalle)
-    {   
-        $sql = "SELECT IDCompra, Subtotal FROM detalle_compra WHERE IDDetalle = $iddetalle";
-        $query = $this->db->prepare($sql);
-        $query->execute();        
-        return $query->fetch();
+  public function TraerDetalle($iddetalle)
+  {   
+      $sql = "SELECT IDCompra, Subtotal FROM detalle_compra WHERE IDDetalle = $iddetalle";
+      $query = $this->db->prepare($sql);
+      $query->execute();        
+      return $query->fetch();
 
-    }
+  }
 
 
 }

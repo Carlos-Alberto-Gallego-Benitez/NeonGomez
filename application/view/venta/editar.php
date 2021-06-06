@@ -51,11 +51,13 @@
                    <select class="form-control"  id="id_producto" name="id_producto" onchange="ponerPrecio()"> 
                     <option>Seleccione</option>                      
                     <?php foreach ($productos as $producto): ?>                         
-                        <option precio="<?= $producto->Precio ?>" value="<?= $producto->IDProducto ?>"><?=$producto->Nombre?></option>
+                        <option  cantida2="<?= $producto->Cantidad ?>" precio="<?= $producto->Precio ?>" value="<?= $producto->IDProducto ?>"><?=$producto->Nombre?></option>
                     <?php endforeach  ?>
                     </select>
                     </select> 
             </div>
+
+            <input type="hidden" name="" value="0" id="cantidad3">
 
             <div class="form-group col-4">
               <label for="">Precio</label>
@@ -76,7 +78,7 @@
 
            <div class="row">
                
-                <div class="col-md-4 mt-4 ml-2 mb-2 card">
+                <div class="col-md-6 mt-4 ml-2 mb-2 card">
                     <div class="widget">
                         <div class="widget-content">
                             <table id="tabla_venta" class="table ">
@@ -128,7 +130,7 @@
      
           
         <button  type="submit" name="nuevaVenta"class="btn btn-info mt-3 mb-3">Guardar</button> 
-        <a class="btn btn-secondary mt-3 ml-3 mb-3" href="<?php echo URL; ?>venta/index"> <i class="far fa-window-close"></i> Cancelar</a>
+        <a class="btn btn-secondary mt-3 ml-3 mb-3" href="<?php echo URL; ?>venta/index"> Cancelar</a>
         </div> 
      
         </div>

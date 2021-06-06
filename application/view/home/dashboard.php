@@ -47,11 +47,10 @@
       <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="<?= URL ?>public/img/dashboard/portada1.jpg" class="d-block w-100" alt="...">
-          </div>
-          
+            <img style="width:100%; height:750px" src="<?= URL ?>public/img/dashboard/portada1.jpg" class="d-block w-100" alt="...">
+          </div>          
           <div class="carousel-item">
-            <img src="<?= URL ?>public/img/dashboard/portada3.jpg" class="d-block w-100" alt="...">
+            <img style="width:100%; height:750px" src="<?= URL ?>public/img/dashboard/portada4.jpg" class="d-block w-100" alt="...">
           </div>
           
         </div>
@@ -79,7 +78,7 @@
               <div class="catalogo-content">              
                 <div class="catalogo-details">                
                 </div>
-                  <img class="img-fluid imagen" src="data:image/jpeg;base64,<?php echo base64_encode($productos->Foto);?>"> 
+                  <img style="width:100%; height:250px" class="img-fluid imagen " src="data:image/jpeg;base64,<?php echo base64_encode($productos->Foto);?>"> 
                 </div>                            
             </div>
             <?php } ?>                                              
@@ -144,21 +143,12 @@
 <div class="container contacto">
   <h2 class="text-center">Contáctanos</h2>
 
-  <div class="row">
+  <div class="row"> 
   
-  <div class="col-xl-6 col-md-6">
-      <div class="card bg-light text-dark mb-3">
-          <div class="card-body"><i class="fas fa-user-clock icono "></i><h5 class="text-center ">Horario de atención</h5></div>
-          <div class="card-footer d-flex align-items-center justify-content-between">
-              <a>8:00 a.m a 5:00 p.m lunes a viernes <br>8:00 a.m a 2:00 p.m sábados</a>
-              
-          </div>
-      </div>
-  </div>
 
   <div class="col-xl-6 col-md-6">
       <div class="card bg-light text-dark mb-3">
-          <div class="card-body"><i class="fas fa-map-marker-alt"></i><h5 class="text-center ">Dirección</h5></div>
+          <div class="card-body"><i class="fas fa-phone-alt"></i><h5 class="text-center ">Llámanos</h5></div>
           <div class="card-footer d-flex align-items-center justify-content-between">
               <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
               
@@ -166,9 +156,11 @@
       </div>
   </div>
 
+ 
+
   <div class="col-xl-6 col-md-6">
       <div class="card bg-light text-dark mb-3">
-          <div class="card-body"><i class="fas fa-phone-alt"></i><h5 class="text-center ">Telefono</h5></div>
+          <div class="card-body"><i class="fas fa-envelope"></i><h5 class="text-center ">Escríbenos</h5></div>
           <div class="card-footer d-flex align-items-center justify-content-between">
           <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
               
@@ -178,13 +170,29 @@
 
   <div class="col-xl-6 col-md-6">
       <div class="card bg-light text-dark mb-3">
-          <div class="card-body"><i class="fas fa-envelope"></i><h5 class="text-center ">Email</h5></div>
+          <div class="card-body"><i class="fas fa-map-marker-alt"></i><h5 class="text-center ">Escríbenos</h5></div>
           <div class="card-footer d-flex align-items-center justify-content-between">
           <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
               
           </div>
       </div>
   </div>
+
+  <div class="col-xl-6 col-md-6 ">
+      <div class="card bg-light text-dark mb-3">
+          <div class="card-body"><i class="fas fa-users"></i><h5 class="text-center">Nuestras redes</h5></div>
+          <div class="card-footer d-flex align-items-center justify-content-between">
+          <div class="row mb-2 content-center">
+              <a><i class="fab fa-whatsapp mr-2 "></i></a> 
+              <a href="https://www.instagram.com/avisosneon_medellin/?hl=es-la"> <i class="fab fa-instagram"></i></a>  
+              </div>            
+          </div>
+      </div>
+  </div>
+
+ 
+
+  
 </section>
  
  

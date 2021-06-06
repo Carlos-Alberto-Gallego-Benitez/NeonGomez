@@ -60,7 +60,6 @@
             
             <?php if (isset($_SESSION["editar"]) != null ):?>
                 
-                //alert ('<?= $_SESSION["editar"] ?>');
                 Swal.fire({
 
                     icon: 'success',
@@ -72,7 +71,8 @@
             <?php endif; ?>
         })
     </script>  
-    
+
+    <!-- error registro cliente -->
     <script>
         $(function(){
             
@@ -87,5 +87,11 @@
             <?php endif; ?>
         })
     </script> 
+<!-- ******************** -->
+
+
+
+
+
 </body>
 </html>

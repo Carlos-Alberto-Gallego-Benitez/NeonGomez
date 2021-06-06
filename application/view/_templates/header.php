@@ -17,7 +17,7 @@
 
     </head>
     <body class="sb-nav-fixed">
-     <?php session_start(); ?> 
+     <?php session_start(); ?>  
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <img class="mr-3" height=150  src="<?= URL ?>public/img/LOG.png" > 
@@ -117,6 +117,8 @@
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                         
                         <a class="dropdown-item" href="<?= URL ?>usuario/perfil">Perfil</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="<?= URL ?>usuario/perfil">Ayuda en línea</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="<?php echo URL ?>usuario/CerrarSesion">Cerrar sesión</a>
                     </div>

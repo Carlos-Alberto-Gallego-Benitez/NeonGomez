@@ -2,7 +2,7 @@
 
 <div class="container">
         <a href="<?php echo URL; ?>cliente/registro" class="btn btn-info mb-2">Agregar</a>
-        <a href="<?php echo URL; ?>cliente/reportes" class="btn btn-secondary mb-2">Reporte general</a>
+        <a target="blank" href="<?php echo URL; ?>cliente/reportes" class="btn btn-secondary mb-2">Reporte general</a>
         <table class="table table-striped border tablas">
             <thead >
                 <tr>
@@ -32,7 +32,7 @@
                         <span data-key="usu" class="badge badge-success"><?php if($cliente->Estado=="Activo"){echo($cliente->Estado);};?></span>
                         </td>
                         <td><a href="<?php echo URL . 'cliente/editar/' .($cliente->IDCliente); ?>" class="btn btn-info mx-md-n4">Editar</a></td>                        
-                        <td><a href="<?php echo URL . 'cliente/reporte/' .($cliente->IDCliente); ?>" class="btn btn-secondary ">Reporte</a></td>
+                        <td><a target="blank" href="<?php echo URL . 'cliente/reporte/' .($cliente->IDCliente); ?>" class="btn btn-secondary ">Reporte</a></td>
                             
                        
                     </tr>

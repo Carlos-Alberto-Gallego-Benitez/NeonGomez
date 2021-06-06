@@ -84,7 +84,7 @@
         <div>
 
         <div class="mb-4">
-            <button  type="submit" class="btn btn-info mt-3">Guardar</button> 
+            <button  type="submit" class="btn btn-info mt-3">Registrar</button> 
             <a class="btn btn-secondary mt-3" href="<?php echo URL; ?>compra/index"> Cancelar</a>
         </div>
         </div>

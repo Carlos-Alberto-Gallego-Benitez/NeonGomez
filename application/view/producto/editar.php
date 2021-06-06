@@ -54,10 +54,10 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="insumos">Insumos</label>
-                    <select class="form-control"  id="id_insumo" name="id_insumo"> 
+                    <select class="form-control"  id="id_insumo" name="id_insumo" onchange="cantidades()"> 
                     <option value="">Seleccione</option>                      
                     <?php foreach ($insumosx as $datos): ?> 
-                        <option value="<?= $datos->IDInsumo ?>"><?=$datos->Nombre?></option>
+                        <option stock="<?=$datos->Cantidad ?>" value="<?= $datos->IDInsumo ?>"><?=$datos->Nombre?></option>
                     <?php endforeach  ?>
                     </select>
                     </select>                    
@@ -68,6 +68,13 @@
                     <div class="form-group">
                         <label for="cantidadi">Cantidad</label>
                         <input type="number"  class="form-control" id="cant" name="cant">                    
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group ">
+                        <label for="stock"></label>
+                        <input type="hidden"  class="form-control" id="stock" name="stock" value="0" readonly>
                     </div>
                 </div>
 

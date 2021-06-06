@@ -16,8 +16,6 @@
 		private $Correo;
 		private $Estado;
 
-		
-
 
 		public function listarProveedores()
 		{
@@ -59,9 +57,6 @@
 			$parameters = array(':Codigo' => $codigo, ':Nombre' => $nombre, ':Telefono' => $telefono, ':Direccion' => $direccion, ':Correo' => $correo, ':Estado' => $estado, ':IDProveedor' => $idproveedor);
 			$query->execute($parameters);
 		}
-
-
-
 	}
 
 

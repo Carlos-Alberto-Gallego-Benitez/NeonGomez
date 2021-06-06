@@ -44,7 +44,7 @@
                     <?php if($_SESSION['valor']->Rol!="Empleado"){ ?><li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Privilegios</a></li><?php } ?>
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#perfil">Perfil</a></li> 
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Mis datos</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="http://localhost/neonGomez/Usuario/salir">Salir</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?= URL ?>proveedor/index">Salir</a></li>
                 </ul>
             </div>
         </nav>

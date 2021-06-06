@@ -25,7 +25,7 @@ class Insumo extends Model
 
     public function listadoInsumos()
     {
-        $sql = "SELECT * FROM insumo WHERE Estado = 'Activo'";
+        $sql = "SELECT * FROM insumo WHERE Estado = 'Activo' AND Cantidad <> 0";
         $stm= $this->db->prepare($sql);
         $stm->execute();        
         return $stm->fetchAll();
@@ -43,7 +43,7 @@ class Insumo extends Model
 
     public function listadoInsumos2()
     {
-        $sql = "SELECT * FROM insumo";
+        $sql = "SELECT * FROM insumo ORDER BY IDInsumo DESC";
         $stm= $this->db->prepare($sql);
         $stm->execute();        
         return $stm->fetchAll();

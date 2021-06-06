@@ -31,20 +31,28 @@ class Insumocontroller{
     }
 
     public function guardar(){
-
+        session_start();
         if (isset($_POST['agregarInsumo'])){
 
             $nombre = $_POST['nombre'];
             $cantidad = $_POST['cantidad'];            
 
             $insumo = new Insumo();
-            $insumo->AgregarInsumo($nombre, $cantidad);
-
+            $respuesta = $insumo->AgregarInsumo($nombre, $cantidad); 
             
+            try{
+                if($respuesta =  true){
+                    $_SESSION["registro"] = "Registro exitoso";
+                }else{
+                  $_SESSION["registro"] = "Error de registro";
+                }
+              }catch(\Excepetion $e){
+                $_SESSION["registro"] = $e->getMessage();
+            } 
+         
 
             header('location: ' . URL . 'insumo/index');
         }
-
     }
 
     public function reportes(){
@@ -52,8 +60,7 @@ class Insumocontroller{
         $insumo = new Insumo();
         $insumos = $insumo->listadoInsumos2();        
         
-        require APP . 'view/reportes/insumo/reporte.php';
-        
+        require APP . 'view/reportes/insumo/reporte.php';     
        
        
     }
@@ -63,10 +70,8 @@ class Insumocontroller{
         $insumo = new Insumo();
         $insumos = $insumo->obtenerInsumo($IDInsumo);        
         
-        require APP . 'view/reportes/insumo/reporteunitario.php';
-        
-       
-       
+        require APP . 'view/reportes/insumo/reporteunitario.php';       
+              
     }
    
 
@@ -80,10 +85,6 @@ class Insumocontroller{
         $inst = new Insumo();
         $insumo1 = $inst->obtenerInsumo($IDInsumo);
 
-        
-        
-        
-
         require APP . 'view/_templates/header.php';
         require APP . 'view/insumo/editar.php';
         require APP . 'view/_templates/footer.php';
@@ -95,11 +96,21 @@ class Insumocontroller{
     }
 
     public function actualizar(){
-
+        session_start();
         if (isset($_POST['agregarInsumo'])) {
             
            $objeto = new Insumo();
            $objeto->actualizar($_POST['nombre'], $_POST['cantidad'], $_POST['estado'], $_POST['idinsumo']);
+
+           try{
+            if($objeto = true){
+                $_SESSION["editar"] = "Datos actualizados correctamente";
+            }else{
+              $_SESSION["editar"] = "Error de actualización";
+            }
+          }catch(\Excepetion $e){
+            $_SESSION["editar"] = $e->getMessage();
+          }
 
            header('location: ' . URL . 'insumo/index');
         }
