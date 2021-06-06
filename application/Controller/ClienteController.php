@@ -41,29 +41,30 @@ class Clientecontroller{
     public function guardar()
     {
         session_start();
+
+        $documento = $_POST["documento"];
+        $datos = new Cliente();
+        $resp = $datos->consultar($documento);
+
+        
+
         $cliente = new Cliente();
         $cliente->__SET("Documento", $_POST["documento"]);
         $cliente->__SET("Nombre", $_POST["nombre"]);
         $cliente->__SET("Apellido", $_POST["apellido"]);
         $cliente->__SET("Correo", $_POST["correo"]);
         $cliente->__SET("Direccion", $_POST["direccion"]);
-        $cliente->__SET("Telefono", $_POST["telefono"]);
-        $cliente->__SET("Estado", $_POST["estado"]);
+        $cliente->__SET("Telefono", $_POST["telefono"]);        
         $respuesta = $cliente->registrar();
         
-       try{
-           if($respuesta = true){
-               $_SESSION["registro"] = "Registro exitoso";
-           }else{
-             $_SESSION["registro"] = "Error de registro";
-           }
-       }catch(\Excepetion $e){
-           $_SESSION["registro"] = $e->getMessage();
-       }
+        if($resp != null){
+            $_SESSION["error"] = "Registro fallido! ";
+        }else {
+            $_SESSION["registro"] = "Registro exitoso";
+        }
 
         header('location: ' . URL . 'cliente/index');
     }
-   
 
     public function editar($idcliente)
     {        
