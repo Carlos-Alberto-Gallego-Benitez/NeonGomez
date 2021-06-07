@@ -104,19 +104,18 @@ class Venta extends Model{
 
     public function registrar()
     {
-        $sql = "INSERT INTO venta (Fecha, IDCliente, Estado) VALUES (?,?,?)";
+        $sql = "INSERT INTO venta (Fecha, IDCliente, Estado) VALUES (?,?,'Activo')";
         $stm = $this->db->prepare($sql);        
         $stm->bindParam(1, $this->Fecha);
         $stm->bindParam(2, $this->IDCliente);
-        $stm->bindParam(3, $this->Estado);
-           
-        
+               
         if($stm->execute()){
             return $this->ultimo(); 
         }else{
             return false;
         }
     } 
+
     public function registrarDetalle()
     {
         $sql = "INSERT INTO detalle_venta (IDventa, IDProducto, Precio, Cantidad, Subtotal, ValorTotal) VALUES (?,?,?,?,?,?)";
@@ -141,6 +140,7 @@ class Venta extends Model{
         return $stm->fetch();
 
     }
+    
     public function eliminarDetalle($iddetalle)
     {
         $sql = "DELETE FROM detalle_venta WHERE IDDetalle = $iddetalle";

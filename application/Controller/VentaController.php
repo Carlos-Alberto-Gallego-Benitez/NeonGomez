@@ -65,14 +65,12 @@ class Ventacontroller{
 
     public function guardar()
     {   
+        session_start();
         if (isset($_POST["nuevaVenta"])) {
-            
-            
             $venta = new Venta();
             $venta->__SET("Fecha", $_POST["fecha"]);
             $venta->__SET("IDCliente", $_POST["cliente"]);
-            $venta->__SET("Estado", $_POST["estado"]);
-
+            
             $respuesta = $venta->registrar();
 
             if ($respuesta != false) {
@@ -97,18 +95,19 @@ class Ventacontroller{
                     $detalle->__SET("Subtotal", $_POST['SubTotal'][$key]);
                     $detalle->__SET("ValorTotal", $total);
                     
-                    $detalle->registrarDetalle();
-
-                   
-
-                        
-                    $_SESSION["registroventa"] = "Registro exitoso";
-
-                     
+                    $detalle->registrarDetalle();  
                 }
             }
 
-
+            try{
+                if($respuesta =  true){
+                    $_SESSION["registro"] = "Registro exitoso";
+                }else{
+                  $_SESSION["registro"] = "Error de registro";
+                }
+              }catch(\Excepetion $e){
+                $_SESSION["registro"] = $e->getMessage();
+            } 
          
         }    
         header('location: ' . URL . 'venta  /index');
@@ -202,57 +201,65 @@ class Ventacontroller{
 
     public function actualizar()
     {
-        
+    session_start();
+    $venta = new Venta();
+    $venta->__SET("Fecha", $_POST["fecha"]);
+    $venta->__SET("IDCliente", $_POST["cliente"]);
+    $venta->__SET("Estado", $_POST["estado"]);
+    $venta->__SET("IDVenta", $_POST["idventa"]);
+
+    $respuesta = $venta->actualizar();
+    
+        $ventasdetalle = $venta->obtenerDetalleVenta($_POST["idventa"]);
+        $acumulado0 = 0;
+        $total0 = 0;
+
+        foreach($ventasdetalle as  $valor){
+
+            $acumulado0 += $valor->Subtotal;
+        }
+
+        foreach($_POST["id_producto"] as $key => $value){
             
+            $total0 += $_POST['SubTotal'][$key];
+        }
+
+        $final = $acumulado0 + $total0;
+        //para registrar un producto nuevo*/
+        if($total0 >0){
             
-            $venta = new Venta();
-            $venta->__SET("Fecha", $_POST["fecha"]);
-            $venta->__SET("IDCliente", $_POST["cliente"]);
-            $venta->__SET("Estado", $_POST["estado"]);
-            $venta->__SET("IDVenta", $_POST["idventa"]);
+            foreach($_POST["id_producto"] as $key => $value){
 
-            $venta->actualizar();
-             
-                $ventasdetalle = $venta->obtenerDetalleVenta($_POST["idventa"]);
-                $acumulado0 = 0;
-                $total0 = 0;
+                $detalle = new Venta();
+                $detalle->__SET("IDVenta", $_POST['idventa']);
+                $detalle->__SET("IDProducto", $value);
+                $detalle->__SET("Precio", $_POST["precio"][$key]);  
+                $detalle->__SET("Cantida", $_POST["canti"][$key]);                      
+                $detalle->__SET("Subtotal", $_POST['SubTotal'][$key]);
+                $detalle->__SET("ValorTotal", $final);
+                
+                $detalle->registrarDetalle();                        
+                
+                
+            }            
 
-                foreach($ventasdetalle as  $valor){
+            $detalle0 = new Venta();
+            $detalle0->actualizarDetalle($final, $_POST['idventa']);
 
-                  $acumulado0 += $valor->Subtotal;
+        }
 
-                }
-
-                foreach($_POST["id_producto"] as $key => $value){
-                    
-                    $total0 += $_POST['SubTotal'][$key];
-
-
-                }
-                $final = $acumulado0 + $total0;
-               //para registrar un producto nuevo
-                if($total0 >0){
-                    
-                    foreach($_POST["id_producto"] as $key => $value){
+        try{
+            if($respuesta = true){
+                $_SESSION["editar"] = "Datos actualizados correctamente";
+            }else{
+              $_SESSION["editar"] = "Error de actualización";
+            }
+        }catch(\Excepetion $e){
+            $_SESSION["editar"] = $e->getMessage();
+        }
         
-                        $detalle = new Venta();
-                        $detalle->__SET("IDVenta", $_POST['idventa']);
-                        $detalle->__SET("IDProducto", $value);
-                        $detalle->__SET("Precio", $_POST["precio"][$key]);  
-                        $detalle->__SET("Cantida", $_POST["canti"][$key]);                      
-                        $detalle->__SET("Subtotal", $_POST['SubTotal'][$key]);
-                        $detalle->__SET("ValorTotal", $final);
-                        
-                        $detalle->registrarDetalle();
-                       
-                    }
-                    $detalle0 = new Venta();
-                    $detalle0->actualizarDetalle($final, $_POST['idventa']);
-
-                }
-              
         
-        header('location: ' . URL . 'venta  /index');
+        header('location: ' . URL . 'venta/index');
     }
 }
 

@@ -183,6 +183,7 @@ class Usuariocontroller{
 
     public function guardar()
     {
+        session_start(); 
         if (isset($_POST["agregarusuario"])) {
            
             $contra = $_POST["contra"];
@@ -197,9 +198,11 @@ class Usuariocontroller{
                 $objeto = new Insumo();
                 $insumos = $objeto->listadoInsumosS(); 
         
-                require APP . 'view/_templates/header.php';
-                require APP . 'view/usuario/valdocumento.php';
-                require APP . 'view/_templates/footer.php';
+                if($consulta != null){
+                    $_SESSION["error"] = "El documento ingresado ya se encuentra registrado";
+                }       
+                header('location: ' . URL . 'usuario/index');
+                
             }
             else{
                  
@@ -207,9 +210,17 @@ class Usuariocontroller{
                 $objeto = new Insumo();
                 $insumos = $objeto->listadoInsumosS(); 
 
-                require APP . 'view/_templates/header.php';
-                require APP . 'view/usuario/valregistro.php';
-                require APP . 'view/_templates/footer.php';
+                try{
+                    if($value =  true){
+                        $_SESSION["registro"] = "Registro exitoso";
+                    }else{
+                      $_SESSION["registro"] = "Error de registro";
+                    }
+                  }catch(\Excepetion $e){
+                    $_SESSION["registro"] = $e->getMessage();
+                } 
+             
+                header('location: ' . URL . 'usuario/index');                
             }
 
             
@@ -241,28 +252,34 @@ class Usuariocontroller{
 
     public function actualizar()
     {
-        
+        session_start();   
         if (isset($_POST["editarusuario"])) {
 
             
             $usuario = new Usuario();
-            $usuario->actualizar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["telefono"],$_POST["rol"],$_POST["estado"],$_POST["idusuario"]);
+            $respuesta = $usuario->actualizar($_POST["documento"],$_POST["nombre"],$_POST["apellido"],$_POST["correo"],$_POST["telefono"],$_POST["rol"],$_POST["estado"],$_POST["idusuario"]);
 
             $objeto = new Insumo();
             $insumos = $objeto->listadoInsumosS(); 
 
             $usuario = new Usuario();
             $usuarios = $usuario->listarUsuario();
-           
-            require APP . 'view/_templates/header.php';
-            require APP . 'view/usuario/valactualizar.php';
-            require APP . 'view/_templates/footer.php';
+
+            try{
+                if($respuesta = true){
+                    $_SESSION["editar"] = "Datos actualizados correctamente";
+                }else{
+                    $_SESSION["editar"] = "Error de actualización";
+                }
+                }catch(\Excepetion $e){
+                $_SESSION["editar"] = $e->getMessage();
+            }           
+            
         }
      
-        // where to go after song has been added
+        
         header('location: ' . URL . 'usuario/index');
     }
-    
     public function reportes(){
 
         $usuario = new Usuario();

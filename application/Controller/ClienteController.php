@@ -41,12 +41,13 @@ class Clientecontroller{
     public function guardar()
     {
         session_start();
-
         $documento = $_POST["documento"];
         $datos = new Cliente();
         $resp = $datos->consultar($documento);
 
-        
+        if($resp != null){
+            $_SESSION["error"] = "El documento ingresado ya se enceuntra registrado";
+        }        
 
         $cliente = new Cliente();
         $cliente->__SET("Documento", $_POST["documento"]);
@@ -57,15 +58,14 @@ class Clientecontroller{
         $cliente->__SET("Telefono", $_POST["telefono"]);        
         $respuesta = $cliente->registrar();
         
-        if($resp != null){
-            $_SESSION["error"] = "Registro fallido! ";
+        if($respuesta != null){
+            $_SESSION["registro"] = "Registro fallido! ";
         }else {
             $_SESSION["registro"] = "Registro exitoso";
         }
 
         header('location: ' . URL . 'cliente/index');
     }
-
     public function editar($idcliente)
     {        
         if (isset($idcliente)) {

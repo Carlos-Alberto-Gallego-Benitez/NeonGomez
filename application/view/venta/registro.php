@@ -21,15 +21,7 @@
                     </select> 
             </div>
 
-            <div class="form-group col-4">
-                <label for>Estado</label>
-                <select name="estado" class="form-control" id="estado">
-                    <option value="">Seleccione</option>
-                    <option  value="Activo">Activo</option>
-                    <option  value="Inactivo">Inactivo</option>
-                </select>   
-            
-            </div>       
+                   
         </div> 
 
         <div class="form-row mt-5">    
