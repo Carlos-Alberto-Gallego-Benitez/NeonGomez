@@ -68,7 +68,7 @@
                 <label for="email">¿Cuál es tu apellido?</label>
                 <input type="text" id="nel" id="correo" name="apellido" required>
 
-                <label for="email">¿Cuál es tu número de telefono?</label>
+                <label for="email">¿Cuál es tu número de teléfono?</label>
                 <input type="text" id="nel" id="correo" name="tel" required>
 
 
