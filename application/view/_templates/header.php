@@ -18,6 +18,14 @@
     </head>
     <body class="sb-nav-fixed">
      <?php session_start(); ?> 
+     <?php if($_SESSION['valor'] != null) {
+
+     }
+     else{
+        header('location: ' . URL . 'usuario/login');
+     }
+     
+     ?>
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <img class="mr-3" height=150  src="<?= URL ?>public/img/LOGO.png" > 

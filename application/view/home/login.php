@@ -144,6 +144,24 @@
                     }
                     
                 }
+
+                if (usuario!="") {
+
+                    if (usuario.length > 14 ){
+                      $("#p1").text(" ");
+        
+                    }
+                    
+                }
+
+                if (contra!="") {
+
+                    if (contra.length > 6 ) {
+                        $("#p2").text("");
+                    }
+                    
+                }
+                
                 
                 return falsa ;
 
