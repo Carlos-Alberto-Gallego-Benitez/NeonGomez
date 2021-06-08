@@ -4,6 +4,10 @@ h1{
     text-align: center;
 }  
 
+img{
+    margin-bottom: -80px;
+}
+
 #tabla_p{
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -26,6 +30,17 @@ h1{
 }
 </style>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">
 <h1>Reporte de productos</h1>    
 <br>    
         <table id="tabla_p">
@@ -58,7 +73,8 @@ h1{
             </tbody>
         </table>        
         
-    
+    </body>
+</html>   
 
 
       

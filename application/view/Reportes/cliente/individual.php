@@ -1,8 +1,12 @@
 <style>
 h1{
     text-align: center;
+    
 }
 
+img{
+    margin-bottom: -80px;
+}
 
 </style>
 <!DOCTYPE html>
@@ -15,9 +19,9 @@ h1{
 </head>
 <body>
 <img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">
-<h1>Reporte cliente <?= $cliente->Nombre?></h1>
+<h1 >Reporte cliente <?= $cliente->Nombre?></h1>
     <hr>  
-    <br>  
+     
     <form >     
         <div>
             <div >

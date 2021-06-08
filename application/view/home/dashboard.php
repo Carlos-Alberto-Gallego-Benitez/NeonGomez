@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <title>Neón Gómez</title>
+    <link rel="icon" type="image/x-icon" href="<?= URL ?>public/img/login/logo.png" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -47,10 +49,10 @@
       <div id="carouselExampleControls" class="carousel slide " data-ride="carousel" >
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img style="width:100%; height:750px" src="<?= URL ?>public/img/dashboard/portada1.jpg" class="d-block w-100" alt="...">
+            <img style="" src="<?= URL ?>public/img/dashboard/portada1.jpg" class="d-block w-100" alt="...">
           </div>          
           <div class="carousel-item">
-            <img style="width:100%; height:750px" src="<?= URL ?>public/img/dashboard/portada4.jpg" class="d-block w-100" alt="...">
+            <img style=" " src="<?= URL ?>public/img/dashboard/portada.png" class="d-block w-100" alt="...">
           </div>
           
         </div>
@@ -150,7 +152,7 @@
       <div class="card bg-light text-dark mb-3">
           <div class="card-body"><i class="fas fa-phone-alt"></i><h5 class="text-center ">Llámanos</h5></div>
           <div class="card-footer d-flex align-items-center justify-content-between">
-              <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
+             <h6 class="mb-4">+(57) 310 394 8423</h6>
               
           </div>
       </div>
@@ -162,7 +164,7 @@
       <div class="card bg-light text-dark mb-3">
           <div class="card-body"><i class="fas fa-envelope"></i><h5 class="text-center ">Escríbenos</h5></div>
           <div class="card-footer d-flex align-items-center justify-content-between">
-          <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
+          <h6 class="mb-4">gomezsaul455@gmail.com </h6>
               
           </div>
       </div>
@@ -170,9 +172,9 @@
 
   <div class="col-xl-6 col-md-6">
       <div class="card bg-light text-dark mb-3">
-          <div class="card-body"><i class="fas fa-map-marker-alt"></i><h5 class="text-center ">Escríbenos</h5></div>
+          <div class="card-body"><i class="fas fa-map-marker-alt"></i><h5 class="text-center ">Ubícanos</h5></div>
           <div class="card-footer d-flex align-items-center justify-content-between">
-          <a>Lorem ipsum, dolor sit amet consectetur adipisicing elit.   <br>Voluptatibus animi maiores, enim</a>
+          <h6 class="mb-4">Carrera 93 calle 78 B 87 </h6>
               
           </div>
       </div>
@@ -182,14 +184,13 @@
       <div class="card bg-light text-dark mb-3">
           <div class="card-body"><i class="fas fa-users"></i><h5 class="text-center">Nuestras redes</h5></div>
           <div class="card-footer d-flex align-items-center justify-content-between">
-          <div class="row mb-2 content-center">
-              <a><i class="fab fa-whatsapp mr-2 "></i></a> 
+          <div class="row mb-1 content-center">
+              <a href="https://api.whatsapp.com/send?phone=573103948423"><i class="fab fa-whatsapp mr-2 "></i></a> 
               <a href="https://www.instagram.com/avisosneon_medellin/?hl=es-la"> <i class="fab fa-instagram"></i></a>  
               </div>            
           </div>
       </div>
   </div>
-
  
 
   
@@ -201,13 +202,13 @@
   <div class="container">
   <a href="#"> <img class="logoF" src="<?= URL ?>public/img/dashboard/LOGO.png" alt="logo" ></a>
     <ul class="list-inline">
-      <li class="list-inline-item footer-menu"><a href="">Inicio</a></li>
+      <li class="list-inline-item footer-menu"><a href="#hero">Inicio</a></li>
       <li class="list-inline-item footer-menu"><a href="#catalogo">Catalogo</a></li>
       <li class="list-inline-item footer-menu"><a href="#nosotros">Nosotros</a></li>
       <li class="list-inline-item footer-menu"><a href="#contacto">Contáctanos</a></li>
     </ul>  
     <ul class="list-inline">
-      <li class="list-inline-item"><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+      <li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone=573103948423"><i class="fab fa-whatsapp"></i></a></li>
       <li class="list-inline-item"><a  href="https://www.instagram.com/avisosneon_medellin/?hl=es-la"><i class="fab fa-instagram"></i></a></li>      
     </ul>  
     <div class="mb-2">

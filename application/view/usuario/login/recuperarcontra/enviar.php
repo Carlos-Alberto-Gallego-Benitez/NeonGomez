@@ -40,9 +40,9 @@ try {
 
     $mail->send();
   
-    echo"<script>setTimeout(\"location.href='http://localhost/neonGomez/usuario/validationExito'\",100)</script>";
+    echo"<script>setTimeout(\"location.href='http://localhost/NeonGomez_Proyecto_Final/usuario/validationExito'\",100)</script>";
   } catch (Exception $e) {
 
     
-    echo"<script>setTimeout(\"location.href='http://localhost/neonGomez/usuario/validationFailed'\",100)</script>";
+    echo"<script>setTimeout(\"location.href=<?= URL ?>'usuario/validationFailed'\",100)</script>";
 }

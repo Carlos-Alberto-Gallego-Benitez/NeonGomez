@@ -1,9 +1,13 @@
 <style>
 
-    h1{
-        text-align: center;
-        margin-top: 20px;
-    }  
+h1{
+    text-align: center;
+    margin-top: 20px;
+}  
+
+img{
+    margin-bottom: -80px;
+}
 
     #tabla_c {
         font-family: Arial, Helvetica, sans-serif;

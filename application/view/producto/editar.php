@@ -51,7 +51,7 @@
         <!-- insumos -->
         <div class="mt-3 target">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="form-group">
                     <label for="insumos">Insumos</label>
                     <select class="form-control"  id="id_insumo" name="id_insumo" onchange="cantidades()"> 
@@ -64,20 +64,16 @@
                 </div>
 
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="cantidadi">Cantidad</label>
                         <input type="number"  class="form-control" id="cant" name="cant">                    
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="form-group ">
-                        <label for="stock"></label>
+                
                         <input type="hidden"  class="form-control" id="stock" name="stock" value="0" readonly>
-                    </div>
-                </div>
-
+                   
                 <!-- <div>
                 <button class="btn btn-info boton" type="button" onclick="agregarInsumos()">Agregar insumo</button>
                 </div> -->

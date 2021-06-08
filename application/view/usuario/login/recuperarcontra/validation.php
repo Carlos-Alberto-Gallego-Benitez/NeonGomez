@@ -60,7 +60,7 @@
   
             }).then(function (result) {
   
-              window.location = "http://localhost/neonGomez/usuario/recuperar";
+              window.location = "<?= URL ?>usuario/recuperar";
   
             })
 
@@ -78,7 +78,7 @@
   
             }).then(function (result) {
   
-              window.location = "http://localhost/neonGomez/usuario/recuperar";
+              window.location = "<?= URL ?>usuario/recuperar";
   
             })
 
@@ -96,7 +96,7 @@
   
             }).then(function (result) {
   
-              window.location = "http://localhost/neonGomez/usuario/recuperar";
+              window.location = "<?= URL ?>usuario/recuperar";
   
             })
 
@@ -115,7 +115,7 @@
   
             }).then(function (result) {
   
-              window.location = "http://localhost/neonGomez/usuario/recuperar";
+              window.location = "<?= URL ?>usuario/recuperar";
   
             })
 

@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Panel</title>
+        <title>Neón Gómez</title>
         <link rel="icon" type="image/x-icon" href="<?= URL ?>public/img/login/logo.png" />
         <link href="<?= URL ?>public/css/plantilla/estilos.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="<?php echo URL; ?>plugins/sweetalert2/dist/sweetalert2.min.css">
@@ -17,7 +17,15 @@
 
     </head>
     <body class="sb-nav-fixed">
-     <?php session_start(); ?>  
+    <?php session_start(); ?> 
+     <?php if($_SESSION['valor'] != null) {
+
+     }
+     else{
+        header('location: ' . URL . 'usuario/login');
+     }
+     
+    ?>
 
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <img class="mr-3" height=150  src="<?= URL ?>public/img/LOG.png" > 
@@ -118,7 +126,7 @@
                         
                         <a class="dropdown-item" href="<?= URL ?>usuario/perfil">Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?= URL ?>usuario/perfil">Ayuda en línea</a>
+                        <a class="dropdown-item" href="<?= URL ?>usuario/ayudaonline">Ayuda en línea</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="<?php echo URL ?>usuario/CerrarSesion">Cerrar sesión</a>
                     </div>

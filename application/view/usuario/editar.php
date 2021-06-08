@@ -1,5 +1,5 @@
 <div class="container card mt-3" style="width: 68rem">
-<h1 class="text-center " >Editar usuario <?= $usuarios->Nombre?></h1>
+<h1 class="text-center " >Editar usuario <?= $usuarios->Nombre?> </h1>
 
     <hr>  
     <form action="<?php echo URL; ?>usuario/actualizar" id="editarUsuario" method="POST" > 

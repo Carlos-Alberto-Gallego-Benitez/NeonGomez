@@ -1,5 +1,5 @@
 <div class="container card mt-3"style="width: 68rem;">
-    <h1 class="text-center mt-4">Registro de Usuarios</h1>
+    <h1 class="text-center mt-4">Registro de usuarios</h1>
     <hr>
 
     <form action="<?php echo URL; ?>usuario/guardar" id="registroUsuarios" method="POST" > 
