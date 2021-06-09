@@ -1,54 +1,57 @@
 <style>  
 
-table {
-border-collapse: collapse;
-}
-.table{
-background-color:  rgb(187, 187, 187);
-color:  rgb(5, 2, 2);
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:20 ;
-font-size:30;
-}
-.h2{
+h1{
+    text-align: center;
+    margin-top: 20px;
+}  
 
-color: rgb(117, 115, 115);
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:20 ;
-font-size:30;
+img{
+    margin-bottom: -80px;
 }
-table{
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:20 ;
-}
-thead{
-background-color: #555;
-}
-tbody{
-    background-color: #555;
-}
-td{
-border: 1px solid #e2e2e2;
-padding: 12px; 
-max-width:520px;
-word-wrap: break-word;
-font-size: 14px;
-}
+
+    #tabla {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #tabla td, #tabla th{
+        border: 1px solid #ddd;
+        padding: 8px;
+        
+    }
+
+    body {
+        background: blue;    
+    }
+
+    #tabla th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;  
+    color: black;    
+    }
 
 
 </style>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
     
 
-<h2 class="h2">Reporte general de ventas</h2><hr><br>
+    
+<img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">  
 
-<table class="">
+<h1>Reporte de ventas</h1><hr><br>
+
+<table id="tabla">
     <thead class="">
         <tr class="table">
             <td>Código</td>
@@ -80,7 +83,8 @@ font-size: 14px;
 
 
 
-
+</body>
+</html>
 
 
 

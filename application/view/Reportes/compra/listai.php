@@ -1,67 +1,118 @@
+<style>
+
+h1{
+    text-align: center;
+}  
+
+img{
+    margin-bottom: -80px;
+}
+
+#tabla{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;    
+}
+
+
+#tabla td, #tabla th{
+    border: 1px solid #ddd;
+    padding: 8px;
+    
+}
+
+#tabla tr:hover {background-color: #ddd;}
+
+#tabla  th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;  
+  color: black;
+}
+
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <style>
-      h1 {
-  color: #5D6975;
-  width: 100%;
-  height: 30px;
-  bottom: 0;
-  border-top: 1px solid #C1CED9;
-  padding: 8px 0;
-  text-align: center
-}
-
-.footer {
-  color: #5D6975;
-  width: 100%;
-  height: 30px;
-  
-  bottom: 0;
-  padding: 8px 0;
-  text-align: center;
-}
-
-
-table{
-	text-align: center;
-  border: 1px;
-	border-collapse: collapse;
-	width: 100%;
-}
-
-th, td{
-	padding: 40px;
-}
-
-thead{
-	border-bottom: solid 5px #0F362D;
-}
-
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-  <hr>
-  <h1>Neon Gomez - Reporte de compra con el Codigo # <?= $reporteI->IDCompra?></h1>
-  <hr>
-  <div class="main-container">
-    <table>
-    <thead>
-				<tr>
-					<th>Código</th><th>Fecha</th><th>Proveedor</th><th>Estado</th>
-				</tr>
-			</thead>
-    <tbody>
-              <tr>                
-                  <td><?php echo ($reporteI->IDCompra); ?></td>
-                  <td><?php echo ($reporteI->Fecha); ?></td>
-                  <td><?php echo ($reporteI->Nombre); ?></td>
-                  <td class="grand"><?php echo ($reporteI->Estado); ?></td>
-              </tr>
-    </tbody>
-    </table>
-  </div>
-  <hr>
-  <div class="footer">
-     <p>Neon Gomez - <?php echo date("Y");?></p>
-  </div>
-</body>
+<img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">
+
+<h1>Reporte de compra <?= $compras->IDCompra?></h1>
+<hr>
+
+<form >
+    
+        <div class="form-row">  
+            <div class="form-group col-4">
+                <label for="nombre">Código:  </label>
+                <?php echo ($compras->IDCompra); ?>
+            </div>
+            <br>  
+            <div class="form-group col-4">
+                <label for="nombre">Fecha:  </label>
+                <?php echo ($compras->Fecha); ?>
+            </div>
+            <br>
+            <div class="form-group col-4">
+            <label for="apellido">Proveedor:   </label>
+            <?php echo ($compras->Nombre); ?>
+            </div> 
+            <br>
+            <div class="form-group col-4">
+                <label for="precio">Estado:   </label>
+                <?php echo ($compras->Estado); ?>
+            </div>
+        </div>    
+        <br>   
+        
+        <div class="form-row " > 
+            
+            <br>
+            <h4>Insumos</h4>
+                <table id="tabla" >
+                
+                    <thead>                    
+                        <tr>
+                            <th>Insumo</th>
+                            <th>Cantidad</th> 
+                            <th>Precio</th> 
+                            <th>Sub total</th>                                                                           
+                        </tr>
+                    </thead>
+                    <tbody>                              
+                    
+                        <?php foreach ($reporteI as $datos){ ?>
+                            <tr>                
+                            <td><?= $datos->Nombre ?> </td>                                     
+                              <td><?= $datos->Cantidad ?></td> 
+                              <td><?= $datos->Precio ?></td>  
+                              <td><?= $datos->Subtotal ?></td>
+                                                                 
+                                
+                            </tr>
+                            
+                        <?php } ?>   
+                                                  
+                        
+                    </tbody>
+                    
+                </table>   
+               
+                <p>Total Compra: <?=  ($datos->TotalCompra) ?></p>
+                
+                </div>    
+        
+
+    </form>
+
+
+
+  
+  </body>
+</html>   

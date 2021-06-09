@@ -1,76 +1,73 @@
 <style>  
+h1{
+    text-align: center;
+    
+}
 
-table {
-border-collapse: collapse;
+img{
+    margin-bottom: -80px;
 }
-.table{
-background-color:  rgb(187, 187, 187);
-color:  rgb(5, 2, 2);
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:20 ;
-font-size:30;
-}
-.h2{
 
-color: rgb(117, 115, 115);
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:20 ;
-font-size:30;
-}
-table{
-text-align: center;
-margin-left:;    
-width:800px;
-margin:20 ;
-}
-thead{
-background-color: #555;
-}
-tbody{
-    background-color: #555;
-}
-td{
-border: 1px solid #e2e2e2;
-padding: 9px; 
-max-width:520px;
-word-wrap: break-word;
-font-size: 14px;
-}
 </style>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
     
+<img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">
 
-<h1 class="h2">Reporte de de usuario numero <?php echo($IDUsuario);?></h1> <hr> <br> <br>
 
-<table class="">
-    <thead class="">
-        <tr class="table">
-            <td>Documento</td>
-            <td>Nombre</td>
-            <td>Apellido</td>
-            <td>Correo</td>
-            <td>Teléfono</td>
-            <td>Rol</td>
-            <td>Estado</td>
-            
-                         
-        </tr>
-    </thead>    
-    <tbody>     
-            <tr>                
-                <td><?php echo ($usuarios->Documento); ?></td>
-                <td><?php echo ($usuarios->Nombre); ?></td>
-                <td><?php echo ($usuarios->Apellido); ?></td>
-                <td><?php echo ($usuarios->Correo); ?></td>
-                <td><?php echo ($usuarios->Telefono); ?></td>
-                <td><?php echo ($usuarios->Rol); ?></td>
-                <td><?php echo ($usuarios->Estado); ?></td>
+<h1 class="h3">Reporte de usuario  <?= $usuarios->Nombre?> <?= $usuarios->Apellido?></h1> <hr> 
+
+<form >
+<div>
+<div >
+    <label for="ID">Documento:  </label>            
+    <?php echo ($usuarios->Documento); ?>  
+</div>
+<br>
+<div >
+    <label for="nombre">Nombre:  </label>            
+    <?php echo ($usuarios->Nombre); ?> 
+</div>
+<br>
+<div >
+    <label for="ID">Apellido:  </label>            
+    <?php echo ($usuarios->Apellido); ?>
+</div>
+<br>
+<div >
+    <label for="ID">Correo:  </label>            
+    <?php echo ($usuarios->Correo); ?>
+</div>
+<br>
+<div >
+    <label for="ID">Télefono:  </label>            
+    <?php echo ($usuarios->Telefono); ?>
+</div>
+<br>
+<div >
+    <label for="ID">Rol:  </label>            
+    <?php echo ($usuarios->Rol); ?>
+</div>
+<br>
+<div >
+    <label for="ID">Estado:  </label>            
+    <?php echo ($usuarios->Estado); ?>
+</div>
+</div>
+</form>
+                  
+                
                
             
-            </tr>
-        </tbody>
-</table>        
+            
+     
+</body>
+</html>

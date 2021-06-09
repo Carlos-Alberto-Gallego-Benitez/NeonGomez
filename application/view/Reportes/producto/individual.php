@@ -8,27 +8,24 @@ img{
     margin-bottom: -80px;
 }
 
-#tabla_insumos{
+#tabla{
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;    
 }
  
-#tabla{
-    margin-left: 260px;
-    margin-top:-175px;
-}
 
 
-#tabla_insumos td, #tabla_insumos th{
+
+#tabla td, #tabla th{
     border: 1px solid #ddd;
     padding: 8px;
     
 }
 
-#tabla_insumos tr:hover {background-color: #ddd;}
+#tabla tr:hover {background-color: #ddd;}
 
-#tabla_insumos  th {
+#tabla  th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;  
@@ -98,7 +95,7 @@ img{
             
             <br>
             <h4>Insumos gastados</h4>
-                <table id="tabla_insumos" >
+                <table id="tabla" >
                 
                     <thead>                    
                         <tr>

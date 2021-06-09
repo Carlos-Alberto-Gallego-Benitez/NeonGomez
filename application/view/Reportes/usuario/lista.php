@@ -1,53 +1,54 @@
 <style>  
+h1{
+    text-align: center;
+    
+}
 
-table {
-border-collapse: collapse;
+img{
+    margin-bottom: -80px;
 }
-.table{
-background-color:  rgb(187, 187, 187);
-color:  rgb(5, 2, 2);
-text-align: center;
-margin-left:;    
-width:800px;
-margin:20 ;
-font-size:30;
-}
-.h2{
 
-color: rgb(117, 115, 115);
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:20 ;
-font-size:30;
+#tabla{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
 }
-table{
-text-align: center;    
-width:800px;
-margin:-1%;
+
+#tabla td, #tabla th{
+    border: 1px solid #ddd;
+    padding: 8px;
+    
 }
-thead{
-background-color: #555;
+
+#tabla tr:hover {background-color: #ddd;}
+
+#tabla  th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;  
+  color: black;
 }
-tbody{
-    background-color: #555;
-}
-td{
-border: 2px solid #e2e2e2;
-padding: 9px; 
-max-width:520px;
-word-wrap: break-word;
-font-size: 14px;
-}
+
 
 </style>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">
 
-<h1 class="h2">Reporte de usuarios</h1> <hr> <br>
+<h1>Reporte de usuarios</h1> <hr> <br>
 
-<table class="">
+<table id="tabla">
     <thead class="">
-        <tr class="table">
+        <tr >
             <td>Documento</td>
             <td>Nombre</td>
             <td>Apellido</td>
@@ -77,7 +78,8 @@ font-size: 14px;
 </table>        
 
 
-
+</body>
+</html>
 
 
 

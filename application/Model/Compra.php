@@ -29,7 +29,9 @@ class Compra extends Model
   }
 
   public function listarCompras(){
-    $sql = "SELECT c.IDCompra, c.Fecha, c.Estado, p.Nombre FROM compra c JOIN proveedor p ON p.IDProveedor = c.IDProveedor";
+    $sql = "SELECT DISTINCT c.IDCompra, c.Fecha, c.Estado, p.Nombre, d.TotalCompra  FROM compra c 
+    JOIN proveedor p ON p.IDProveedor = c.IDProveedor
+    JOIN detalle_compra d ON c.IDCompra = d.IDCompra";
     $stm = $this->db->prepare($sql);
     $stm->execute();
     return $stm->fetchAll();

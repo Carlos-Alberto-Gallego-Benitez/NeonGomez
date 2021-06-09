@@ -1,54 +1,45 @@
 <style>  
 
-table {
-border-collapse: collapse;
-}
-.table{
-background-color:  rgb(187, 187, 187);
-color:  rgb(5, 2, 2);
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:20 ;
-font-size:30;
-}
-.h2{
+h1{
+    text-align: center;
+    margin-top: 20px;
+}  
 
-color: rgb(117, 115, 115);
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:20 ;
-font-size:30;
+img{
+    margin-bottom: -80px;
 }
-table{
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:110 ;
-}
-thead{
-background-color: #555;
-}
-tbody{
-    background-color: #555;
-}
-td{
-border: 2px solid #e2e2e2;
-padding: 15px; 
-max-width:520px;
-word-wrap: break-word;
-font-size: 19px;
-}
+
+    #tabla {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #tabla td, #tabla th{
+        border: 1px solid #ddd;
+        padding: 8px;
+        
+    }
+
+    body {
+        background: blue;    
+    }
+
+    #tabla th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;  
+    color: black;    
+    }
 
 
 </style>
 
     
-
+<img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">
 <h1 class="h2">Reporte de insumos</h1> <hr> <br>
 
-<table>
+<table id="tabla">
     <thead >
         <tr class="table">
             <td>Código</td>

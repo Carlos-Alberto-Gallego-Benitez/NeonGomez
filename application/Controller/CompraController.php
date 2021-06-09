@@ -202,8 +202,21 @@ class CompraController
 
 
   public function reporteI($idcompra){
+
+    $insumo = new Insumo();
+    $insumos = $insumo->listadoInsumos();
+
+    $proveedor = new Proveedor();
+    $proveedores = $proveedor->listarProveedores2();
+
+    $insumo = new Insumo();
+    $insumos3 = $insumo->listadoInsumos();
+
     $reporteI = new Compra();
-    $reporteI = $reporteI->obtenerCompra($idcompra);
+    $reporteI = $reporteI->obtenerInsumos($idcompra);
+
+    $compras = new Compra();
+    $compras = $compras->obtenerCompra($idcompra);
     require APP . 'view/reportes/compra/reportei.php';
   }
 

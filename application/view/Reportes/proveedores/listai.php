@@ -1,70 +1,73 @@
+<style>
+
+h1{
+    text-align: center;
+    
+}
+
+img{
+    margin-bottom: -80px;
+}
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <style>
-      h1 {
-  color: #5D6975;
-  width: 100%;
-  height: 30px;
-  bottom: 0;
-  border-top: 1px solid #C1CED9;
-  padding: 8px 0;
-  text-align: center
-}
-
-.footer {
-  color: #5D6975;
-  width: 100%;
-  height: 30px;
-  
-  bottom: 0;
-  padding: 8px 0;
-  text-align: center;
-}
-
-
-table{
-	text-align: center;
-  border: 1px;
-	border-collapse: collapse;
-	width: 100%;
-}
-
-th, td{
-	padding: 10px;
-}
-
-thead{
-	border-bottom: solid 5px #0F362D;
-}
-
-  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-  <hr>
-  <h1>Neon Gomez - Reporte de proveedor con el ID # <?= $reportesi->IDProveedor?></h1>
-  <hr>
-  <div class="main-container">
-    <table>
-    <thead>
-				<tr>
-                <th>Código</th><th>Nombre</th><th>Teléfono</th><th>Dirección</th><th>Correo</th><th>Estado</th>
+  
 
-				</tr>
-			</thead>
-    <tbody>
-              <tr>                
-                  <td><?php echo ($reportesi->Codigo); ?></td>
-                  <td><?php echo ($reportesi->Nombre); ?></td>
-                  <td><?php echo ($reportesi->Telefono); ?></td>
-                  <td><?php echo ($reportesi->Direccion); ?></td>
-                  <td><?php echo ($reportesi->Correo); ?></td>
-                  <td class="grand"><?php echo ($reportesi->Estado); ?></td>
-              </tr>
-    </tbody>
-    </table>
-  </div>
+<img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">
+
+  <h1>Reporte de proveedor <?= $reportesi->Nombre?></h1>
   <hr>
-  <div class="footer">
-     <p>Neon Gomez - <?php echo date("Y");?></p>
-  </div>
-</body>
+
+  <form >     
+        <div>
+            <div >
+                <label for="ID">Código:  </label>            
+                <?php echo ($reportesi->Codigo); ?>       
+                     
+            </div>
+            <br>  
+            <div >
+                <label for="Nombre">Nombre:  </label>
+               <?php echo ($reportesi->Nombre); ?>
+            </div>
+            <br>  
+            <div>
+            <label for="apellido">Télefono:   </label>
+            <?php echo ($reportesi->Telefono); ?>
+            </div>    
+            <br>           
+        </div>
+
+        <div>              
+        <div class="form-group col-4">
+                <label for="correo">Dirección:   </label>
+                <?php echo ($reportesi->Direccion); ?>
+            </div> 
+            <br>  
+            <div>
+                <label for="contraseña">Correo:   </label>
+                <?php echo ($reportesi->Correo); ?>
+            </div>
+            <br>  
+            <div>
+                <label for="telefono">Estado:   </label>
+                <?php echo ($reportesi->Estado); ?>
+            </div> 
+        </div>        
+         
+       
+    
+    </form>
+  
+              
+   
+  </body>
+</html>

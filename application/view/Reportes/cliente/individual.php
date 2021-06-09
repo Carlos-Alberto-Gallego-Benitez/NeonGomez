@@ -19,7 +19,7 @@ img{
 </head>
 <body>
 <img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">
-<h1 >Reporte cliente <?= $cliente->Nombre?></h1>
+<h1 >Reporte cliente <?= $cliente->Nombre?> <?= $cliente->Apellido?></h1>
     <hr>  
      
     <form >     

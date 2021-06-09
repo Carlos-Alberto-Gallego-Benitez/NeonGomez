@@ -1,86 +1,108 @@
 <style>  
 
-table {
-border-collapse: collapse;
-}
-.table{
-background-color:  rgb(187, 187, 187);
-color:  rgb(5, 2, 2);
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:20 ;
-font-size:30;
-}
-.h2{
+h1{
+    text-align: center;
+}  
 
-color: rgb(117, 115, 115);
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:20 ;
-font-size:30;
+img{
+    margin-bottom: -80px;
 }
-table{
-text-align: center;
-margin-left:40;    
-width:800px;
-margin:20 ;
+
+#tabla{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;    
 }
-thead{
-background-color: #555;
+
+
+#tabla td, #tabla th{
+    border: 1px solid #ddd;
+    padding: 8px;
+    
 }
-td{
-border: 1px solid #e2e2e2;
-padding: 12px; 
-max-width:520px;
-word-wrap: break-word;
-font-size: 14px;
+
+#tabla tr:hover {background-color: #ddd;}
+
+#tabla  th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;  
+  color: black;
 }
 
 </style>
    
-<?php if($ventas != null){?>
-<h2 class="h2"> Reporte de venta numero <?php echo($IDVenta);?></h2><hr> <br> <br>
-<?php }?>
-<?php if($ventas == null){?>
-<h1 class="h2"> La venta <?php echo($IDVenta);?> no cuenta con productos asociados</h1>
-<?php }?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">
+<h1>Reporte de venta <?= $lista->IDVenta?></h1>
+<hr> 
 
-<table>
-    <thead>
-        <tr class="table">
-            <td>IDVenta</td>
-            <td>Fecha</td>
-            <td>Cliente</td>
-            <td>Producto</td>
-            <td>Cantidad</td>
-            <td>Subtotal</td>
-            <td>ValorTotal</td>
-            <td>Estado</td>   
-                         
-        </tr>
-    </thead>    
-    <tbody>    
-        <?php foreach ($ventas as $venta) { ?>
-            <tr>
-                <td><?php echo ($venta->IDVenta); ?></td>                
-                <td><?php echo ($venta->Fecha); ?></td>
-                <td><?php echo ($venta->Nombre." ".$venta->Apellido); ?></td>
-                <td><?php echo ($venta->nombre);?></td>
-                <td><?php echo ($venta->Cantidad);?></td>
-                <td><?php echo ($venta->Subtotal); ?></td>
-                <td><?php echo ($venta->ValorTotal); ?></td>
-                <td><?php echo ($venta->Estado); ?></td>
-                      
+    <form >
+    
+        <div class="form-row">  
+            <div class="form-group col-4">
+                <label for="nombre">Código:  </label>
+                <?php echo ($lista->IDVenta); ?>
+            </div>
+            <br>  
+            <div class="form-group col-4">
+                <label for="nombre">Fecha:  </label>
+                <?php echo ($lista->Fecha); ?>
+            </div>
+            <br>
+            <div class="form-group col-4">
+            <label for="apellido">Cliente:   </label>
+            <?php echo ($lista->Nombre." ".$lista->Apellido); ?>
+            </div> 
+            <br>
+            <div class="form-group col-4">
+                <label for="precio">Estado:   </label>
+                <?php echo ($lista->Estado); ?>
+            </div>
+        </div>    
+        <br>   
+        
+        <div class="form-row " > 
             
-            </tr>
-            <?php } ?>
-        </tbody>
-</table>        
+            <br>            
+            <h4>Productos</h4>
+                <table id="tabla" >
+                
+                    <thead>                    
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th> 
+                            <th>Cantidad</th> 
+                            <th>Sub total</th>                                                                           
+                        </tr>
+                    </thead>
+                    <tbody>                              
+                    
+                        <?php foreach ($ventas as $datos){ ?>
+                            <tr>               
+                                                          
+                              <td><?= $datos->nombre ?></td>
+                              <td><?= $datos->Precio ?></td>
+                              <td><?= $datos->Cantidad ?></td>  
+                              <td><?= $datos->Subtotal ?></td> 
+                            </tr>
+                        <?php } ?>  
+                    </tbody>                    
+                </table>                  
+                <p>Total Venta: <?=  ($datos->ValorTotal) ?></p>                
+        </div> 
+    </form >    
 
-
-
+</body>
+</html>
 
 
 

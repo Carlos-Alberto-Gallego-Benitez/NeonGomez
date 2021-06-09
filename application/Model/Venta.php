@@ -63,7 +63,7 @@ class Venta extends Model{
     
     public function listarVentasr1($IDVenta)
     {   
-        $sql = "SELECT V.IDVenta, V.Fecha, V.Estado, C.Nombre, C.Apellido, D.Subtotal, D.ValorTotal, D.IDDetalle, D.Cantidad, P.Nombre AS nombre FROM venta v 
+        $sql = "SELECT V.IDVenta, V.Fecha, V.Estado, C.Nombre, C.Apellido, D.Subtotal, D.ValorTotal, D.IDDetalle, D.Cantidad, P.Nombre AS nombre, P.Precio FROM venta v 
         JOIN cliente c ON c.IDCliente = v.IDCliente JOIN detalle_venta d ON d.IDVenta = v.IDVenta 
         JOIN producto_terminado p ON p.IDProducto = d.IDProducto WHERE v.IDVenta = $IDVenta";
         $query = $this->db->prepare($sql);

@@ -102,6 +102,10 @@ class Ventacontroller{
     public function reportesUnitario($IDVenta){
 
         $venta = new Venta();
+        $lista = new Venta();
+
+
+        $lista = $lista->obtenerVenta($IDVenta);
         $ventas = $venta->listarVentasr1($IDVenta);        
         
         require APP . 'view/reportes/venta/reporteunitario.php';       

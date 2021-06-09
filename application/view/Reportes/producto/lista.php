@@ -41,7 +41,8 @@ img{
 </head>
 <body>
 <img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">
-<h1>Reporte de productos</h1>    
+<h1>Reporte de productos</h1>  
+<hr>  
 <br>    
         <table id="tabla_p">
             <thead >

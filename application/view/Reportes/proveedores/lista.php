@@ -1,49 +1,54 @@
+<style>
+ 
+ h1{
+    text-align: center;
+    margin-top: 20px;
+}  
+
+img{
+    margin-bottom: -80px;
+}
+
+    #tabla {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #tabla td, #tabla th{
+        border: 1px solid #ddd;
+        padding: 8px;
+        
+    }
+
+    body {
+        background: blue;    
+    }
+
+    #tabla  th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;  
+    color: black;    
+    }
+
+</style>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <style>
-      h1 {
-  color: #5D6975;
-  width: 100%;
-  height: 30px;
-  bottom: 0;
-  border-top: 1px solid #C1CED9;
-  padding: 8px 0;
-  text-align: center
-}
-
-.footer {
-  color: #5D6975;
-  width: 100%;
-  height: 30px;
-  
-  bottom: 0;
-  padding: 8px 0;
-  text-align: center;
-}
-
-
-table{
-	text-align: center;
-     border: 1px;
-	border-collapse: collapse;
-}
-
-th, td{
-	padding: 10px;
-}
-
-thead{
-	border-bottom: solid 5px #0F362D;
-}
-
-  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-  <hr>
-  <h1>Neon Gomez - Reporte de proveedores</h1>
+  <img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">
+
+  <h1>Reporte de proveedores</h1>
   <hr>
   <div class="main-container">
-    <table>
+    <table id="tabla">
     <thead>
 				<tr>
 					<th>Código</th><th>Nombre</th><th>Teléfono</th><th>Dirección</th><th>Correo</th><th>Estado</th>
@@ -64,8 +69,7 @@ thead{
     </table>
   </div>
 
-  <hr>
-  <div class="footer">
-     <p>Neon Gomez - <?php echo date("Y");?></p>
-  </div>
-</body>
+
+  
+  </body>
+</html>

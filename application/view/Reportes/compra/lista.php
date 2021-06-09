@@ -1,40 +1,36 @@
 <style>
-h1 {
-  color: #5D6975;
-  width: 100%;
-  height: 30px;
-  bottom: 0;
-  border-top: 1px solid #C1CED9;
-  padding: 8px 0;
-  text-align: center
+
+h1{
+    text-align: center;
+    margin-top: 20px;
+}  
+
+img{
+    margin-bottom: -80px;
 }
 
-.footer {
-  color: #5D6975;
-  width: 100%;
-  height: 30px;
-  
-  bottom: 0;
-  padding: 8px 0;
-  text-align: center;
-}
+    #tabla {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
+    #tabla td, #tabla th{
+        border: 1px solid #ddd;
+        padding: 8px;
+        
+    }
 
-table{
-	text-align: center;
-  border: 1px;
-	border-collapse: collapse;
-	width: 100%;
-}
+    body {
+        background: blue;    
+    }
 
-th, td{
-	padding: 40px;
-}
-
-thead{
-	border-bottom: solid 5px #0F362D;
-}
-
+    #tabla th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;  
+    color: black;    
+    }
 </style>
 
 <!DOCTYPE html>
@@ -47,12 +43,14 @@ thead{
 </head>
 <body>
 <img src="D:\xampp\htdocs\NeonGomez_Proyecto_Final\public\img\login\logo.png" height=60 alt="">  
-  <h1>Reporte de compras</h1>  
+  <h1>Reporte de compras </h1>  
+  <hr>
+  <br>
   <div class="tabla_c">
-    <table>
+    <table id="tabla">
       <thead>
           <tr>
-            <th>Código</th><th>Fecha</th><th>Proveedor</th><th>Estado</th>
+            <th>Código</th><th>Fecha</th><th>Proveedor</th><th>Precio</th><th>Estado</th>
           </tr>
         </thead>
       <tbody>
@@ -61,6 +59,7 @@ thead{
                     <td><?php echo ($datos->IDCompra); ?></td>
                     <td><?php echo ($datos->Fecha); ?></td>
                     <td><?php echo ($datos->Nombre); ?></td>
+                    <td><?php echo ($datos->TotalCompra); ?></td>
                     <td class="grand"><?php echo ($datos->Estado); ?></td>
                 </tr>
                 <?php } ?>
@@ -68,9 +67,6 @@ thead{
     </table>
   </div>
 
-  <hr>
-  <div class="footer">
-     <p>Neon Gomez - <?php echo date("Y");?></p>
-  </div>
+  
 </body>
 </html>
