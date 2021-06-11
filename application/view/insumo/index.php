@@ -2,7 +2,7 @@
 
 <div class="container">
         <a href="<?php echo URL; ?>insumo/registro" class="btn btn-info mb-2">Agregar</a>
-        <a href="<?php echo URL; ?>insumo/reportes" class="btn btn-secondary  mb-2 ml-2">Reporte general</a>
+        <a target="_blank" href="<?php echo URL; ?>insumo/reportes" class="btn btn-secondary  mb-2 ml-2">Reporte general</a>
         <table class="table table-striped border tablas">
             <thead >
             <tr>
@@ -31,7 +31,7 @@
                     </td>
                                        
                     <td><a href="<?php echo URL . 'insumo/buscar/' . ($insumo2->IDInsumo); ?>" class="btn btn-info  mx-md-n4">Editar</a></td>
-                    <td><a href="<?php echo URL . 'insumo/reporteUnitario/' . htmlspecialchars($insumo2->IDInsumo, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary  mx-md-n5">Reporte</a></td>              
+                    <td><a target="_blank" href="<?php echo URL . 'insumo/reporteUnitario/' . htmlspecialchars($insumo2->IDInsumo, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary  mx-md-n5">Reporte</a></td>              
                 </tr>
             <?php } ?>
             </tbody>

@@ -3,7 +3,7 @@
 
 <div class="container">
         <a href="<?php  echo URL; ?>usuario/registro" class="btn btn-info mb-2">Agregar</a>
-        <a href="<?php echo URL; ?>usuario/reportes" class="btn btn-secondary  ml-2 mb-2">Reporte general</a>
+        <a target="_blank" href="<?php echo URL; ?>usuario/reportes" class="btn btn-secondary  ml-2 mb-2">Reporte general</a>
         <table class="table table-striped border tablas">
             <thead >
             <tr>
@@ -37,7 +37,7 @@
                    
                     
                     <td><a href="<?php echo URL . 'usuario/editar/' . htmlspecialchars($usuario->IDUsuario, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-info mx-md-n4">Editar</a></td>
-                    <td><a href="<?php echo URL . 'usuario/reporteUnitario/' . htmlspecialchars($usuario->IDUsuario, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary  ml-1">Reporte</a></td>
+                    <td><a target="_blank" href="<?php echo URL . 'usuario/reporteUnitario/' . htmlspecialchars($usuario->IDUsuario, ENT_QUOTES, 'UTF-8'); ?>" class="btn btn-secondary  ml-1">Reporte</a></td>
              
 
                 </tr>
